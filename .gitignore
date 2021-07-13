@@ -1,0 +1,15 @@
+/node_modules
+
+/storage/*.key
+/vendor
+
+/.idea
+/.idea/*
+/.idea/*.iml
+/.idea/*.xml
+/.well-known
+/.well-known/*
+/cgi-bin
+
+
+.env
