@@ -401,30 +401,26 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function getPricesList($role_id)
     {
-
-        $role = CreditPrice::where('role_id',$role_id)->get();
-      
-        // $role_prices = $role->paid_credit;
-        // dd($role_prices);
+        $role = $this->roles->where('id',$role_id)->first();
+        //dd($role->currency->name);
+        $role_prices = $role->credit_prices;
         $list = [];
-        foreach ($role as $key => $item) {
+        foreach ($role_prices as $key => $item) {
             $list[$item->price] = $item->credit_amount;
         }
         return $list ;
-        // dd($list);
+        dd($list);
     }
     /**
      * Build a select list with prices for a given role
      */
     public function buildPricesOptions($role_id)
     {
-        $role = Role::where('id',$role_id)->first();
-        // dd($role->currency_id);
-        $currenccy = Currency::where('id' , $role->currency_id)->first();
+        $role = $this->roles->where('id',$role_id)->first();
         $list = $this->getPricesList($role_id);
         $select_options = '';
         foreach ($list as $price => $amount) {
-            $select_options .= '<option value="'.$price.'" data-amount="'.$amount.'">'.$amount.' '.$currenccy->name.' à $'.$price.'.00</option>';
+            $select_options .= '<option value="'.$price.'" data-amount="'.$amount.'">'.$amount.' '.$role->currency->name.' à $'.$price.'.00</option>';
         }
         // dd($select_options);
         return $select_options;
