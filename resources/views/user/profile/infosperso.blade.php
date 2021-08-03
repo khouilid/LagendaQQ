@@ -18,7 +18,7 @@
                     <h2 class="my-0">{{$user->username}}</h2>
                     <div>
                         @foreach(@$user->roles as $role)
-                            <span class="badge   bg-info">{{$role->name}}</span> 
+                            <span class="badge bg-info">{{$role->name}}</span> 
                         @endforeach
 
                     </div>

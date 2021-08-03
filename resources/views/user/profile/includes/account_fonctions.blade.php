@@ -2,6 +2,7 @@
     <div style="width: 410% !important" class="bg-white  justify-content-evenly row py-4">
         <div class="accordion" id="accordionFlushExample">
         @foreach($fonctions as $fonction)
+            
             <div class="accordion-item">
                 <h2 class="accordion-header" id="flush-heading{{$fonction->id}}">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse{{$fonction->id}}" aria-expanded="false" aria-controls="flush-collapse{{$fonction->id}}">
@@ -12,6 +13,10 @@
                     @endrole
                         &nbsp; {{ucfirst($fonction->name)}} </button>
                 </h2>
+            
+
+
+        
                 <div id="flush-collapse{{$fonction->id}}" class="accordion-collapse collapse" aria-labelledby="flush-heading{{$fonction->id}}" data-bs-parent="#accordionFlushExample">
                     <div class="accordion-body ">
                         {!! $fonction->description !!}
