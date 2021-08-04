@@ -1,57 +1,62 @@
  <div class="row">
     <div style="width: 410% !important" class="bg-white  justify-content-evenly row py-4">
         <div class="accordion" id="accordionFlushExample">
+            {{-- @php
+               dd( );
+            @endphp --}}
         @foreach($fonctions as $fonction)
-            
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="flush-heading{{$fonction->id}}">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse{{$fonction->id}}" aria-expanded="false" aria-controls="flush-collapse{{$fonction->id}}">
-                    @hasanyrole($fonction->name)
-                        <i class="nav-icon fa fa-user-check text-success"></i>
-                        @else
-                        <i class="nav-icon fa fa-user-plus"></i>
-                    @endrole
-                        &nbsp; {{ucfirst($fonction->name)}} </button>
-                </h2>
-            
-
-
-        
-                <div id="flush-collapse{{$fonction->id}}" class="accordion-collapse collapse" aria-labelledby="flush-heading{{$fonction->id}}" data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body ">
-                        {!! $fonction->description !!}
-                        <div class="align-items-center d-flex">
-
-                           <p> Nombre des posts disponible : </p>
-                           @if($fonction->posts - $fonction->users_count > 0)
-                             <p class="btn btn-danger rounded-lg">{!! $fonction->posts - $fonction->users_count !!}</p>
-                          
+            @if($fonction->name == "Bénévole" && count(auth()->user()->roles) !== 1)
+              @continue
+            @endif
+       
+                
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-heading{{$fonction->id}}">
+                            @hasanyrole($fonction->name)
+                            {{-- <i class="nav-icon fa fa-user-check text-success"></i> --}}
                             @else
-                            <p class="btn btn-danger rounded-lg">Aucun posts desponible</p>
-                          
-                            @endif
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse{{$fonction->id}}" aria-expanded="false" aria-controls="flush-collapse{{$fonction->id}}">
+                                <i class="nav-icon fa fa-user-plus"></i>
+                                &nbsp; {{ucfirst($fonction->name)}} </button>
+                            @endrole
+                        </h2>
+                        <div id="flush-collapse{{$fonction->id}}" class="accordion-collapse collapse" aria-labelledby="flush-heading{{$fonction->id}}" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body ">
+                                @hasanyrole($fonction->name)
+                                {{-- <div class="col-12 row aq-card-action">
+                                    <a href="#" class="btn btn-success btn-sm">Vouse êtes déjà {{strtolower($fonction->name)}}</a>
+                                </div> --}}
+                                @else
+                                    {!! $fonction->description !!}
+                                    <div class="align-items-center d-flex">
+
+                                    <p> Nombre des posts disponible : </p>
+                                    @if($fonction->posts - $fonction->users_count > 0)
+                                        <p class="btn btn-danger rounded-lg">{!! $fonction->posts - $fonction->users_count !!}</p>
+                                    
+                                        @else
+                                        <p class="btn btn-danger rounded-lg">Aucun posts desponible</p>
+                                    
+                                        @endif
+                                    </div>
+                                    <hr size="60%" class="mx-auto">
+                                    <div class="aq-card-action" id="{{$fonction->id}}">
+                                        @if($fonction->posts - $fonction->users_count > 0)
+                                        {{-- <p class="btn btn-danger rounded-lg">{!! $fonction->posts - $fonction->users_count !!}</p> --}}
+                                        <a href="#" class="btn btn-primary btn-sm subscribe_role" data-role_id="{{$fonction->id}}" data-role_description="{!! $fonction->description !!}" data-role_name="{{$fonction->name}}"><i class="fa fa-plus"></i> S'inscrire à cette fonction</a>
+                                    
+                                    @else
+                                    {{-- <p class="btn btn-danger rounded-lg">Aucun posts desponible</p> --}}
+                                    
+                                    @endif
+                                    </div>
+                                @endrole
+                            </div>
                         </div>
-                        @hasanyrole($fonction->name)
-                            <div class="col-12 row aq-card-action">
-                                <a href="#" class="btn btn-success btn-sm">Vouse êtes déjà {{strtolower($fonction->name)}}</a>
-                            </div>
-                        @else
-                            <hr size="60%" class="mx-auto">
-                            <div class="aq-card-action" id="{{$fonction->id}}">
-                                @if($fonction->posts - $fonction->users_count > 0)
-                                {{-- <p class="btn btn-danger rounded-lg">{!! $fonction->posts - $fonction->users_count !!}</p> --}}
-                                <a href="#" class="btn btn-primary btn-sm subscribe_role" data-role_id="{{$fonction->id}}" data-role_description="{!! $fonction->description !!}" data-role_name="{{$fonction->name}}"><i class="fa fa-plus"></i> S'inscrire à cette fonction</a>
-                             
-                               @else
-                               {{-- <p class="btn btn-danger rounded-lg">Aucun posts desponible</p> --}}
-                             
-                               @endif
-                            </div>
-                        @endrole
                     </div>
-                </div>
-            </div>
-        @endforeach  
+
+
+         @endforeach  
         </div>
     </div>
 </div>

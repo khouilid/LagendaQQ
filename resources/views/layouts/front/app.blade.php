@@ -153,45 +153,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                     
                     @auth
-                    <li class="nav-item dropdown">
-                        <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Fonctions</a>
-                        <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-                            <div class="accordion" id="accordionFlushExample">
-                                @foreach(\App\Models\Role::where([
-                                    ['name', '<>', 'admin'],
-                                    ['name', '<>', 'super-admin'],
-                                    ['name', '<>', 'banquier'],
-                                ])->get() as $fonction)
-                                  
-                                <ul>
-                                    <li>
-                                        <div class="col-12 row aq-card-action" id="{{$fonction->id}}">
-                                            <a href="#" class="dropdown-item subscribe_role" data-role_id="{{$fonction->id}}" data-role_description="{!! $fonction->description !!}" data-role_name="{{$fonction->name}}">{{$fonction->name}}</a>
-                                        </div>
+                        <li class="nav-item dropdown">
+                            <form method="GET" id='formswitch' action='{{ route('user.SwitchRole') }}'>
+                                <select id="switchTo" name='switchTo' class="mt-2 bg-white border-0">
+                                    @foreach(auth()->user()->roles as $fonction)
+                                        <option  value="{{$fonction->id}}"> {{$fonction->name}}</option>
+                                    @endforeach
+                                </select>
 
-                                    </li>
-                                </ul>
-                                    <div class="accordion-item">
-                                        <div id="flush-collapse{{$fonction->id}}" class="accordion-collapse collapse" aria-labelledby="flush-heading{{$fonction->id}}" data-bs-parent="#accordionFlushExample">
-                                            <div class="accordion-body ">
-                                                {!! $fonction->description !!}
-                                                @hasanyrole($fonction->name)
-                                                    <div class="col-12 row aq-card-action">
-                                                        <a href="#" class="btn btn-success btn-sm">Vouse êtes déjà {{strtolower($fonction->name)}}</a>
-                                                    </div>
-                                                @else
-                                                    <hr size="60%" class="mx-auto">
-                                                    <div class="col-12 row aq-card-action" id="{{$fonction->id}}">
-                                                        <a href="#" class="btn btn-primary btn-sm subscribe_role" data-role_id="{{$fonction->id}}" data-role_description="{!! $fonction->description !!}" data-role_name="{{$fonction->name}}"><i class="fa fa-plus"></i> S'inscrire à cette fonction</a>
-                                                    </div>
-                                                @endrole
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endforeach  
-                            </div>
-                        </ul>
-                    </li>
+                            </form>
+                        </li>
                     @endauth
 
 
@@ -245,6 +216,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 @include('layouts.back.alerts.sweetalerts')
 
 <script src="{{asset('dist/ckeditor5/build/ckeditor.js')}}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>ClassicEditor
         .create( document.querySelector( '.editor, .ckeditor' ), {
             
@@ -302,6 +274,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
             console.warn( 'Build id: qp877ojrkize-b9d1q6l02xnr' );
             console.error( error );
         } );
+
+
+
+
+
+
+
+
+        document.getElementById("switchTo").addEventListener("change", () => {
+            document.getElementById('formswitch').submit();
+    
+        })
+    
 </script>
 </body>
 </html>

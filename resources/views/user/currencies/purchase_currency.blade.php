@@ -30,11 +30,15 @@
                             @endif
                                 {!! $errors->first('currency_id', '<div class="error-message col-12">:message</div>') !!}
                             </div>
+                            
                             <div class="row">
                                 <label for="sent_value" class="col-sm-12">Selectionnez le motant que vous désirez acheter *</label>
                                 <div class="col-sm-12 col-md-6 form-group">
                                     <select name="price" id="price" class="form-control" autocomplete="off" {{$currencies->count() <= 0?'':'style="display: none"'}}>
                                         <option value=""> Monnaie </option>
+                                        {{-- @hasanyrole("vendeur") --}}
+                                           
+                                        {{-- @endrole --}}
                                         {!!$price_options!!}
                                     </select>
                                     {!! $errors->first('price', '<div class="error-message col-12">:message</div>') !!}

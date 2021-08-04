@@ -12,12 +12,13 @@
             </div>
                <div class="col-11"> 
                 {{-- @php
-                 var_dump($user);   
+                 dd( auth()->user()->roles);  
                 @endphp --}}
                 <div class="justify-content-between align-items-center d-flex">
                     <h2 class="my-0">{{$user->username}}</h2>
                     <div>
-                        @foreach(@$user->roles as $role)
+                        
+                        @foreach($user->roles as $role)
                             <span class="badge bg-info">{{$role->name}}</span> 
                         @endforeach
 

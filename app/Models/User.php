@@ -426,6 +426,15 @@ class User extends Authenticatable implements MustVerifyEmail
         foreach ($list as $price => $amount) {
             $select_options .= '<option value="'.$price.'" data-amount="'.$amount.'">'.$amount.' '.$currenccy->name.' à $'.$price.'.00</option>';
         }
+        foreach(auth()->user()->roles as $rol){
+           
+                if($rol->name == "vendeur"){
+                    $select_options .= "<option value=\"10\" data-amount=\"15000\">15000 Crédit à $10.00</option>";
+                }
+
+            
+        }
+   
         // dd($select_options);
         return $select_options;
     }

@@ -21,6 +21,7 @@ use App\Models\Region;
 use App\Models\Role;
 use App\Models\AgeRange;
 use App\Models\Announcement;
+use Auth;
 
 use Yajra\Datatables\Datatables;
 use Illuminate\Support\Facades\DB;
@@ -279,6 +280,9 @@ class UserController extends Controller
 
         return view('user.vendeurs.cvcreate', compact('title','current_user','user','region_list','cities_list','age_group','role_name'));
     }
+
+
+   
     /**
      * Store the specified resource in storage.
      *
@@ -436,7 +440,24 @@ class UserController extends Controller
     /**
      * 
      * this will setup all data needed by the Braintree gateaway.
+     
+     
      */
+
+    public function SwitchRole(Request $request){
+        $data = $request->validate([
+            'switchTo' => "required",
+        ]);
+
+        $role = Role::where('id',$data['switchTo'])->first();
+        // dd($role);
+        Auth::user()->roles = $role;
+        // dd( auth()->user()->roles);
+        return  redirect()->back();
+        
+    }
+
+
     public function assignRole(Request $request)
     {
         $data = $request->validate([

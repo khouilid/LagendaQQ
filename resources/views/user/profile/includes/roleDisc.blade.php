@@ -1,5 +1,5 @@
 <div class="bg-white mt-5 p-5 w-100 col-md-8 col-sm-6 justify-content-start align-items-center flex-column row">
-    @foreach($user->roles as $role)
+    @foreach(auth()->user()->roles as $role)
         {{-- <div class="card mb-3" style="max-width: 540px;"> --}}
             <div class="row g-0">
                 <div class="col-md-4">
