@@ -29,9 +29,6 @@
                 @endif
             </div>
         </div>
-
-
-        <p>La <span style="color:hsl(0,75%,60%);"><strong>secrétaire publiciste</strong></span> avec son équipe vont envoyer une invitation pour chacune des activités de sa région C.T de toutes les activités des prochains dix jours.</p>
  
         <div class="col-sm-6 col-md-8">
             <div class="card">
