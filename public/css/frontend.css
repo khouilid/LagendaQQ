@@ -21608,7 +21608,7 @@ header .navbar {
 
 #topbar {
     height: 10vh;
-    background-color: #0B8FD1;
+    background-color: #1C86EF;
 }
 #topbar > .topbar-styles {
     font-family: 'Poppins', sans-serif;
@@ -21621,7 +21621,7 @@ header .navbar {
 /* Bootstrap toggler position */
 @media (min-width: 768px) and (max-width: 991px){
     .navbar-toggler {
-        position: unset !important;
+        position: unset;
     }
 }
 
