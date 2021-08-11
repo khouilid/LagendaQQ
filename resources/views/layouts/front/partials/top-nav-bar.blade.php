@@ -305,6 +305,19 @@
       
     </nav> -->
 
+    <!-- top-bar start -->
+    <div id="topbar">
+        <div class="topbar-styles container d-flex align-items-center justify-content-end">
+                <div class="px-3">
+                    <a class="text-white" href="#"><i class="fas fa-sign-in-alt mr-1"></i>Se connecter</a>
+                </div>
+                <div class="">
+                    <a class="text-white" href="#"><i class="far fa-comment-dots mr-1"></i>Assistance</a>
+                </div>
+        </div>
+    </div>
+    <!-- top-bar end -->
+
     <!-- Navbar start -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
@@ -316,19 +329,19 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
+                    <li class="nav-item px-2 active">
                         <a class="nav-link" href="#">Accueil<span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item px-2">
                         <a class="nav-link" href="#">Activité</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item px-2">
                         <a class="nav-link" href="#">Argent</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item px-2">
                         <a class="nav-link" href="#">Annonce</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item px-2">
                         <a class="nav-link" href="#">Link</a>
                     </li>
                     <li class="nav-item">
@@ -337,10 +350,10 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">Mécanique</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item px-2">
                         <a class="nav-link" href="#">Travail</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item px-2">
                         <a class="nav-link" href="#">Publications</a>
                     </li>
                 </ul>
