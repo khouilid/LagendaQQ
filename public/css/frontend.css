@@ -21617,3 +21617,10 @@ header .navbar {
 #topbar > .container {
     height: 10vh;
 }
+
+/* Bootstrap toggler position */
+@media (min-width: 768px) and (max-width: 991px){
+    .navbar-toggler {
+        position: unset !important;
+    }
+}
