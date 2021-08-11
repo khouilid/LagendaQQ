@@ -21624,3 +21624,9 @@ header .navbar {
         position: unset !important;
     }
 }
+
+@media (max-width: 767px) {
+    .navbar-toggler {
+        position: unset;
+    }
+}
