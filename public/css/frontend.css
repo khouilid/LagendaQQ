@@ -2,6 +2,10 @@
  *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
  */
+    /* Fonts */
+ @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;500;700&display=swap');
+
+
 @font-face {
     font-family: "FontAwesome";
     src: url("../fonts/fontawesome-webfont3e6e.eot?v=4.7.0");
@@ -8330,15 +8334,7 @@ tbody.collapse.show {
 .navbar-brand:hover {
     text-decoration: none;
 } */
-.navbar-nav {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    padding-left: 0;
-    margin-bottom: 0;
-    list-style: none;
-}
+
 /* .navbar-nav .nav-link {
     padding-right: 0;
     padding-left: 0;
@@ -13464,13 +13460,13 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
-    font-family: "Nunito", sans-serif;
+    /* font-family: "Nunito", sans-serif; */
     font-size: 16px;
     line-height: 28px;
 }
 
 p {
-    font-family: "Nunito", sans-serif;
+    /* font-family: "Nunito", sans-serif; */
     font-size: 16px;
     line-height: 28px;
 }
@@ -14114,26 +14110,26 @@ section {
     z-index: 2;
 }
 
-.navbar {
+/* .navbar {
     padding: 0;
-}
+} */
 
 /* ul.navbar-nav li.nav-item > a {
     padding: 35px 0;
 } */
 
-nav.navbar {
+/* nav.navbar {
     position: relative;
     z-index: 1;
     padding: 0;
-}
+} */
 
 /* .tw-nav-brand {
     position: relative;
     z-index: 2;
 } */
 
-.navbar-light .navbar-toggler-icon {
+/* .navbar-light .navbar-toggler-icon {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, .9)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
 
@@ -14154,7 +14150,7 @@ ul.navbar-nav a {
     display: block;
     position: relative;
     border-radius: 50px;
-}
+} */
 
 /* ul.navbar-nav > li.nav-item.active > a {
     color: #1a3d82 !important;
@@ -21065,11 +21061,11 @@ hr {
     position: absolute;
     z-index: 999 !important;
 }
-#navbarSupportedContent .navbar-nav {
+/* #navbarSupportedContent .navbar-nav {
     display: flex;
     width: 100%;
     justify-content: flex-end;
-}
+} */
 #top-header-menu .navbar-nav {
     display: flex;
     flex-direction: row;
@@ -21396,7 +21392,7 @@ a.paginate_button.current,
 
 
 /* Header Style */
-header {
+/* header {
 	position: absolute;
 	z-index: 99999;
 	width: 100%;
@@ -21496,10 +21492,10 @@ header .navbar {
 	font-size: 18px;
 	line-height: 26px;
 	font-family: 'FontAwesome';
-}
+} */
 
 
-.carousel {
+/* .carousel {
 	margin: 0px 0;
     background: #ccc;
   	position: relative;
@@ -21520,7 +21516,7 @@ header .navbar {
     text-align: center;
 	overflow: hidden;
     height: 475px;
-}
+} */
 .carousel .item img {
 	max-width: 100%;
     margin: 0 auto; /* Align slide image horizontally center in Bootstrap v3 */
@@ -21585,4 +21581,52 @@ header .navbar {
 .carousel-indicators li.active {
 	background: #8fc93c;
 	border-color: #8fc93c;
+}
+
+/* Custom CSS */
+
+.brand-size {
+    height: 10vh;
+}
+/* Navbar styles */
+
+ .navbar-nav {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+/* navbar height */
+.navbar {
+    /* height: 133px; */
+}
+
+/* active color & hover */
+.active a, a.nav-link:hover{
+    color: #1A3E84 !important;
+}
+
+#topbar {
+    height: 10vh;
+    background-color: #1C86EF;
+}
+#topbar > .topbar-styles {
+    font-family: 'Poppins', sans-serif;
+}
+
+#topbar > .container {
+    height: 10vh;
+}
+
+/* Bootstrap toggler position */
+@media (min-width: 768px) and (max-width: 991px){
+    .navbar-toggler {
+        position: unset;
+    }
+}
+
+@media (max-width: 767px) {
+    .navbar-toggler {
+        position: unset;
+    }
 }
