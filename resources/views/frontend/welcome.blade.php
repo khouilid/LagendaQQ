@@ -4,22 +4,35 @@
 
 @section('content')
 
-    @include('frontend.includes.main-hero-slider')
+@include('frontend.includes.main-hero-slider')
 
-    <section id="tw-features" class="tw-features-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 wow fadeInLeft" data-wow-duration="1s">
-                    <h2 class="column-title text-md-right text-sm-center">A propos de l'Agenda du Québec</h2>
-                </div>
-                <!-- Col End -->
-                <div class="col-md-7 ml-md-auto wow fadeInRight" data-wow-duration="1s">
-                    <p class="features-text">{!!@$section_apropos->content!!}</p>
-                </div>
-                <!-- Col End -->
+<section id="tw-features" class="tw-features-area">
+    <div class="container">
+        <div class="row position-relative align-items-center">
+            <div class="col-md-4 wow fadeInLeft" data-wow-duration="1s">
+                <h2 class="propos-styles">A Propos De l'Agenda Du Québec</h2>
             </div>
-            <!-- End Row 1 -->
-            {{--<div class="row">
+            <!-- Col End -->
+            <div class="col-md-7 ml-md-auto wow fadeInRight" data-wow-duration="1s">
+                <p class="features-text">L’Agenda du Québec est un site pour donner du travail payant, en aidant aux
+                    activités.
+                    L’Agenda du Québec c’est un site pour publier gratuitement toutes les activités du Québec.
+                    Ensuite, pour toutes les activités des prochains dix jours, des équipes de secrétaires publicistes
+                    vont envoyer une invitation pour chacune des activités publiées sur le site.</p>
+                {{-- {!!@$section_apropos->content!!} --}}
+            </div>
+            <!-- Col End -->
+            {{-- Lotti animation start --}}
+            <div class="position-absolute custom-lotti-position">
+                <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_h4bos27x.json"
+                    background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay>
+                </lottie-player>
+            </div>
+            {{-- Lotti animation end --}}
+        </div>
+        <!-- End Row 1 -->
+        {{--<div class="row">
                 <div class="col-lg-4 col-md-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
                     <div class="features-box">
                         <div class="features-icon d-table">
@@ -75,192 +88,207 @@
                 </div>
                 <!-- End col -->
             </div>--}}
-            <!-- End Row 2 -->
-        </div>
-        <!-- End Container -->
-    </section>
-    <!-- End Subscribtion section -->
-    <section id="tw-analysis" class="tw-analysis-area">
-        <div class="analysis-bg-pattern d-none d-md-inline-block">
-            <img class="wow fadeInUp" src="images/check-seo/cloud.png" alt="">
-            <img class="wow fadeInUp" src="images/check-seo/cloud2.png" alt="">
-            <img class="wow fadeInUp" src="images/check-seo/announce.png" alt="">
-            <img class="wow fadeInUp" src="images/check-seo/chart.png" alt="">
-        </div>
-        <!-- End Analysis Pattern img -->
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-8 text-center wow fadeInDown">
-                    <h2 class="column-title">
-                        <span class="text-white">Trouvez tout ici</span>
-                    </h2>
-                    <div class="analysis-form">
-                        <form class="form-vertical" action="{{route('search')}}">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-4 col-md-12 no-padding">
-                                    <div class="form-group tw-form-round-shape">
-                                        <input type="text" id="search_q" name="search_q" placeholder="Que cherchez vous ?" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-12 no-padding">
-                                    <div class="form-group tw-form-round-shape">
-                                        <select id="content_type" name="content_type" placeholder="Où ?" class="form-control">
-                                            <option value="evènement">Evènements</option>
-                                            <option value="annonce">Annonces</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-12 no-padding">
-                                    <div class="form-group">
-                                        <input type="submit" value="Recherche">
-                                    </div>
+        <!-- End Row 2 -->
+    </div>
+    <!-- End Container -->
+</section>
+<!-- End Subscribtion section -->
+<section id="tw-analysis" class="tw-analysis-area">
+    <div class="analysis-bg-pattern d-none d-md-inline-block">
+        <img class="wow fadeInUp" src="images/check-seo/cloud.png" alt="">
+        <img class="wow fadeInUp" src="images/check-seo/cloud2.png" alt="">
+        <img class="wow fadeInUp" src="images/check-seo/announce.png" alt="">
+        <img class="wow fadeInUp" src="images/check-seo/chart.png" alt="">
+    </div>
+    <!-- End Analysis Pattern img -->
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 text-center wow fadeInDown">
+                <h2 class="column-title">
+                    <span class="text-white">Trouvez tout ici</span>
+                </h2>
+                <div class="analysis-form">
+                    <form class="form-vertical" action="{{route('search')}}">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-4 col-md-12 no-padding">
+                                <div class="form-group tw-form-round-shape">
+                                    <input style="padding: 27px 30px;" type="text" id="search_q" name="search_q"
+                                        placeholder="Que cherchez vous ?" class="form-control">
                                 </div>
                             </div>
-                        </form>
-                        <!-- End Form -->
-                    </div>
-                    <!-- End Analysis form -->
+                            <div class="col-lg-4 col-md-12 no-padding">
+                                <div class="form-group tw-form-round-shape">
+                                    <select id="content_type" name="content_type" placeholder="Où ?"
+                                        class="form-control">
+                                        <option value="evènement">Evènements</option>
+                                        <option value="annonce">Annonces</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-12 no-padding">
+                                <div class="form-group">
+                                    <input type="submit" value="Recherche">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- End Form -->
                 </div>
-                <!-- Col End -->
+                <!-- End Analysis form -->
             </div>
-            <!-- End Row -->
+            <!-- Col End -->
         </div>
-        <!-- End container -->
-    </section>
+        <!-- End Row -->
+    </div>
+    <!-- End container -->
+</section>
 
-    <section id="tw-blog" class="tw-blog">
-        <div class="container">
-            <div class="row text-center">
-                <div class="col section-heading wow fadeInDown" data-wow-duration="1s" data-wow-delay=".5s">
-                    <h2>
-                        <small>Actualités</small>
-                        <span>Evénements / Annonces récents</span>
-                    </h2>
-                    <span class="animate-border border-offwhite ml-auto mr-auto tw-mt-20"></span>
-                </div>
-                <!-- Col end -->
+<section id="tw-blog" class="tw-blog">
+    <div class="container">
+        <div class="row text-center mt-5">
+            <div class="col section-heading wow fadeInDown" data-wow-duration="1s" data-wow-delay=".5s">
+                <h2>
+                    <small>Actualités</small>
+                    <span>Evénements / Annonces récents</span>
+                </h2>
+                <span class="animate-border border-offwhite ml-auto mr-auto tw-mt-20"></span>
             </div>
-            <!-- Row End -->
-            <div class="row wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
-                @foreach($last_published as $key => $item)
-                    @include("frontend.includes.publication_component")
-                @endforeach
-                <!-- <div class="col-md-12 text-center wow zoomIn" data-wow-duration="1s" data-wow-delay="1s"><a href="#" class="btn btn-primary btn-lg tw-mt-80">view all</a></div> -->
+            <!-- Col end -->
+        </div>
+        <!-- Row End -->
+        <div class="row wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
+            @foreach($last_published as $key => $item)
+            @include("frontend.includes.publication_component")
+            @endforeach
+            <!-- <div class="col-md-12 text-center wow zoomIn" data-wow-duration="1s" data-wow-delay="1s"><a href="#" class="btn btn-primary btn-lg tw-mt-80">view all</a></div> -->
+        </div>
+        <!-- End Row -->
+    </div>
+    <!-- Container End -->
+</section>
+<!-- End tw blog -->
+<!-- End Analysis Section -->
+
+
+<section id="tw-intro" class="tw-intro-area">
+    <div class="tw-ellipse-pattern">
+        <img src="images/about/about_ellipse.png" alt="">
+    </div>
+
+    <!-- End Ellipse Pattern -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-12 text-lg-right text-md-center wow fadeInLeft" data-wow-duration="1s">
+                {{-- <img src="images/about/about_image.png" alt="" class="img-fluid"> --}}
+                {{-- lotti file start --}}
+                <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                <lottie-player src="https://assets4.lottiefiles.com/packages/lf20_bXRG9q.json" background="transparent"
+                    speed="1" style="width: 500px; height: 500px;" loop autoplay></lottie-player>
+                {{-- lotti file end --}}
             </div>
-            <!-- End Row -->
-        </div>
-        <!-- Container End -->
-    </section>
-    <!-- End tw blog -->
-    <!-- End Analysis Section -->
+            <!-- End Col -->
+            <div class="col-lg-5 ml-auto col-md-12 wow fadeInRight" data-wow-duration="1s">
+                <h2 class="column-title comment-styles">Comment çà marches ?</h2>
+                {{-- <span class="animate-border tw-mb-40"></span> --}}
+                <h6 class="comment-heading">Gratuitement, mais payant. Première manière d’aider aux activités.</h6>
+                <p class="comment-paragraph mt-4">L’Agenda du Québec est un site pour publier gratuitement toutes les
+                    activités.
+                    Une activité, c’est ce qui fait déplacer du monde.
+                    Déplacer 10, ou 5000 personnes, c’est une activité.
+                    C’est gratuit pour l’activité, mais c’est payant pour tous ceux qui travailleront avec L’Agenda du
+                    Québec.</p>
 
-
-    <section id="tw-intro" class="tw-intro-area">
-        <div class="tw-ellipse-pattern">
-            <img src="images/about/about_ellipse.png" alt="">
-        </div>
-        <!-- End Ellipse Pattern -->
-        <div class="container">
-            <div class="row">
-
-                <div class="col-lg-6 col-md-12 text-lg-right text-md-center wow fadeInLeft" data-wow-duration="1s">
-                    <img src="images/about/about_image.png" alt="" class="img-fluid">
-                </div>
-                <!-- End Col -->
-                <div class="col-lg-5 ml-auto col-md-12 wow fadeInRight" data-wow-duration="1s">
-                    <h2 class="column-title">Comment çà marches ?</h2>
-                    <span class="animate-border tw-mb-40"></span>
-                    {!!@$section_comment->content!!}
-                    <!-- End Intro list -->
-                    <a href="{{ route('register') }}" class="btn btn-primary">Créer un compte</a>
-                    <!-- Default Round Btn -->
-                    <a href="{{ route('login') }}" class="btn btn-secondary">Se connecter</a>
-                </div>
-                <!-- End Col -->
+                {{-- {!!@$section_comment->content!!} --}}
+                <!-- End Intro list -->
+                <a href="{{ route('register') }}" class="btn btn-primary">Créer un compte</a>
+                <!-- Default Round Btn -->
+                <a href="{{ route('login') }}" class="btn btn-custom-color">Se connecter</a>
             </div>
-            <!-- End Row -->
+            <!-- End Col -->
         </div>
-        <!-- End Container -->
-    </section>
-    <!-- Intro section End -->
+        <!-- End Row -->
+    </div>
+    <!-- End Container -->
+</section>
+<!-- Intro section End -->
 
 
-    <section id="tw-facts" class="tw-facts" style="display: none">
-        <div class="facts-bg-pattern d-none d-lg-block">
-            <img class="wow fadeInLeft" src="images/funfacts/arrow_left.png" alt="arrwo_left">
-            <img class="wow fadeInRight" src="images/funfacts/arrow_right.png" alt="arrow_right">
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 text-center">
-                    <div class="tw-facts-box">
-                        <div class="facts-img wow zoomIn" data-wow-duration="1s">
-                            <img src="images/icon/fact1.png" alt="" class="img-fluid">
-                        </div>
-                        <!-- End Fatcs image -->
-                        <div class="facts-content wow fadeInUp" data-wow-duration="1s">
-                            <h4 class="facts-title">Active clients</h4>
-                            <span class="counter">200</span>
-                            <sup>+</sup>
-                        </div>
-                        <!-- Facts Content End -->
+<section id="tw-facts" class="tw-facts" style="display: none">
+    <div class="facts-bg-pattern d-none d-lg-block">
+        <img class="wow fadeInLeft" src="images/funfacts/arrow_left.png" alt="arrwo_left">
+        <img class="wow fadeInRight" src="images/funfacts/arrow_right.png" alt="arrow_right">
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 text-center">
+                <div class="tw-facts-box">
+                    <div class="facts-img wow zoomIn" data-wow-duration="1s">
+                        <img src="images/icon/fact1.png" alt="" class="img-fluid">
                     </div>
-                    <!-- Facts Box End -->
-                </div>
-                <!-- Col End -->
-                <div class="col-md-3 text-center">
-                    <div class="tw-facts-box">
-                        <div class="facts-img wow zoomIn">
-                            <img src="images/icon/fact2.png" alt="" class="img-fluid">
-                        </div>
-                        <!-- End Facts Image -->
-                        <div class="facts-content wow slideInUp">
-                            <h4 class="facts-title">Projects Done</h4>
-                            <span class="counter">570</span>
-                            <sup>+</sup>
-                        </div>
-                        <!-- End Facts Content -->
+                    <!-- End Fatcs image -->
+                    <div class="facts-content wow fadeInUp" data-wow-duration="1s">
+                        <h4 class="facts-title">Active clients</h4>
+                        <span class="counter">200</span>
+                        <sup>+</sup>
                     </div>
-                    <!-- End Facts Box -->
+                    <!-- Facts Content End -->
                 </div>
-                <!-- Col End -->
-                <div class="col-md-3 text-center">
-                    <div class="tw-facts-box">
-                        <div class="facts-img wow zoomIn">
-                            <img src="images/icon/fact3.png" alt="" class="img-fluid">
-                        </div>
-                        <!-- End Facts Image -->
-                        <div class="facts-content wow slideInUp">
-                            <h4 class="facts-title">Success Rate</h4>
-                            <span class="counter">98</span>
-                            <sup>%</sup>
-                        </div>
-                        <!-- End Facts Content -->
-                    </div>
-                    <!-- End Facts Box -->
-                </div>
-                <!-- Col End -->
-                <div class="col-md-3 text-center">
-                    <div class="tw-facts-box">
-                        <div class="facts-img wow zoomIn">
-                            <img src="images/icon/fact4.png" alt="" class="img-fluid">
-                        </div>
-                        <!-- End Facts Image -->
-                        <div class="facts-content wow slideInUp">
-                            <h4 class="facts-title">Awards</h4>
-                            <span class="counter">50</span>
-                            <sup>+</sup>
-                        </div>
-                        <!-- End Facts Content -->
-                    </div>
-                    <!-- End Facts Box -->
-                </div>
-                <!-- Col End -->
+                <!-- Facts Box End -->
             </div>
-            <!-- Row End -->
+            <!-- Col End -->
+            <div class="col-md-3 text-center">
+                <div class="tw-facts-box">
+                    <div class="facts-img wow zoomIn">
+                        <img src="images/icon/fact2.png" alt="" class="img-fluid">
+                    </div>
+                    <!-- End Facts Image -->
+                    <div class="facts-content wow slideInUp">
+                        <h4 class="facts-title">Projects Done</h4>
+                        <span class="counter">570</span>
+                        <sup>+</sup>
+                    </div>
+                    <!-- End Facts Content -->
+                </div>
+                <!-- End Facts Box -->
+            </div>
+            <!-- Col End -->
+            <div class="col-md-3 text-center">
+                <div class="tw-facts-box">
+                    <div class="facts-img wow zoomIn">
+                        <img src="images/icon/fact3.png" alt="" class="img-fluid">
+                    </div>
+                    <!-- End Facts Image -->
+                    <div class="facts-content wow slideInUp">
+                        <h4 class="facts-title">Success Rate</h4>
+                        <span class="counter">98</span>
+                        <sup>%</sup>
+                    </div>
+                    <!-- End Facts Content -->
+                </div>
+                <!-- End Facts Box -->
+            </div>
+            <!-- Col End -->
+            <div class="col-md-3 text-center">
+                <div class="tw-facts-box">
+                    <div class="facts-img wow zoomIn">
+                        <img src="images/icon/fact4.png" alt="" class="img-fluid">
+                    </div>
+                    <!-- End Facts Image -->
+                    <div class="facts-content wow slideInUp">
+                        <h4 class="facts-title">Awards</h4>
+                        <span class="counter">50</span>
+                        <sup>+</sup>
+                    </div>
+                    <!-- End Facts Content -->
+                </div>
+                <!-- End Facts Box -->
+            </div>
+            <!-- Col End -->
         </div>
-        <!-- Container End -->
-    </section>
-    <!-- Facts End -->
+        <!-- Row End -->
+    </div>
+    <!-- Container End -->
+</section>
+<!-- Facts End -->
 
 @stop
