@@ -13764,10 +13764,6 @@ section {
     display: block;
 }
 
-.column-title span {
-    color: #1a3d82;
-}
-
 .column-title.light {
     font-weight: 600;
     margin-bottom: 20px;
@@ -15016,6 +15012,9 @@ li.dropdown:hover .tw-mega-menu {
 
 .features-text {
     position: relative;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    color: #616161;
 }
 
 .features-text:after {
@@ -21616,6 +21615,59 @@ header .navbar {
 
 #topbar > .container {
     height: 10vh;
+}
+
+/* A propos de l'Agenda du Québec section */
+
+#tw-features {
+    height: 90vh;
+}
+
+.propos-styles {
+    color: #232323;
+    font-family: 'Poppins', sans-serif;
+    line-height: 5rem;
+    font-size: 55px;
+    font-weight: 700;
+}
+
+.custom-lotti-position {
+    right: 0;
+    top: 10rem;
+}
+
+.column-title span {
+    font-family: 'Poppins', sans-serif;
+    font-size: 55px;
+    font-weight: 700;
+    
+}
+
+.comment-styles {
+    color: #232323;
+    font-family: 'Poppins', sans-serif;
+    line-height: 5rem;
+    font-size: 55px;
+    font-weight: 700;
+}
+    
+.comment-heading {
+    color: #5f5f5f;
+    font-family: 'Poppins', sans-serif;
+}
+
+.comment-paragraph {
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    color: #616161;
+}
+
+.btn-custom-color {
+    background-color: #868e96;
+}
+.btn-custom-color:hover {
+    color: white;
+    background-color: #212529;
 }
 
 /* Bootstrap toggler position */

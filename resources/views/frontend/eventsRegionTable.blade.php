@@ -3,49 +3,49 @@
 @section('title','Bienvenus')
 
 @section('content')
-    <section id="tw-blog" class="tw-blog">
-        <div class="container">
-            <div class="row text-center">
-                <div class="col section-heading wow fadeInDown" data-wow-duration="1s" data-wow-delay=".5s">
-                    <h2>
-                        <small>Evénements</small>
-                        <span>{{$region->name}}</span>
-                    </h2>
-                    <span class="animate-border border-offwhite ml-auto mr-auto tw-mt-20"></span>
-                </div>
-                <!-- Col end -->
+<section id="tw-blog" class="tw-blog">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col section-heading wow fadeInDown" data-wow-duration="1s" data-wow-delay=".5s">
+                <h2>
+                    <small>Evénements</small>
+                    <span>{{$region->name}}</span>
+                </h2>
+                <span class="animate-border border-offwhite ml-auto mr-auto tw-mt-20"></span>
             </div>
-            <!-- Row End -->
-            <div class="row fadeInDown" data-wow-duration="1s" data-wow-delay=".2s">
-                <div class="col-sm-12 col-md-12" id="list-component-wrapper">
-                    @include("frontend.includes.events_filters")
-                    <table class="table table-primary table-striped table-borderless" id="events-table">
-                        <thead class="table-light">
-                            <tr>
-                                <th>Id</th>
-                                <th>Image</th>
-                                <th>Titre</th>
-                                <th>Dates</th>
-                                <th>Region & Ville</th>
-                                <th>Ajouté par</th>
-                            </tr>
-                        </thead>
-                    </table>
-                </div>
-                    
-                <!-- <div class="col-md-12 text-center wow zoomIn" data-wow-duration="1s" data-wow-delay="1s"><a href="#" class="btn btn-primary btn-lg tw-mt-80">view all</a></div> -->
-            </div>
-            <!-- End Row -->
+            <!-- Col end -->
         </div>
-        <!-- Container End -->
-    </section>
-    <!-- template tag -->
+        <!-- Row End -->
+        <div class="row fadeInDown" data-wow-duration="1s" data-wow-delay=".2s">
+            <div class="col-sm-12 col-md-12" id="list-component-wrapper">
+                @include("frontend.includes.events_filters")
+                <table class="table table-primary table-striped table-borderless" id="events-table">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Id</th>
+                            <th>Image</th>
+                            <th>Titre</th>
+                            <th>Dates</th>
+                            <th>Region & Ville</th>
+                            <th>Ajouté par</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+
+            <!-- <div class="col-md-12 text-center wow zoomIn" data-wow-duration="1s" data-wow-delay="1s"><a href="#" class="btn btn-primary btn-lg tw-mt-80">view all</a></div> -->
+        </div>
+        <!-- End Row -->
+    </div>
+    <!-- Container End -->
+</section>
+<!-- template tag -->
 @stop
 
 @push('scripts')
 
-    <script defer>
-        $(function() {
+<script defer>
+    $(function() {
             $('body').on('click','.uncolapser',function(e){
                 let $id = $(this).data('item');
                 //$(this).toggleClass('fa-folder-open');
@@ -142,5 +142,5 @@
 
             $('.dt-buttons').append(' <button class="dt-button buttons-csv buttons-html5 btn btn-success m-0" tabindex="0" aria-controls="announcements-table" type="button" id="reset_filter"><span><i class="fa fa-broom"></i>Effacer les filtres</span></button>')
         });
-    </script>
+</script>
 @endpush
