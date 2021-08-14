@@ -21670,6 +21670,51 @@ header .navbar {
     background-color: #212529;
 }
 
+/* Evénements / Annonces récents */
+
+.titles-heading {
+    color: #232323 !important;
+    font-family: 'Poppins', sans-serif;
+    line-height: 5rem;
+    font-weight: 700;
+}
+
+/* Cards style */
+
+.card {
+    padding: unset;
+}
+.card-title a {
+    color: #232323; 
+    font-family: 'Poppins', sans-serif;
+}
+
+/* card hover */
+.card:hover {
+    background-color: var(--blue);
+    color: white;
+}
+
+.card:hover h5 {
+    color: white !important;
+}
+.card-title:hover a {
+    color: white !important; 
+}
+
+/* card img hover */
+.inner {
+    overflow: hidden;
+}
+
+.inner img {
+    transition: all 1s ease;
+}
+
+.inner:hover img {
+    transform: scale(1.5);
+}
+
 /* Bootstrap toggler position */
 @media (min-width: 768px) and (max-width: 991px){
     .navbar-toggler {

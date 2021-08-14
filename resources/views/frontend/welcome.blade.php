@@ -149,17 +149,19 @@
             <div class="col section-heading wow fadeInDown" data-wow-duration="1s" data-wow-delay=".5s">
                 <h2>
                     <small>Actualités</small>
-                    <span>Evénements / Annonces récents</span>
+                    <span class="titles-heading">Evénements & Annonces récents</span>
                 </h2>
-                <span class="animate-border border-offwhite ml-auto mr-auto tw-mt-20"></span>
+                {{-- <span class="animate-border border-offwhite ml-auto mr-auto tw-mt-20"></span> --}}
             </div>
             <!-- Col end -->
         </div>
         <!-- Row End -->
-        <div class="row wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
-            @foreach($last_published as $key => $item)
-            @include("frontend.includes.publication_component")
-            @endforeach
+        <div class="row wow fadeInUp " data-wow-duration="1s" data-wow-delay=".2s">
+            <div class="col d-flex justify-content-center flex-wrap">
+                @foreach($last_published as $key => $item)
+                @include("frontend.includes.publication_component")
+                @endforeach
+            </div>
             <!-- <div class="col-md-12 text-center wow zoomIn" data-wow-duration="1s" data-wow-delay="1s"><a href="#" class="btn btn-primary btn-lg tw-mt-80">view all</a></div> -->
         </div>
         <!-- End Row -->
