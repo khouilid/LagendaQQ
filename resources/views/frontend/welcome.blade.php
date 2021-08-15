@@ -159,7 +159,7 @@
         <div class="row wow fadeInUp " data-wow-duration="1s" data-wow-delay=".2s">
             <div class="col d-flex justify-content-center flex-wrap">
                 @foreach($last_published as $key => $item)
-                @include("frontend.includes.publication_component")
+                    @include("frontend.includes.publication_component")
                 @endforeach
             </div>
             <!-- <div class="col-md-12 text-center wow zoomIn" data-wow-duration="1s" data-wow-delay="1s"><a href="#" class="btn btn-primary btn-lg tw-mt-80">view all</a></div> -->
