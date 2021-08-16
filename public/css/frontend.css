@@ -21681,24 +21681,24 @@ header .navbar {
 
 /* Cards style */
 
-.card {
+.card.home-page {
     padding: unset;
 }
-.card-title a {
+.card-title.home-page a {
     color: #232323; 
     font-family: 'Poppins', sans-serif;
 }
 
 /* card hover */
-.card:hover {
+.card.home-page:hover {
     background-color: var(--blue);
     color: white;
 }
 
-.card:hover h5 {
+.card.home-page:hover h5 {
     color: white !important;
 }
-.card-title:hover a {
+.card-title.home-page:hover a {
     color: white !important; 
 }
 
