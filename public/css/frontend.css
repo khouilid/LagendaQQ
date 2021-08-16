@@ -16250,7 +16250,7 @@ input.round-btn {
 }
 
 .tw-footer-form input[type="email"] {
-    padding: 14px 28px;
+    padding: 26px 28px;
     border-radius: 50px;
     background: #2e2e2e;
     border: 1px solid #2e2e2e;
@@ -21715,6 +21715,15 @@ header .navbar {
     transform: scale(1.5);
 }
 
+.footer-lien, .footer-subscribe {
+    color: #232323; 
+    font-family: 'Poppins', sans-serif;
+}
+
+.footer-paragraph {
+    font-family: 'Poppins', sans-serif;
+}
+
 /* Bootstrap toggler position */
 @media (min-width: 768px) and (max-width: 991px){
     .navbar-toggler {
@@ -21725,5 +21734,12 @@ header .navbar {
 @media (max-width: 767px) {
     .navbar-toggler {
         position: unset;
+    }
+}
+
+@media (max-width: 1040px){
+
+    header {
+        padding: unset !important;
     }
 }
