@@ -23,7 +23,7 @@
             </div>
             <!-- Col End -->
             {{-- Lotti animation start --}}
-            <div class="position-absolute custom-lotti-position">
+            <div class="d-sm-none d-lg-block position-absolute custom-lotti-position">
                 <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
                 <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_h4bos27x.json"
                     background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay>
@@ -159,10 +159,10 @@
         <div class="row wow fadeInUp " data-wow-duration="1s" data-wow-delay=".2s">
             <div class="col d-flex justify-content-center flex-wrap">
                 @foreach($last_published as $key => $item)
-                    {{-- @php
+                {{-- @php
                     dd($item)
                     @endphp --}}
-                    @include("frontend.includes.publication_component")
+                @include("frontend.includes.publication_component")
                 @endforeach
             </div>
             <!-- <div class="col-md-12 text-center wow zoomIn" data-wow-duration="1s" data-wow-delay="1s"><a href="#" class="btn btn-primary btn-lg tw-mt-80">view all</a></div> -->
