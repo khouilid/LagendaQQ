@@ -188,7 +188,7 @@
                 {{-- lotti file start --}}
                 <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
                 <lottie-player src="https://assets4.lottiefiles.com/packages/lf20_bXRG9q.json" background="transparent"
-                    speed="1" style="width: 500px; height: 500px;" loop autoplay></lottie-player>
+                    speed="1" class="custom-size" loop autoplay></lottie-player>
                 {{-- lotti file end --}}
             </div>
             <!-- End Col -->
