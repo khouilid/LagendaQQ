@@ -21818,4 +21818,9 @@ header .navbar {
     .position-absolute.custom-lotti-position {
         display: none;
     }
+
+    /* search section */
+    .form-group.tw-form-round-shape.custom-space {
+        margin-bottom: 1em;
+    }
 }

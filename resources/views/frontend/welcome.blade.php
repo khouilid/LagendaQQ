@@ -111,13 +111,13 @@
                     <form class="form-vertical" action="{{route('search')}}">
                         <div class="row justify-content-center">
                             <div class="col-lg-4 col-md-12 no-padding">
-                                <div class="form-group tw-form-round-shape">
+                                <div class="form-group tw-form-round-shape custom-space">
                                     <input style="padding: 27px 30px;" type="text" id="search_q" name="search_q"
                                         placeholder="Que cherchez vous ?" class="form-control">
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-12 no-padding">
-                                <div class="form-group tw-form-round-shape">
+                                <div class="form-group tw-form-round-shape custom-space">
                                     <select id="content_type" name="content_type" placeholder="Où ?"
                                         class="form-control">
                                         <option value="evènement">Evènements</option>
