@@ -21853,7 +21853,6 @@ header .navbar {
 @media (min-width: 321px) and (max-width: 576px){ 
     .topbar-styles.container.d-flex.align-items-center.justify-content-end {
         justify-content: center !important;
-        background-color: rgb(255, 0, 0);
     }
 
     .home .content h1 {
