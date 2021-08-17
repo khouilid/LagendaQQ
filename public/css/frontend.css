@@ -21743,3 +21743,34 @@ header .navbar {
         padding: unset !important;
     }
 }
+
+/* Home Page Responsive */
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 320.98px) { 
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    .home h1 {
+        display: flex;
+        font-size: 2em !important;
+        line-height: 30px !important;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .home .content h1 span {
+        width: 170%;
+        line-height: normal;
+        font-size: 0.5em;
+        font-weight: 600;
+        margin-top: 1em;
+    }
+
+    .home .content p {
+        margin-left: -3em;
+        padding-left: unset;
+        width: 80vw;
+    }
+}
