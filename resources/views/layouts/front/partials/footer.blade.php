@@ -19,8 +19,8 @@
                     <div class="col-md-12 col-lg-6">
                         <div class="footer-widget footer-left-widget">
                             <div class="section-heading">
-                                <h3>Liens utiles</h3>
-                                <span class="animate-border border-black"></span>
+                                <h3 class="footer-lien">Liens utiles</h3>
+                                {{-- <span class="animate-border border-black"></span> --}}
                             </div>
                             <ul>
                                 <li><a href="{{route('page','a-propos-1')}}">A propos</a></li>
@@ -41,10 +41,12 @@
                     <div class="col-md-12 col-lg-6">
                         <div class="footer-widget">
                             <div class="section-heading">
-                                <h3>Subscribe</h3>
-                                <span class="animate-border border-black"></span>
+                                <h3 class="footer-subscribe">Subscribe</h3>
+                                {{-- <span class="animate-border border-black"></span> --}}
                             </div>
-                            <p>Ne manquez pas de vous abonner à notre neswsletter, veuillez remplir le formulaire ci-dessous.</p>
+                            <p class="footer-paragraph">Ne manquez pas de vous abonner à notre neswsletter, veuillez
+                                remplir le formulaire
+                                ci-dessous.</p>
                             <form action="#">
                                 <div class="form-row">
                                     <div class="col tw-footer-form">

@@ -23,7 +23,7 @@
             </div>
             <!-- Col End -->
             {{-- Lotti animation start --}}
-            <div class="position-absolute custom-lotti-position">
+            <div class="d-sm-none d-lg-block position-absolute custom-lotti-position">
                 <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
                 <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_h4bos27x.json"
                     background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay>
@@ -111,13 +111,13 @@
                     <form class="form-vertical" action="{{route('search')}}">
                         <div class="row justify-content-center">
                             <div class="col-lg-4 col-md-12 no-padding">
-                                <div class="form-group tw-form-round-shape">
+                                <div class="form-group tw-form-round-shape custom-space">
                                     <input style="padding: 27px 30px;" type="text" id="search_q" name="search_q"
                                         placeholder="Que cherchez vous ?" class="form-control">
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-12 no-padding">
-                                <div class="form-group tw-form-round-shape">
+                                <div class="form-group tw-form-round-shape custom-space">
                                     <select id="content_type" name="content_type" placeholder="Où ?"
                                         class="form-control">
                                         <option value="evènement">Evènements</option>
@@ -159,10 +159,10 @@
         <div class="row wow fadeInUp " data-wow-duration="1s" data-wow-delay=".2s">
             <div class="col d-flex justify-content-center flex-wrap">
                 @foreach($last_published as $key => $item)
-                    {{-- @php
+                {{-- @php
                     dd($item)
                     @endphp --}}
-                    @include("frontend.includes.publication_component")
+                @include("frontend.includes.publication_component")
                 @endforeach
             </div>
             <!-- <div class="col-md-12 text-center wow zoomIn" data-wow-duration="1s" data-wow-delay="1s"><a href="#" class="btn btn-primary btn-lg tw-mt-80">view all</a></div> -->
@@ -183,12 +183,13 @@
     <!-- End Ellipse Pattern -->
     <div class="container">
         <div class="row">
-            <div class="col-lg-6 col-md-12 text-lg-right text-md-center wow fadeInLeft" data-wow-duration="1s">
+            <div class="center-animation col-lg-6 col-md-12 text-lg-right text-md-center wow fadeInLeft"
+                data-wow-duration="1s">
                 {{-- <img src="images/about/about_image.png" alt="" class="img-fluid"> --}}
                 {{-- lotti file start --}}
                 <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
                 <lottie-player src="https://assets4.lottiefiles.com/packages/lf20_bXRG9q.json" background="transparent"
-                    speed="1" style="width: 500px; height: 500px;" loop autoplay></lottie-player>
+                    speed="1" class="custom-size" loop autoplay></lottie-player>
                 {{-- lotti file end --}}
             </div>
             <!-- End Col -->
