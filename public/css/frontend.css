@@ -21751,6 +21751,12 @@ header .navbar {
         padding: 0;
         margin: 0;
     }
+    /* TopBar */
+    .topbar-styles.container.d-flex.align-items-center.justify-content-end {
+        justify-content: center !important;
+    }
+
+    /* Slider */
 
     .home .content h1 {
         display: flex;
@@ -21790,5 +21796,26 @@ header .navbar {
 
     .media-icons {
         display: none !important;
+    }
+
+    /* a propos section */
+
+    .propos-styles {
+        line-height: 2rem;
+        font-size: 23px;
+        font-weight: 700;
+    }
+
+    .features-text {
+        font-size: 12px;
+    }
+
+    #tw-features {
+        display: flex;
+        align-items: center;
+    }
+
+    .position-absolute.custom-lotti-position {
+        display: none;
     }
 }
