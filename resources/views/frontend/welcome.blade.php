@@ -183,7 +183,8 @@
     <!-- End Ellipse Pattern -->
     <div class="container">
         <div class="row">
-            <div class="col-lg-6 col-md-12 text-lg-right text-md-center wow fadeInLeft" data-wow-duration="1s">
+            <div class="center-animation col-lg-6 col-md-12 text-lg-right text-md-center wow fadeInLeft"
+                data-wow-duration="1s">
                 {{-- <img src="images/about/about_image.png" alt="" class="img-fluid"> --}}
                 {{-- lotti file start --}}
                 <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>

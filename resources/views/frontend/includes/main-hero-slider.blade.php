@@ -247,7 +247,8 @@
   </div>
   <div class="content slide-03">
     <h1>Vous avez 14 ans.<br><span> ou même, vous dépassez 94 ans</span></h1>
-    <p class="custom-width">nous avons un poste pour vous. Environ 75% c’est du télétravail, et 25% des ventes.</p>
+    <p class="custom-width">nous avons un poste pour vous. Environ 75% c’est du télétravail, et 25% des
+      ventes.</p>
   </div>
 
   <div class="media-icons">
