@@ -21690,7 +21690,7 @@ header .navbar {
 }
 
 /* card hover */
-.card.home-page:hover {
+/* .card.home-page:hover {
     background-color: var(--blue);
     color: white;
 }
@@ -21700,7 +21700,7 @@ header .navbar {
 }
 .card-title.home-page:hover a {
     color: white !important; 
-}
+} */
 
 /* card img hover */
 .inner {

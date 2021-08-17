@@ -16,8 +16,10 @@
             <a class="card-subtitle mb-2 text-muted"
                 href="{{route('user_profile',@$item->owned)}}">{{@$item->owned->prenom}}
                 {{@$item->owned->name}}</a></h6>
-        @php
-        echo($item->description);
-        @endphp
+        <div class="card-text">
+            @php
+            echo ($item->description);
+            @endphp
+        </div>
     </div>
 </div>
