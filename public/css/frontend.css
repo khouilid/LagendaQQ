@@ -21752,7 +21752,7 @@ header .navbar {
         margin: 0;
     }
 
-    .home h1 {
+    .home .content h1 {
         display: flex;
         font-size: 2em !important;
         line-height: 30px !important;
@@ -21772,5 +21772,23 @@ header .navbar {
         margin-left: -3em;
         padding-left: unset;
         width: 80vw;
+    }
+
+    .home .content.slide-02 h1,  .home .content.slide-03 h1{
+        display: flex;
+        font-size: 2em !important;
+        line-height: 30px !important;
+        flex-direction: column;
+        align-items: center;
+        width: 70vw;
+        margin-left: -1.5em;
+    }
+
+    .home .content h1 span {
+        display: contents;
+    }
+
+    .media-icons {
+        display: none !important;
     }
 }
