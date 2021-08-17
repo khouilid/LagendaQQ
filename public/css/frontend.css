@@ -21823,4 +21823,14 @@ header .navbar {
     .form-group.tw-form-round-shape.custom-space {
         margin-bottom: 1em;
     }
+
+    /* Evénements & Annonces récents section */
+
+    .titles-heading {
+        line-height: 2rem;
+    }
+
+    .section-heading h2 {
+        font-size: 20px;
+    }
 }
