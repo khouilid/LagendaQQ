@@ -1,13 +1,36 @@
 <div class="offset-sm-0 col-12 form-group row">
-    <label for="title" class="col-sm-12 col-md-12">Titre de l'annonce classée : *</label>
+    <label for="title" class="col-sm-12 col-md-12">Titre de l'annonce : *</label>
     <input type="text" name="title" id="title" value="{{old('title',@$announcement->title)}}" class="form-control">
     {!! $errors->first('title', '<div class="error-message col-12">:message</div>') !!}
 </div>
-<div class="offset-sm-0 col-12 form-group row">
-    <label for="title" class="col-sm-12 col-md-12">Description de l'annonce ( le poumon ) : </label>
-    <div><textarea name="description" id="description" class="ckeditor form-control">{{old('description',@$announcement->description)}}</textarea></div>
+
+
+<div class="offset-sm-0 col-sm-12 col-md-6 form-group row">
+    <label for="title" class="col-sm-12 col-md-12">Categorie de l'annonce classée :* </label>
+    <select name="category_id" id="category_id" class="form-control">
+        <option value=""> --- </option>
+        @foreach($categories as $category)
+            <option value="{{$category->id}}" {{old('category_id',@$announcement->category_id) == $category->id?'selected':''}}> {{$category->name}} </option>
+        @endforeach
+    </select>
+    {!! $errors->first('category_id', '<div class="error-message col-12">:message</div>') !!}
 </div>
 
+
+
+
+<div class="offset-sm-0 col-12 form-group row">
+    <label for="title" class="col-sm-12 col-md-12">Vide 1 : *</label>
+    <input type="text" maxlength="35" name="vide_1" id="title" value="{{old('vide_1',@$event->vide_1)}}" class="form-control">
+    {!! $errors->first('title', '<div class="error-message col-12">:message</div>') !!}
+</div>
+
+
+<div class="offset-sm-0 col-12 form-group row">
+    <label for="title" class="col-sm-12 col-md-12">Vide 2 :</label>
+    <input type="text" maxlength="35" name="vide_2" id="title" value="{{old('vide_2',@$event->vide_2)}}" class="form-control">
+    {!! $errors->first('title', '<div class="error-message col-12">:message</div>') !!}
+</div>
 <div class="offset-sm-0 col-sm-12 col-md-6 form-group row">
     <label for="images" class="col-sm-12 col-md-12">Image de l'annonce : </label>
     <input type="file" name="images" id="images" class="form-control">
@@ -19,6 +42,14 @@
 <div class="offset-sm-0 col-sm-12 col-md-6 form-group row">
     <img id="preview" src="{{ route('show_image',@$announcement->images) }}" alt="{{@$announcement->title}}" style="width:50%; height: auto">
 </div>
+
+
+<div class="offset-sm-0 col-12 form-group row">
+    <label for="title" class="col-sm-12 col-md-12">Description de l'annonce ( le poumon ) : </label>
+    <div><textarea name="description" id="description" class="ckeditor form-control">{{old('description',@$announcement->description)}}</textarea></div>
+</div>
+
+
 <div class="offset-sm-0 col-sm-12 col-md-6 form-group row">
     <label for="images" class="col-sm-12 col-md-12">Type de prix : {{@$announcement->price_type}}</label>
     <select name="price_type" id="price_type" class="form-control">
@@ -34,16 +65,7 @@
     <input type="number" name="price" id="price" min="0" step="0.01" value="{{old('price',@$announcement->price)}}" class="form-control" placeholder="Entrez le prix de votre annonce Ex : 7.5">
 </div>
 <div class="col-12"><hr/></div>
-<div class="offset-sm-0 col-sm-12 col-md-6 form-group row">
-    <label for="title" class="col-sm-12 col-md-12">Categorie de l'annonce classée :* </label>
-    <select name="category_id" id="category_id" class="form-control">
-        <option value=""> --- </option>
-        @foreach($categories as $category)
-            <option value="{{$category->id}}" {{old('category_id',@$announcement->category_id) == $category->id?'selected':''}}> {{$category->name}} </option>
-        @endforeach
-    </select>
-    {!! $errors->first('category_id', '<div class="error-message col-12">:message</div>') !!}
-</div>
+
 <div class="offset-sm-0 col-sm-12 col-md-6 form-group row">
     <label for="title" class="col-sm-12 col-md-12">Type d'annonceur :* </label>
     <select name="advertiser_type" id="advertiser_type" class="form-control">

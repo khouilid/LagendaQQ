@@ -5,9 +5,15 @@
         <div class="offset-sm-2 col-10 text-blue mb-4"><h2><i class="fa fa-plus"></i> Ajout d'une annonce classée ( le montage )
         </h2>
             <div class="d-flex">
-                @foreach(@$user->roles as $role)
-                    <span class="badge m-2  bg-info">{{$role->name}}</span> 
+               
+                @if(session()->get('role') !== null)
+                <span class="badge bg-info">{{session()->get('role')->name}}</span>
+                @else
+                @foreach ($user->roles as $role)
+                    <p><span class="badge bg-info">{{$role->name}}</span></p>
                 @endforeach
+                    
+                @endif
             </div>
         
         </div>
@@ -34,7 +40,11 @@
                     <form action="{{route('user.store_announcement')}}" method="post" enctype="multipart/form-data">
                         <div class="row">
                             @csrf
-                            @if($user->hasAnyRole(['chef-vendeur','vendeur']))
+
+
+
+
+                            @if(session()->get('role')->name  == 'chef-vendeur' || session()->get('role')->name  == 'vendeur')
                             <div class="offset-sm-0 col-12 form-group row">
                                 <label for="owner" class="col-sm-12 col-md-12">Publiée l'annonce pour : </label>
                                 <select name="owner" id="owner" class="form-control">
@@ -47,6 +57,13 @@
                                 </select>
                             </div>
                             @endif
+
+
+
+
+
+
+
                             <input type="hidden" name="posted_by" value="{{$user->id}}">
                             @include("announcements.includes.announcement_form")
                             <hr class="my-2">
