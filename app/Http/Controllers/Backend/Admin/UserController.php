@@ -25,6 +25,7 @@ use Auth;
 
 use Yajra\Datatables\Datatables;
 use Illuminate\Support\Facades\DB;
+use Session;
 
 class UserController extends Controller
 {
@@ -451,7 +452,8 @@ class UserController extends Controller
 
         $role = Role::where('id',$data['switchTo'])->first();
         // dd($role);
-        Auth::user()->roles = $role;
+        // Auth::user()->r = $role;
+        session()->put('role', $role);
         // dd( auth()->user()->roles);
         return  redirect()->back();
         

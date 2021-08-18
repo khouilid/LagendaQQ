@@ -156,6 +156,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <li class="nav-item dropdown">
                             <form method="GET" id='formswitch' action='{{ route('user.SwitchRole') }}'>
                                 <select id="switchTo" name='switchTo' class="mt-2 bg-white border-0">
+                                    <option  value="0" disabled defult>Basculer vers</option>
                                     @foreach(auth()->user()->roles as $fonction)
                                         <option  value="{{$fonction->id}}"> {{$fonction->name}}</option>
                                     @endforeach

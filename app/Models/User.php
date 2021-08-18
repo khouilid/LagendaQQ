@@ -396,9 +396,7 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->currencies->where('id',$currency_id)->first()->roles->first();
     }
-    /**
-     * Will return the list of prices based on user's role
-     */
+   
     public function getPricesList($role_id)
     {
 
@@ -413,9 +411,7 @@ class User extends Authenticatable implements MustVerifyEmail
         return $list ;
         // dd($list);
     }
-    /**
-     * Build a select list with prices for a given role
-     */
+
     public function buildPricesOptions($role_id)
     {
         $role = Role::where('id',$role_id)->first();
