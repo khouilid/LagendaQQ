@@ -655,4 +655,17 @@ class DashboardController extends Controller
         return redirect()->back();
     }
 
+
+    public function selectCategories(Request $request)
+    {
+        $res = Category::where( "type" ,$request->id)->get();
+        
+                /* ->where("name","LIKE","%{$request->term}%")
+                ->where("id","%{$request->term}%")
+                ->where("id", "!=", Auth::id())
+                ->get(); */
+
+        return response()->json($res);
+    }
+
 }
