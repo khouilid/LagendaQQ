@@ -18,11 +18,16 @@
                     <h2 class="my-0">{{$user->username}}</h2>
                     <div>
                         
-                        @foreach($user->roles as $role)
-                            <span class="badge bg-info">{{$role->name}}</span> 
-                        @endforeach
-
+                            @if(session()->get('role') !== null)
+                                <span class="badge bg-info">{{session()->get('role')->name}}</span>
+                            @else
+                              @foreach ($user->roles as $role)
+                                <span class="badge bg-info">{{$role->name}}</span>
+                              @endforeach
+                                
+                            @endif
                     </div>
+                    
 
                 </div>
                 <h5 class="my-0 bold">{{$user->prenom}} {{$user->name}}</h5>
