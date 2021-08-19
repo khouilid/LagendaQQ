@@ -235,20 +235,23 @@
   <video class="video-slide" src="{{ asset('slider-videos/video-02.mp4') }}" autoplay muted loop></video>
   <video class="video-slide" src="{{ asset('slider-videos/video-03.mp4') }}" autoplay muted loop></video>
 
-  <div class="content active">
-    <h1>Nouveaux postes.<br><span>de télétravail, autonome</span></h1>
-    <p class="custom-width">sans payer de franchise (sans investir), crée pour jeunes, anciens jeunes, handicapés,
-      retraités, des personnes en convalescence, policiers, curés, députés.</p>
-  </div>
-  <div class="content slide-02">
-    <h1>Un site avec 101<br><span>raisons</span></h1>
-    <p class="custom-width">pour toutes situations, permettant à tous les intéressés de faire de l’argent, en aidant aux
-      activités.</p>
-  </div>
-  <div class="content slide-03">
-    <h1>Vous avez 14 ans.<br><span> ou même, vous dépassez 94 ans</span></h1>
-    <p class="custom-width">nous avons un poste pour vous. Environ 75% c’est du télétravail, et 25% des
-      ventes.</p>
+  <div class="d-flex justify-content-center">
+    <div class="content slide-01 active">
+      <h1>Nouveaux postes.<br><span>de télétravail, autonome</span></h1>
+      <p class="custom-width">sans payer de franchise (sans investir), crée pour jeunes, anciens jeunes, handicapés,
+        retraités, des personnes en convalescence, policiers, curés, députés.</p>
+    </div>
+    <div class="content slide-02">
+      <h1>Un site avec 101<br><span>raisons</span></h1>
+      <p class="custom-width">pour toutes situations, permettant à tous les intéressés de faire de l’argent, en aidant
+        aux
+        activités.</p>
+    </div>
+    <div class="content slide-03">
+      <h1>Vous avez 14 ans.<br><span> ou même, vous dépassez 94 ans</span></h1>
+      <p class="custom-width">nous avons un poste pour vous. Environ 75% c’est du télétravail, et 25% des
+        ventes.</p>
+    </div>
   </div>
 
   <div class="media-icons">

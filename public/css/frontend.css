@@ -21750,8 +21750,8 @@ header .navbar {
 }
 
 /* Home Page Responsive */
-/* Extra small devices (portrait phones, less than 576px) */
-@media (max-width: 320.98px) { 
+
+@media (max-width: 320px){ 
     * {
         padding: 0;
         margin: 0;
@@ -21761,7 +21761,122 @@ header .navbar {
         justify-content: center !important;
     }
 
+    #topbar {
+        height: 10vh;
+        background-color: #1C86EF;
+    }
+
     /* Slider */
+
+    .content {
+        padding-left: 30px !important;
+    }
+    .home .content h1 {
+        display: flex;
+        font-size: 2em !important;
+        line-height: 30px !important;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .home .content h1 span {
+        width: 170%;
+        line-height: normal;
+        font-size: 0.5em;
+        font-weight: 600;
+        margin-top: 1em;
+    }
+
+    .home .content p {
+        margin-left: -3em;
+        padding-left: unset;
+        width: 80vw;
+    }
+
+    .home .content.slide-02 h1,  .home .content.slide-03 h1{
+        display: flex;
+        font-size: 2em !important;
+        line-height: 30px !important;
+        flex-direction: column;
+        align-items: center;
+        width: 70vw;
+        margin-left: -1.5em;
+    }
+
+    .home .content h1 span {
+        display: contents;
+    }
+
+    .media-icons {
+        display: none !important;
+    }
+
+    /* a propos section */
+
+    .propos-styles {
+        line-height: 2rem;
+        font-size: 23px;
+        font-weight: 700;
+    }
+
+    .features-text {
+        font-size: 12px;
+    }
+
+    #tw-features {
+        display: flex;
+        align-items: center;
+    }
+
+    .position-absolute.custom-lotti-position {
+        display: none;
+    }
+
+    /* search section */
+    .form-group.tw-form-round-shape.custom-space {
+        margin-bottom: 1em;
+    }
+
+    /* Evénements & Annonces récents section */
+
+    .titles-heading {
+        line-height: 2rem;
+    }
+
+    .section-heading h2 {
+        font-size: 20px;
+    }
+
+    #tw-intro .custom-size {
+        height: 300px;
+        width: 300px;
+    }
+
+    .comment-styles {
+        font-size: 20px;
+    }
+}
+
+ /* Extra small devices (portrait phones, less than 320px) */
+ @media (min-width: 321.98px) and (max-width: 424px) { 
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    /* TopBar */
+    .topbar-styles.container.d-flex.align-items-center.justify-content-end {
+        justify-content: center !important;
+    }
+
+    #topbar {
+        height: 10vh;
+        background-color: #1C86EF;
+    }
+
+    /* Slider */
+    .content {
+        padding-left: unset !important;
+    }
 
     .home .content h1 {
         display: flex;
@@ -21850,12 +21965,14 @@ header .navbar {
 }
 
 /* // Extra small devices (portrait phones, less than 576px) */
-@media (min-width: 321px) and (max-width: 576px){ 
+@media (min-width: 425px) and (max-width: 574.98px){ 
     .topbar-styles.container.d-flex.align-items-center.justify-content-end {
         justify-content: center !important;
-        background-color: rgb(255, 0, 0);
     }
 
+    .content {
+        padding-left: unset !important;
+    }
     .home .content h1 {
         display: flex;
         line-height: 50px !important;
@@ -21872,7 +21989,24 @@ header .navbar {
     .home .content p {
         /* margin-left: -3em; */
         padding-left: unset;
-        width: 80vw;
+        width: 65vw;
+    }
+    .home .content.slide-01 p {
+        /* margin-left: -3em; */
+        padding-left: unset;
+        width: 65vw;
+    }
+    .home .content.slide-03 p {
+        margin-left: -3em;
+        padding-left: unset;
+        width: 65vw;
+    }
+    
+    .home .content.slide-02 p {
+        /* margin-left: -3em; */
+        padding-left: unset;
+        width: 65vw;
+
     }
 
     .home .content.slide-02 h1,  .home .content.slide-03 h1{
@@ -21882,10 +22016,11 @@ header .navbar {
         flex-direction: column;
         align-items: center;
         width: 70vw;
-        margin-left: -1.5em;
+        /* margin-left: -1.5em; */
     }
 
     .home .content h1 span {
+        width: 85vw;
         display: contents;
     }
 
@@ -21894,7 +22029,231 @@ header .navbar {
     }
 
     .home .content.slide-03 p {
-        margin-left: -1.5em;
+        margin-left: -.5em;
+        padding-left: unset;
+        width: 80vw;
+    }
+
+        /* a propos section */
+
+    .propos-styles {
+        margin-bottom: 2rem;
+        line-height: 2rem;
+        font-size: 23px;
+        font-weight: 700;
+    }
+
+    .position-absolute.custom-lotti-position {
+        display: none;
+    }
+
+        /* search section */
+    .form-group.tw-form-round-shape.custom-space {
+        margin-bottom: 1em;
+    }
+
+    /* Evénements & Annonces récents section */
+
+    .titles-heading {
+        line-height: 2rem;
+    }
+
+    .section-heading h2 {
+        font-size: 25px;
+    }
+
+    #tw-intro .custom-size {
+        height: 400px;
+        width: 400px;
+    }
+
+    .comment-styles {
+        font-size: 30px;
+    }
+
+    .center-animation {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+ @media (min-width: 575.98px) and (max-width: 767.98px){ 
+    .topbar-styles.container.d-flex.align-items-center.justify-content-end {
+        justify-content: center !important;
+    }
+
+    .content {
+        padding-left: unset !important;
+    }
+    .home .content h1 {
+        display: flex;
+        line-height: 50px !important;
+        flex-direction: column;
+    }
+    
+    .home .content h1 span {
+    line-height: normal;
+    font-size: 0.5em;
+    font-weight: 600;
+    margin-top: 1em;
+    }
+
+    .home .content p {
+        /* margin-left: -3em; */
+        padding-left: unset;
+        width: 65vw;
+    }
+    .home .content.slide-01 p {
+        /* margin-left: -3em; */
+        padding-left: unset;
+        width: 65vw;
+    }
+    .home .content.slide-03 p {
+        margin-left: -3em;
+        padding-left: unset;
+        width: 65vw;
+    }
+    
+    .home .content.slide-02 p {
+        /* margin-left: -3em; */
+        padding-left: unset;
+        width: 65vw;
+
+    }
+
+    .home .content.slide-02 h1,  .home .content.slide-03 h1{
+        display: flex;
+        font-size: 2em !important;
+        line-height: 30px !important;
+        flex-direction: column;
+        align-items: center;
+        width: 70vw;
+        /* margin-left: -1.5em; */
+    }
+
+    .home .content h1 span {
+        width: 85vw;
+        display: contents;
+    }
+
+    .media-icons {
+        display: none !important;
+    }
+
+    .home .content.slide-03 p {
+        margin-left: -.5em;
+        padding-left: unset;
+        width: 80vw;
+    }
+
+        /* a propos section */
+
+    .propos-styles {
+        line-height: 2rem;
+        font-size: 23px;
+        font-weight: 700;
+        margin-bottom: 3rem !important;
+    }
+
+    .position-absolute.custom-lotti-position {
+        display: none;
+    }
+
+        /* search section */
+    .form-group.tw-form-round-shape.custom-space {
+        margin-bottom: 1em;
+    }
+
+    /* Evénements & Annonces récents section */
+
+    .titles-heading {
+        line-height: 2rem;
+    }
+
+    .section-heading h2 {
+        font-size: 25px;
+    }
+
+    #tw-intro .custom-size {
+        height: 400px;
+        width: 400px;
+    }
+
+    .comment-styles {
+        font-size: 30px;
+    }
+
+    .center-animation {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) { 
+    .topbar-styles.container.d-flex.align-items-center.justify-content-end {
+        justify-content: center !important;
+    }
+
+    .content {
+        padding-left: unset !important;
+    }
+    .home .content h1 {
+        display: flex;
+        line-height: 50px !important;
+        flex-direction: column;
+    }
+    
+    .home .content h1 span {
+    line-height: normal;
+    font-size: 0.5em;
+    font-weight: 600;
+    margin-top: 1em;
+    }
+
+    .home .content p {
+        /* margin-left: -3em; */
+        padding-left: unset;
+        width: 65vw;
+    }
+    .home .content.slide-01 p {
+        /* margin-left: -3em; */
+        padding-left: unset;
+        width: 65vw;
+    }
+    .home .content.slide-03 p {
+        margin-left: -3em;
+        padding-left: unset;
+        width: 65vw;
+    }
+    
+    .home .content.slide-02 p {
+        /* margin-left: -3em; */
+        padding-left: unset;
+        width: 65vw;
+
+    }
+
+    .home .content.slide-02 h1,  .home .content.slide-03 h1{
+        display: flex;
+        font-size: 2em !important;
+        line-height: 30px !important;
+        flex-direction: column;
+        align-items: center;
+        width: 70vw;
+        /* margin-left: -1.5em; */
+    }
+
+    .home .content h1 span {
+        width: 85vw;
+        display: contents;
+    }
+
+    .media-icons {
+        display: none !important;
+    }
+
+    .home .content.slide-03 p {
+        margin-left: -.5em;
         padding-left: unset;
         width: 80vw;
     }
@@ -21939,4 +22298,29 @@ header .navbar {
         display: flex;
         justify-content: center;
     }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) { 
+    .navbar-nav {
+        font-size: 13px;
+    }
+
+    .home .content h1 {
+        line-height: 60px !important;
+    }
+
+    .propos-styles {
+        line-height: 3rem;
+        font-size: 29px;
+    }
+
+    .position-absolute.custom-lotti-position {
+        display: none !important;
+    }
  }
+
+ @media (min-width: 1200px) { 
+    .position-absolute.custom-lotti-position {
+        display: none !important;
+    }
+  }
