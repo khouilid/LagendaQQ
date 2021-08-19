@@ -104,7 +104,8 @@
     <label for="email" class="col-sm-12 col-md-12">Email : </label>
     <input type="email" name="email" id="email" class="form-control" value="{{old('email',@$announcement->email)}}" />
 </div>
-<div class="offset-sm-0 col-sm-12 col-md-4 form-group row">
+                    {{-- document.getElementById("").style.display = 'none'; --}}
+<div id="telephoneDev" class="offset-sm-0 col-sm-12 col-md-4 form-group row">
     <label for="telephone" class="col-sm-12 col-md-12">Téléphone : </label>
     <input name="telephone" id="telephone" class="form-control phone_number" value="{{old('telephone',@$announcement->telephone)}}" />
 </div>

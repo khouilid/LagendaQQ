@@ -44,7 +44,7 @@
 
 
 
-                            @if(session()->get('role')->name  == 'chef-vendeur' || session()->get('role')->name  == 'vendeur')
+                            @if( session()->get('role') !== null && (session()->get('role')->name  == 'chef-vendeur' || session()->get('role')->name  == 'vendeur'))
                             <div class="offset-sm-0 col-12 form-group row">
                                 <label for="owner" class="col-sm-12 col-md-12">Publiée l'annonce pour : </label>
                                 <select name="owner" id="owner" class="form-control">
@@ -195,6 +195,18 @@
                         }
                     });
                 });
+            });
+
+
+
+
+            
+            document.getElementById("category_id").addEventListener('change', function (event) {
+                if(cats.value == "Rencontre")  {
+                    document.getElementById("telephoneDev").style.display = 'none';
+
+                }
+               
             });
     </script>
 @endpush

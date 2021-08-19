@@ -66,31 +66,79 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="collapse navbar-collapse order-3" id="navbarCollapse">
                 <!-- Left navbar links -->
                 <ul class="navbar-nav">
-                    @hasanyrole('banquier')
-                    <li class="nav-item">
-                        <a href="{{ route('banker.currencies.accounts') }}" class="nav-link {{ side_nav_bar_menu_status('dashboard','active') }}"><i class="fas fa-coins nav-icon pr-2"></i>Les Monnaies</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('banker.currencies.index') }}" class="nav-link {{ side_nav_bar_menu_status('dashboard','active') }}"><i class="fa fa-plus nav-icon pr-2"></i>Ajouter une monnaie</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('admin.credits.logs') }}" class="nav-link {{ side_nav_bar_menu_status('dashboard','active') }}"><i class="fa fa-list nav-icon pr-2"></i>Historique des transferts</a>
-                    </li>
-                    @endrole
-                    @hasanyrole('super-admin|admin|annonceur|vendeur')
-                    <li class="nav-item">
-                        <a href="{{ route('user.dashboard') }}" class="nav-link {{ side_nav_bar_menu_status('dashboard','active') }}"><i class="fa fa-user-cog"></i> Portrait</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('user.my_events') }}" class="nav-link {{ side_nav_bar_menu_status('events','active') }}"><i class="fas fa-calendar-check"></i> Mes événements</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{route('user.my_announcements')}}" class="nav-link"><i class="fa fa-bullhorn"></i> Mes annonces</a>
-                    </li>
-                    @endrole
-                    @hasanyrole('chef-vendeur|vendeur')
-                        <li class="nav-item"><a class="nav-link" href="{{route('vendeurs.my_team')}}"><i class="fa fa-user-friends"></i> Mon équipe</a></li>
-                    @endrole
+                    @if( session()->get('role') !== null && session()->get('role')->name  == 'banquier')
+                    
+                        <li class="nav-item">
+                            <a href="{{ route('banker.currencies.accounts') }}" class="nav-link {{ side_nav_bar_menu_status('dashboard','active') }}"><i class="fas fa-coins nav-icon pr-2"></i>Les Monnaies</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('banker.currencies.index') }}" class="nav-link {{ side_nav_bar_menu_status('dashboard','active') }}"><i class="fa fa-plus nav-icon pr-2"></i>Ajouter une monnaie</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.credits.logs') }}" class="nav-link {{ side_nav_bar_menu_status('dashboard','active') }}"><i class="fa fa-list nav-icon pr-2"></i>Historique des transferts</a>
+                        </li>
+               
+                        
+                    {{-- @else
+                    
+    
+                        @hasanyrole('banquier')
+                            <li class="nav-item">
+                                <a href="{{ route('banker.currencies.accounts') }}" class="nav-link {{ side_nav_bar_menu_status('dashboard','active') }}"><i class="fas fa-coins nav-icon pr-2"></i>Les Monnaies</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('banker.currencies.index') }}" class="nav-link {{ side_nav_bar_menu_status('dashboard','active') }}"><i class="fa fa-plus nav-icon pr-2"></i>Ajouter une monnaie</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('admin.credits.logs') }}" class="nav-link {{ side_nav_bar_menu_status('dashboard','active') }}"><i class="fa fa-list nav-icon pr-2"></i>Historique des transferts</a>
+                            </li>
+                        @endrole --}}
+                 
+                    @endif
+
+                    @if( session()->get('role') !== null && (session()->get('role')->name  == 'super-admin' || session()->get('role')->name  == 'admin'  || session()->get('role')->name  == 'annonceur'  || session()->get('role')->name  == 'vendeur' ))
+                    
+                        <li class="nav-item">
+                            <a href="{{ route('user.dashboard') }}" class="nav-link {{ side_nav_bar_menu_status('dashboard','active') }}"><i class="fa fa-user-cog"></i> Portrait</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('user.my_events') }}" class="nav-link {{ side_nav_bar_menu_status('events','active') }}"><i class="fas fa-calendar-check"></i> Mes événements</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('user.my_announcements')}}" class="nav-link"><i class="fa fa-bullhorn"></i> Mes annonces</a>
+                        </li>
+                        
+                    {{-- @else 
+                        @hasanyrole('super-admin|admin|annonceur|vendeur')
+                          
+                            <li class="nav-item">
+                                <a href="{{ route('user.dashboard') }}" class="nav-link {{ side_nav_bar_menu_status('dashboard','active') }}"><i class="fa fa-user-cog"></i> Portrait</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('user.my_events') }}" class="nav-link {{ side_nav_bar_menu_status('events','active') }}"><i class="fas fa-calendar-check"></i> Mes événements</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('user.my_announcements')}}" class="nav-link"><i class="fa fa-bullhorn"></i> Mes annonces</a>
+                            </li>
+                        @endrole --}}
+                    
+                    @endif
+                    
+
+
+
+                    
+                    @if( session()->get('role') !== null && (session()->get('role')->name  == 'chef-vendeur' || session()->get('role')->name  == 'vendeur'))
+
+                       
+                             <li class="nav-item"><a class="nav-link" href="{{route('vendeurs.my_team')}}"><i class="fa fa-user-friends"></i> Mon équipe</a></li>
+                             {{-- @else  --}}
+                             
+                        {{-- @hasanyrole('chef-vendeur|vendeur')
+                             <li class="nav-item"><a class="nav-link" href="{{route('vendeurs.my_team')}}"><i class="fa fa-user-friends"></i> Mon équipe</a></li>
+                        @endrole --}}
+
+                    @endif
                     @auth
                     <li class="nav-item dropdown">
                         <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Mon Profil</a>
@@ -114,11 +162,24 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </ul>
                     </li>
                     @endauth
-                    @hasanyrole('super-admin|admin')
+
+                    @if( session()->get('role') !== null && (session()->get('role')->name  == 'super-admin' || session()->get('role')->name  == 'admin' ))
+                    
                         <li class="nav-item dropdown">
                             <a href="{{route('admin.dashboard')}}" class="btn btn-primary"><i class="fa fa-user-shield"></i> Tableau de bord</a>
                         </li>
-                    @endrole
+                    {{-- @else 
+                        @hasanyrole('super-admin|admin')
+                        <li class="nav-item dropdown">
+                            <a href="{{route('admin.dashboard')}}" class="btn btn-primary"><i class="fa fa-user-shield"></i> Tableau de bord</a>
+                        </li>   
+                        @endrole --}}
+                    
+                    @endif
+
+
+
+
                     <li>
                         <a class="dropdown-item text-primary" href="{{ route('logout') }}"
                            onclick="event.preventDefault();document.getElementById('logout-form').submit();">
