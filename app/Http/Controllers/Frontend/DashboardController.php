@@ -258,6 +258,7 @@ class DashboardController extends Controller
     public function infosPerso($default_tab=null){
         //the default_tab var is use to set default tab to display in the page 
         $user = auth()->user();
+        // dd($user->roles);
         $default_tab = $default_tab == null ? 'account': $default_tab ;
         $region_list = Region::pluck('name','id');
         $cities_list = City::where('region_id',$user->region_id)->pluck('name','id');
@@ -652,6 +653,19 @@ class DashboardController extends Controller
                     ->with('success',"Votre évènement a été enregistré avec succès");
         }
         return redirect()->back();
+    }
+
+
+    public function selectCategories(Request $request)
+    {
+        $res = Category::where( "type" ,$request->id)->get();
+        
+                /* ->where("name","LIKE","%{$request->term}%")
+                ->where("id","%{$request->term}%")
+                ->where("id", "!=", Auth::id())
+                ->get(); */
+
+        return response()->json($res);
     }
 
 }

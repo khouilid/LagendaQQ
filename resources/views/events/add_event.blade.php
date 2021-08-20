@@ -6,9 +6,15 @@
         <div class="offset-sm-2 col-10 text-blue mb-4"><h2><i class="fa fa-plus"></i> Ajout d'un événement (Le montage) 
         
             <div class="d-flex">
-                @foreach(@$user->roles as $role)
-                    <span class="badge m-2  bg-info">{{$role->name}}</span> 
+             
+                @if(session()->get('role') !== null)
+                <span class="badge bg-info">{{session()->get('role')->name}}</span>
+                @else
+                @foreach ($user->roles as $role)
+                    <p><span class="badge bg-info">{{$role->name}}</span></p>
                 @endforeach
+                    
+                @endif
             </div>
         
         </h2></div>
@@ -24,9 +30,11 @@
                 </div>
                 <div class="card-body">
                     <form action="{{route('user.store_event')}}" method="post" enctype="multipart/form-data">
+
                         <div class="row">
+
                             @csrf
-                            @if($user->hasAnyRole(['chef-vendeur','vendeur']))
+                            @if( session()->get('role') !== null && (session()->get('role')->name  == 'chef-vendeur' || session()->get('role')->name  == 'vendeur'))
                             <div class="offset-sm-0 col-12 form-group row">
                                 <label for="owner" class="col-sm-12 col-md-12">Publiée l'événement pour : </label>
                                 <select name="owner" id="owner" class="form-control">
@@ -116,6 +124,33 @@
                             console.log(key);
                             cities_field.innerHTML += `<option value="${key}">${region}</option>`;
                         }
+                    }
+                });
+            });
+
+            const cats = document.getElementById("catigorie_id");
+
+
+
+
+            document.getElementById("catigorie_id").addEventListener('change', function (event) {
+                if(cats.value == "Rencontre")  {
+                    document.getElementById("telephoneDev").style.display = 'none';
+
+                }
+                const selected_catigorie = this.value;
+                $.ajax({
+                    type: 'get',
+                    url: `{{url('/subcatigories')}}`,
+                    data: {'id': selected_catigorie},
+                    success: function(res){
+                        const entries = Object.entries(res);
+                        const subcats_field = document.getElementById("subcatigorie_id");
+                        document.getElementById("subcatigorie_id").innerHTML = `<option value=""> --- </option>`;
+                        entries.forEach(e => {
+                            document.getElementById("subcatigorie_id").innerHTML  += `<option value="${e[1].id}">${e[1].name}</option>`;
+                        });
+                    
                     }
                 });
             });

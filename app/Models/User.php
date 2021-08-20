@@ -396,26 +396,22 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->currencies->where('id',$currency_id)->first()->roles->first();
     }
-    /**
-     * Will return the list of prices based on user's role
-     */
+   
     public function getPricesList($role_id)
     {
 
+        if(session()->get('role') !== null){
+              $role_id = session()->get("role")->id;
+        }
         $role = CreditPrice::where('role_id',$role_id)->get();
-      
-        // $role_prices = $role->paid_credit;
-        // dd($role_prices);
+
         $list = [];
         foreach ($role as $key => $item) {
             $list[$item->price] = $item->credit_amount;
         }
         return $list ;
-        // dd($list);
     }
-    /**
-     * Build a select list with prices for a given role
-     */
+
     public function buildPricesOptions($role_id)
     {
         $role = Role::where('id',$role_id)->first();
@@ -426,7 +422,11 @@ class User extends Authenticatable implements MustVerifyEmail
         foreach ($list as $price => $amount) {
             $select_options .= '<option value="'.$price.'" data-amount="'.$amount.'">'.$amount.' '.$currenccy->name.' à $'.$price.'.00</option>';
         }
-        // dd($select_options);
+
+        // if(session()->get('role') !== null && session()->get('role')->id == 3 ){
+         
+        //     // $select_options .= "<option value=\"10\" data-amount=\"15000\">15000 Crédit à $10.00</option>";
+        // }
         return $select_options;
     }
 }

@@ -91,6 +91,10 @@ Route::get('/filter/announcements', [WelcomeController::class, 'filterAnnounceme
 Route::get('/filter/events', [WelcomeController::class, 'filterEvents']);
 //Select the cities of a selected region
 Route::get("select_cities/",[UserDashboard::class, "selectCities"])->name("select_cities");
+
+
+
+Route::get("subcatigories/",[UserDashboard::class, "selectCategories"])->name("selectCategories");
 /******************************/
 /*  VERIFIED USERS ROUTES     */
 /******************************/

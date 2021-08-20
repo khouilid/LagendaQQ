@@ -359,6 +359,7 @@ class EventController extends Controller
             'dates'         => 'required',
             'event_time'    => 'nullable',
             'organisation_id'    => 'nullable',
+            'vide_1'    => 'required',
         ]);
         $current_user = auth()->user();
         if(!isset($request->owner)){//If the owner is not defined the publisher become the publisher

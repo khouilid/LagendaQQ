@@ -1,8 +1,88 @@
 <div class="offset-sm-0 col-12 form-group row">
     <label for="title" class="col-sm-12 col-md-12">Titre de l'événement : *</label>
-    <input type="text" name="title" id="title" value="{{old('title',@$event->title)}}" class="form-control">
+    <input type="text" maxlength="35" name="title" id="title" value="{{old('title',@$event->title)}}" class="form-control">
     {!! $errors->first('title', '<div class="error-message col-12">:message</div>') !!}
 </div>
+
+<div class="offset-sm-0 col-sm-12 col-md-6 form-group row">
+    <label for="catigorie_id" class="col-sm-12 col-md-12">catégorie de l'événement : *</label>
+    <select name="catigorie_id" id="catigorie_id" class="form-control">
+        <option value=""> --- </option>
+        @php 
+           $cats =  ['evènement' => 'Evènement', 
+                          
+                            'Automobile' => 'Automobile',
+                            'Commerciale' => 'Commerciale',
+                            'Construction' => 'Construction',
+                            'Décès' => 'Décès',
+                            'ÉcrivHeur' => 'ÉcrivHeur',
+                            'Emploi' => 'Emploi',
+                            'Gens du pays' => 'Gens du pays',
+                            'Hébergement' => 'Hébergement',
+                            'Immobilière' => 'Immobilière',
+                            'LAGENDA' => 'LAGENDA',
+                            'Politique' => 'Politique',
+                            'Rencontre' => 'Rencontre',
+                            'Service' => 'Service',
+                            // 'Bannière audio' => 'Bannière audio',
+                            // 'Bannière Vidéo' => 'Bannière Vidéo',
+                            // 'Bannière Web' => 'Bannière Web',
+    ];
+        @endphp
+        @forelse($cats as $key => $cat)
+            <option value="{{$key}}">{{$cat}}</option>
+        @empty
+        @endforelse
+    </select>
+    {!! $errors->first('region_id', '<div class="error-message col-12">:message</div>') !!}
+</div>
+<div class="offset-sm-0 col-sm-12 col-md-6 form-group row">
+    <label for="catigorie_id" class="col-sm-12 col-md-12">Sous catégorie de l'événement : *</label>
+    <select name="category_id" id="subcatigorie_id" class="form-control">
+
+    </select>
+    {!! $errors->first('region_id', '<div class="error-message col-12">:message</div>') !!}
+</div>
+
+
+
+
+
+<div class="offset-sm-0 col-12 form-group row">
+    <label for="title" class="col-sm-12 col-md-12">Vide 1 : *</label>
+    <input type="text" maxlength="35" name="vide_1" id="title" value="{{old('vide_1',@$event->vide_1)}}" class="form-control">
+    {!! $errors->first('title', '<div class="error-message col-12">:message</div>') !!}
+</div>
+
+
+<div class="offset-sm-0 col-12 form-group row">
+    <label for="title" class="col-sm-12 col-md-12">Vide 2 :</label>
+    <input type="text" maxlength="35" name="vide_2" id="title" value="{{old('vide_2',@$event->vide_2)}}" class="form-control">
+    {!! $errors->first('title', '<div class="error-message col-12">:message</div>') !!}
+</div>
+
+<div class="offset-sm-0 col-sm-12 col-md-6 form-group row">
+    <label for="images" class="col-sm-12 col-md-12">images de l'événement : </label>
+    <input type="file" name="images" id="images" class="form-control">
+    <button id="uploadBtn"  type="button" class="browse form-control btn btn-primary">Choisir une image</button>
+    @error('image') <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div> @enderror
+</div>
+<div class="offset-sm-0 col-sm-12 col-md-6 form-group row">
+    <img id="preview" src="{{ route('show_image',@$event->images) }}" alt="{{@$event->title}}" style="width:50%; height: auto">
+</div>
+
+
+
+
+<div class="offset-sm-0 col-12 form-group row">
+    <label for="description" class="col-sm-12 col-md-12">Description de l'événement (Le poumon) : </label>
+    <div><textarea name="description" id="description" class="ckeditor form-control">{{old('description',@$event->description)}}</textarea></div>
+</div>
+
+
+
+
+
 <div class="offset-sm-0 col-sm-12 col-md-6 form-group row">
     <label for="datePick" class="col-sm-12 col-md-12">Dates de l'événement : * <br><small>Vous pouvez sélectionner plusieurs dates</small> </label>
     <!-- <input name="dates" id="datePick" class="form-control" value="{{old('dates',@$event->dates)}}"/>
@@ -24,7 +104,26 @@
     <input data-clocklet="format: H:mm" name="event_time" id="timePick" class="form-control" value="{{old('event_time',@$event->event_time)}}"/>
     -->
 </div>
+
 <div class="col-12"><hr/></div>
+
+
+<div class="offset-sm-0 col-sm-12 col-md-6 form-group row">
+    <label for="reservation_id" class="col-sm-12 col-md-12">Réservation d'avance : *</label>
+    <select name="reservation_id" id="reservation_id" class="form-control">
+        <option value=""> --- </option>
+            <option value="1">Oui</option>
+            <option value="0">Non</option>
+      
+            {{-- <option value="{{$key}}" {{ (old('region_id',@$event->region_id)  == $key) ? "selected":"" }}>{{$region}}</option> --}}
+    
+    </select>
+    {!! $errors->first('region_id', '<div class="error-message col-12">:message</div>') !!}
+</div>
+
+
+
+
 <div class="offset-sm-0 col-sm-12 col-md-6 form-group row">
     <label for="region_id" class="col-sm-12 col-md-12">Region de l'événement : *</label>
     <select name="region_id" id="region_id" class="form-control">
@@ -56,7 +155,7 @@
     <label for="email" class="col-sm-12 col-md-12">Email : </label>
     <input type="email" name="email" id="email" class="form-control" value="{{old('email',@$event->email)}}" />
 </div>
-<div class="offset-sm-0 col-sm-12 col-md-4 form-group row">
+<div id="telephoneDev" class="offset-sm-0 col-sm-12 col-md-4 form-group row">
     <label for="telephone" class="col-sm-12 col-md-12">Téléphone : </label>
     <input name="telephone" id="telephone" class="form-control phone_number" value="{{old('telephone',@$event->telephone)}}" />
 </div>
@@ -70,19 +169,17 @@
     </select>
 </div>
 <div class="col-12"><hr/></div>
-<div class="offset-sm-0 col-12 form-group row">
-    <label for="description" class="col-sm-12 col-md-12">Description de l'événement (Le poumon) : </label>
-    <div><textarea name="description" id="description" class="ckeditor form-control">{{old('description',@$event->description)}}</textarea></div>
-</div>
-<div class="offset-sm-0 col-sm-12 col-md-6 form-group row">
-    <label for="images" class="col-sm-12 col-md-12">images de l'événement : </label>
-    <input type="file" name="images" id="images" class="form-control">
-    <button id="uploadBtn"  type="button" class="browse form-control btn btn-primary">Choisir une image</button>
-    @error('image') <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div> @enderror
-</div>
-<div class="offset-sm-0 col-sm-12 col-md-6 form-group row">
-    <img id="preview" src="{{ route('show_image',@$event->images) }}" alt="{{@$event->title}}" style="width:50%; height: auto">
-</div>
+
+
+
+
+
+
+
+
+
+
+
 <div class="offset-sm-0 col-sm-12 col-md-6 form-group row">
     <label for="images" class="col-sm-12 col-md-12">Relais vers : </label>
     <input type="url" name="url[]" id="url" placeholder="Lien 1" class="form-control">
@@ -91,7 +188,7 @@
     @error('url') <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div> @enderror
 </div>
 <div class="col-12"><hr/></div>
-<div class="offset-sm-0 col-sm-12 col-md-6 form-group row">
+{{-- <div class="offset-sm-0 col-sm-12 col-md-6 form-group row">
     <label for="category_id" class="col-sm-12 col-md-12">Categorie de l'événement : </label>
     <select name="category_id" id="category_id" class="form-control">
         <option value=""> --- </option>
@@ -100,7 +197,7 @@
         @endforeach
     </select>
     {!! $errors->first('category_id', '<div class="error-message col-12">:message</div>') !!}
-</div>
+</div> --}}
 <div class="offset-sm-0 col-sm-12 col-md-6 form-group row">
     <label for="publication_status" class="col-sm-12 col-md-12">Statut de l'événement : * </label>
     <select name="publication_status" id="publication_status" class="form-control">
