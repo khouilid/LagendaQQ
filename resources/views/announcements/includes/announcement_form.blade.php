@@ -50,7 +50,7 @@
 </div>
 
 
-<div class="offset-sm-0 col-sm-12 col-md-6 form-group row">
+<div id="price_typ" class="offset-sm-0 col-sm-12 col-md-6 form-group row">
     <label for="images" class="col-sm-12 col-md-12">Type de prix : {{@$announcement->price_type}}</label>
     <select name="price_type" id="price_type" class="form-control">
         <option value=""> Sélectionez le type de prix </option>
@@ -60,6 +60,21 @@
     </select>
     {!! $errors->first('price_type', '<div class="error-message col-12">:message</div>') !!}
 </div>
+
+<div id="cele" style="display: none" class="offset-sm-0 col-sm-12 col-md-6 form-group row">
+    <label for="cele_type" class="col-sm-12 col-md-12">Je suis:</label>
+    <select name="cele_type" id="cele_type" class="form-control">
+        <option value=""> Sélectionez le </option>
+        <option value="1" >Célibataire </option>
+        <option value="3" >Séparé</option>
+        {{-- <option value="2" {{intval(old('price_type',@$announcement->price_type)) === 2?"selected":"" }}>Échange</option> --}}
+    </select>
+    {!! $errors->first('price_type', '<div class="error-message col-12">:message</div>') !!}
+</div>
+
+
+
+
 <div id="price_field_wrapper" class="offset-sm-0 col-sm-12 col-md-6 form-group row" style="{{intval(old('price_type',@$announcement->price_type)) === 1?'':'display:none'}}">
     <label for="images" class="col-sm-12 col-md-12">Price : </label>
     <input type="number" name="price" id="price" min="0" step="0.01" value="{{old('price',@$announcement->price)}}" class="form-control" placeholder="Entrez le prix de votre annonce Ex : 7.5">
@@ -128,5 +143,22 @@
 
 <script>
     $(document).ready(function () {
+
+
+
+    });
+
+
+
+
+    
+            
+    document.getElementById("category_id").addEventListener('change', function (event) {
+                if( document.getElementById("category_id").value == "28")  {
+                    document.getElementById("telephoneDev").style.display = 'none';
+                    document.getElementById("price_typ").style.display = 'none';
+                    document.getElementById("cele").style.display = 'block';
+
+                }
     });
 </script>

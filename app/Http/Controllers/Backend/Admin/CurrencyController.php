@@ -314,7 +314,7 @@ class CurrencyController extends Controller
         //If the currency is 1 we take the first role of the user else we get the role from given currency.
         $role   = intval($data['currency_id']) === 1 ? $user->roles->first() : $user->getRoleFromCurrency($data['currency_id']);
         //We get the price details from the given price
-        $currency_prices   = $role->credit_prices()->where('price',$data['price'])->first();
+        $currency_prices   = session()->get("role")->credit_prices()->where('price',$data['price'])->first();
 
         //dd( $currency_prices->price,$data['currency_id'], $user->getRoleFromCurrency($data['currency_id'])->credit_prices() );
         $title  = "Vous allez acheter ".$currency_prices->credit_amount." $currency->name à $".$data['price'].".00";

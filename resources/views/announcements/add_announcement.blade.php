@@ -200,13 +200,5 @@
 
 
 
-            
-            document.getElementById("category_id").addEventListener('change', function (event) {
-                if(cats.value == "Rencontre")  {
-                    document.getElementById("telephoneDev").style.display = 'none';
-
-                }
-               
-            });
     </script>
 @endpush
