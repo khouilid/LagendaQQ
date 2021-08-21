@@ -20992,9 +20992,10 @@ select.form-control:not([size]):not([multiple]) {
     min-height: 140px;
 }
 .announcement-meta-wrapper {
-    background: #e2e2e2;
+    background: #63b3ed;
+    color: white;
     height: inherit;
-    padding: 5px 15px;
+    padding: 30px 15px;
     position: relative;
     top: 0;
     z-index: 1;
@@ -21011,8 +21012,8 @@ ul.metas {
 }
 .announcement-metas .meta-value span {
     text-align: center;
-    background: #dadada;
-    color: #000000;
+    background: #3182ce;
+    color: #ebebeb;
     margin: 1px 0;
     padding: 1px 11px;
     border-radius: 12px;
@@ -21727,6 +21728,16 @@ header .navbar {
 #tw-intro .custom-size {
     width: 500px;
     height: 500px;
+}
+
+.custom-color-page {
+    background-color: yellowgreen;
+    color: black;
+    box-shadow: 0px 3px 15px 0px #3182ce;
+}
+.announcement-title, .announcement-description {
+    color: #232323; 
+    font-family: 'Poppins', sans-serif;
 }
 
 /* Bootstrap toggler position */
