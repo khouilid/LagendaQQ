@@ -53,8 +53,8 @@
                                         class="fa fa-mail-bulk mr-4"> Code Postal</i> {{@$announcement->postal_code}}
                                 </li>
                                 @endif
-                                <li class="list-group-item"><i class="fa fa-map-marked-alt mr-4"></i><br>
-                                    {{@$announcement->city->name}} <br> {{@$announcement->region->name}}</li>
+                                <li class="list-group-item"><i class="fa fa-map-marked-alt mr-4"></i>
+                                    {{@$announcement->city->name}} {{@$announcement->region->name}}</li>
                                 @if(trim(@$announcement->website) !== "")<li class="list-group-item"><i
                                         class="fa fa-laptop-house"></i><a href="{{@$announcement->website}}"
                                         target="_blank"> {{@$announcement->website}}</a></li>@endif
@@ -82,7 +82,7 @@
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-9 announcement-container">
-                    <h3 class="announcement-title">{{@$announcement->title}}</h3>
+                    <h3 class="announcement-title text-center">{{@$announcement->title}}</h3>
                     <div class="announcement-description pt-5 pl-4">{!! @$announcement->description !!}</div>
                     <div class="announcement-dates mt-3 bg-gray-light px-3 py-3">
                         <strong>Prix : </strong>
