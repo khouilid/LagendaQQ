@@ -6,7 +6,7 @@
         <div class="offset-sm-2 col-10 text-blue mb-4"><h2><i class="fa fa-plus"></i> Modification de l'évènement {{$event->title}}</h2></div>
         @if(!$can_post and intval($event->purchased) === 0)
             <div class="badge text-danger badge-light mb-4 py-2" style="line-height: 2.4;">
-                Vous n'avez pas assez de <strong>{{strtolower(@$role_currency->name)}}</strong> dans votre portefeuille pour publier votre évènement.<br>Vous pouvez tout de même l'enregistrer en brouillon. Vous pouvez aussi <a href="{{route('purchase_currency')}}" class="btn btn-sm btn-success"> recharger votre portefeuille.</a>
+                Vous n'avez pas assez de <strong>{{strtolower(@$role_currency->name)}}</strong> dans votre portefeuille pour publier votre évènement.<br>Vous pouvez tout de même l'enregistrer en brouillon. Vous pouvez aussi <a href="{{route('purchase_currency')}}" class="btn btn-sm btn-success"> Recharger votre portefeuille.</a>
             </div>
         @endif
         <div class="col-8 tab-content mx-auto" id="nav-tabContent">
