@@ -11,17 +11,36 @@
                     connecter</a>
                 @endguest
                 @auth
-                <form action="{{ route('logout') }}" method="post">
-                    @csrf
-                    <button class="btn btn-deconnecter" type="submit" class="text-white"><i
-                            class="fas fa-sign-in-alt mr-1"></i>Se
-                        Déconnecter</button>
-                </form>
+                <div class="d-flex align-items-center top-bar-links">
+                    {{-- start --}}
+
+                    <a class="mr-4" href="{{route('user.dashboard')}}" class="dropdown-item">
+                        <i class="fas fa-tachometer-alt mr-2"></i> Adminstration
+                    </a>
+
+                    <a class="mr-4" href="{{route('user.infosperso')}}">
+                        <i class="fas fa-user mr-2"></i> Mon Profil
+                    </a>
+
+                    <a class="mr-4" href="{{route('user.infosperso','security')}}">
+                        <i class="fas fa-lock mr-2"></i> Securité
+                    </a>
+                    {{-- end --}}
+
+                    <div class="">
+                        <a class="text-white" href="#"><i class="far fa-comment-dots mr-1"></i>Assistance</a>
+                    </div>
+
+                    <form action="{{ route('logout') }}" method="post">
+                        @csrf
+                        <button class="btn btn-deconnecter" type="submit" class="text-white"><i
+                                class="fas fa-sign-out-alt mr-1"></i>Se
+                            Déconnecter</button>
+                    </form>
+                </div>
                 @endauth
             </div>
-            <div class="">
-                <a class="text-white" href="#"><i class="far fa-comment-dots mr-1"></i>Assistance</a>
-            </div>
+
             <!-- profile start -->
             <!-- <div class="ml-1">
                 @php 
