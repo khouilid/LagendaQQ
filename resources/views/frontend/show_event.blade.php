@@ -25,7 +25,7 @@
                                 @if(intval($event->publication_status) === 0)
                                 <span class="badge badge-warning">Enregistrée en brouillon</span>
                                 @elseif(intval($event->publication_status) === 2)
-                                <span class="badge badge-primary"><i class="fa fa-user-lock"></i>Enregistrée en
+                                <span class="badge badge-primary"><i class="fa fa-user-lock mr-4"></i>Enregistrée en
                                     Privée</span>
                                 @endif
                                 @endif
@@ -37,18 +37,19 @@
                             </div>
                             <div class="col-12"> <strong>Publié par :</strong> </div>
                             <ul class="row flex-column p-0 mx-1 publication-meta w-100">
-                                <li class="list-group-item"><i class="fa fa-user"></i> {{@$event->owned->prenom}}
+                                <li class="list-group-item"><i class="fa fa-user mr-4"></i> {{@$event->owned->prenom}}
                                     {{@$event->owned->name}} </li>
                                 @if(trim(@$event->owned->mainRole()->name) !== "")<li class="list-group-item">
-                                    <strong><i class="fa fa-user-lock"></i> Fonction</strong>
+                                    <strong><i class="fa fa-user-lock mr-4"></i> Fonction</strong>
                                     {{@$event->owned->mainRole()->name}} </li>@endif
-                                <li class="list-group-item"><i class="fa fa-envelope"></i> {{@$event->email}}</li>
+                                <li class="list-group-item"><i class="fa fa-envelope mr-4"></i> {{@$event->email}}</li>
                                 @if(trim(@$event->telephone) !== "")<li class="list-group-item"><i
                                         class="fa fa-phone-alt"></i> {{@$event->telephone}}</li>@endif
                                 @if(trim(@$event->postal_code) !== "")<li class="list-group-item"><i
-                                        class="fa fa-mail-bulk"> Code Postal</i> {{@$event->postal_code}}</li>@endif
-                                <li class="list-group-item"><i class="fa fa-map-marked-alt"></i><br>
-                                    {{@$event->city->name}} <br> {{@$event->region->name}}</li>
+                                        class="fa fa-mail-bulk mr-4"> Code Postal</i> {{@$event->postal_code}}</li>
+                                @endif
+                                <li class="list-group-item"><i class="fa fa-map-marked-alt mr-4"></i>
+                                    {{@$event->city->name}} {{@$event->region->name}}</li>
                                 @if(trim(@$event->website) !== "")<li class="list-group-item"><i
                                         class="fa fa-laptop-house"></i><a href="{{@$event->website}}" target="_blank">
                                         {{@$event->website}}</a></li>@endif
@@ -64,7 +65,7 @@
                         <hr>
                         @if(!empty($event->announcement))
                         <hr>
-                        <div class="bg-light p-2 mt-5">
+                        <div class="bg-light p-2 mt-5 text-black">
                             <strong><i class="fa fa-bullhorm"></i> Vers L'annonce de l'activité :</strong>
                             <h5><a class="btn-link" href="{{route('page_annonce',@$event->announcement->slug)}}"></a>
                             </h5>
@@ -80,7 +81,7 @@
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-9 announcement-container">
-                    <h3 class="announcement-title">{{@$event->title}}</h3>
+                    <h3 class="announcement-title text-center">{{@$event->title}}</h3>
                     <div class="announcement-description pt-5 pl-4">{!! @$event->description !!}</div>
                     <div>
                         <h3>Lieu <i class="fa fa-map-marked-alt"></i></h3>

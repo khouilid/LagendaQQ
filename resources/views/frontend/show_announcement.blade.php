@@ -61,7 +61,7 @@
                             </ul>
                         </div>
                         <hr>
-                        <i class="fa fa-map-marked-alt"></i><br> {{@$announcement->city->name}} <br>
+                        <i class="fa fa-map-marked-alt"></i> {{@$announcement->city->name}}
                         {{@$announcement->region->name}}
                         @if(!empty(@$announcement->event))
                         <hr>

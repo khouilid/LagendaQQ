@@ -269,35 +269,35 @@
 
 <script type="text/javascript">
   //Javacript for video slider navigation
-    const btns = document.querySelectorAll(".nav-btn");
-    const slides = document.querySelectorAll(".video-slide");
-    const contents = document.querySelectorAll(".content");
+    // const btns = document.querySelectorAll(".nav-btn");
+    // const slides = document.querySelectorAll(".video-slide");
+    // const contents = document.querySelectorAll(".content");
 
-    var sliderNav = function(manual){
-      btns.forEach((btn) => {
-        btn.classList.remove("active");
-      });
+    // var sliderNav = function(manual){
+    //   btns.forEach((btn) => {
+    //     btn.classList.remove("active");
+    //   });
 
-      slides.forEach((slide) => {
-        slide.classList.remove("active");
-      });
+    //   slides.forEach((slide) => {
+    //     slide.classList.remove("active");
+    //   });
 
-      contents.forEach((content) => {
-        content.classList.remove("active");
-      });
+    //   contents.forEach((content) => {
+    //     content.classList.remove("active");
+    //   });
 
-      btns[manual].classList.add("active");
-      slides[manual].classList.add("active");
-      contents[manual].classList.add("active");
-    }
+    //   btns[manual].classList.add("active");
+    //   slides[manual].classList.add("active");
+    //   contents[manual].classList.add("active");
+    // }
 
-    btns.forEach((btn, i) => {
-      btn.addEventListener("click", () => {
-        sliderNav(i);
-      });
-    });
+    // btns.forEach((btn, i) => {
+    //   btn.addEventListener("click", () => {
+    //     sliderNav(i);
+    //   });
+    // });
 
-        // Javascript for image slider autoplay navigation
+    //     // Javascript for image slider autoplay navigation
     //   var repeat = function(activeClass){
     //   let active = document.getElementsByClassName('active');
     //   let i = 1;

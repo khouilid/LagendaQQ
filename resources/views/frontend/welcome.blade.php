@@ -157,7 +157,7 @@
         </div>
         <!-- Row End -->
         <div class="row wow fadeInUp " data-wow-duration="1s" data-wow-delay=".2s">
-            <div class="col d-flex justify-content-center flex-wrap">
+            <div class="d-flex justify-content-center flex-wrap">
                 @foreach($last_published as $key => $item)
                 {{-- @php
                     dd($item)

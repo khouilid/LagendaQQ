@@ -1,4 +1,3 @@
-
 <header class="">
 
     </nav>
@@ -7,8 +6,18 @@
     <div id="topbar">
         <div class="topbar-styles container d-flex align-items-center justify-content-end">
             <div class="px-3">
+                @guest
                 <a class="text-white" href="{{ route('login') }}"><i class="fas fa-sign-in-alt mr-1"></i>Se
                     connecter</a>
+                @endguest
+                @auth
+                <form action="{{ route('logout') }}" method="post">
+                    @csrf
+                    <button class="btn btn-deconnecter" type="submit" class="text-white"><i
+                            class="fas fa-sign-in-alt mr-1"></i>Se
+                        Déconnecter</button>
+                </form>
+                @endauth
             </div>
             <div class="">
                 <a class="text-white" href="#"><i class="far fa-comment-dots mr-1"></i>Assistance</a>
