@@ -21754,6 +21754,18 @@ header .navbar {
     color: black;
 }
 
+/* se deconnecter btn */
+
+.btn-deconnecter {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    background-color: transparent;
+}
+
+.btn-deconnecter:hover{
+    color: white;
+}
+
 /* Bootstrap toggler position */
 @media (min-width: 768px) and (max-width: 991px){
     .navbar-toggler {
