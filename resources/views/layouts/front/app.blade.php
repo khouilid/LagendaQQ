@@ -219,7 +219,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <select id="switchTo" name='switchTo' class="mt-2 bg-white border-0">
                                     <option  value="" >Basculer vers</option>
                                     @foreach(auth()->user()->roles as $fonction)
-                                        <option  value="{{$fonction->id}}"> {{$fonction->name}}</option>
+                                    @php 
+                                       var_dump($fonction);
+                                    @endphp
+                                       @if (session()->get("role") !== null && session()->get("role")->id == $fonction->id )
+                                       
+                                                <option style="bg-success"  value="{{$fonction->id}}"> {{$fonction->name}}</option>
+                                           
+                                       @else
+                                           
+                                            <option  value="{{$fonction->id}}"> {{$fonction->name}}</option>
+                                       @endif
                                     @endforeach
                                 </select>
 
