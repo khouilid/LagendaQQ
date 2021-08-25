@@ -41313,7 +41313,8 @@ a.text-muted:hover {
     min-height: 60px;
     max-height: 90px;
     max-width: 350px;
-    overflow-y: auto;
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
 .tiny-text {
     font-size: small;

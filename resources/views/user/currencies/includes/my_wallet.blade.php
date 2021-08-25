@@ -1,6 +1,6 @@
- <div class="row">
+<div class="row">
     <div class="col-md-12 col-sm-12">
-        <div class="card">
+        <div class="card mt-4">
             <div class="card-header">
                 <h2 class="card-title font-weight-bold">Mon portefeuille</h2>
             </div>
@@ -16,19 +16,21 @@
                     </thead>
                     <tbody>
                         @foreach($user->currencies as $currency)
-                            <tr>
-                                <td style="text-align: center">
-                                    <div class="info-box-icon text-primary"><i class="{{$currency->icons}}"></i> <strong class="text-danger"> {{$currency->name}}</strong></div>
-                                </td>
-                                <td>{!! $currency->description !!}</td>
-                                <td>
-                                    <strong>Gratuit : {{$currency->pivot->free_currency}}</strong><br>
-                                    <strong>Payant : {{$currency->pivot->paid_currency}}</strong>
-                                </td>
-                                <td>
-                                    <a href="{{route('user.currencies.transfer', $currency->slug)}}" class="btn btn-success"><i class="fa fa-exchange-alt"></i> Transférer</a>
-                                </td>
-                            </tr>
+                        <tr>
+                            <td style="text-align: center">
+                                <div class="info-box-icon text-primary"><i class="{{$currency->icons}}"></i> <strong
+                                        class="text-danger"> {{$currency->name}}</strong></div>
+                            </td>
+                            <td>{!! $currency->description !!}</td>
+                            <td>
+                                <strong>Gratuit : {{$currency->pivot->free_currency}}</strong><br>
+                                <strong>Payant : {{$currency->pivot->paid_currency}}</strong>
+                            </td>
+                            <td>
+                                <a href="{{route('user.currencies.transfer', $currency->slug)}}"
+                                    class="btn btn-success"><i class="fa fa-exchange-alt"></i> Transférer</a>
+                            </td>
+                        </tr>
                         @endforeach
                     </tbody>
                 </table>
@@ -36,7 +38,7 @@
         </div>
     </div>
 </div>
- <script defer>
+<script defer>
     $(function() {
         $('#wallet-table').DataTable({
             order: [[ 0, 'asc' ]],

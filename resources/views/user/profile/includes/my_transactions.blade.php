@@ -1,8 +1,9 @@
- <div class="row">
+<div class="row mt-4">
     <div class="col-md-12 col-sm-12">
         <div class="card">
             <div class="card-header">
-                <h2 class="card-title font-weight-bold">Mes transferts monnaie Vancl @hasanyrole('admin') (admin) @endrole</h2>
+                <h2 class="card-title font-weight-bold">Mes transferts monnaie Vancl @hasanyrole('admin') (admin)
+                    @endrole</h2>
             </div>
             <div class="card-body">
                 <table class="table table-success table-striped table-borderless" id="my-transactions-table">
@@ -17,26 +18,30 @@
                         </tr>
                     </thead>
                     <tbody>
-                    @foreach($logs as $log)
+                        @foreach($logs as $log)
                         <tr>
-                                 <td>{{$log->id}}</td>
-                                 <td>{{$log->ref}}</td>
+                            <td>{{$log->id}}</td>
+                            <td>{{$log->ref}}</td>
                             <td>
                                 <!-- let type_text = data.sent_by.id==={{$user->id}}?"<strong>Envoie</strong>":"<strong>Réception</strong>"; -->
                                 <span><strong>{{@$log->sent_by->id === $user->id?"Envoie":"Réception"}}</strong><br>
-                                <i class="{{@$log->credit->icons}}"></i> {{@$log->credit->name}}</span>
+                                    <i class="{{@$log->credit->icons}}"></i> {{@$log->credit->name}}</span>
                             </td>
                             <td>
                                 @if(@$log->sent_by->id == $user->id)
-                                    <span class="sent_by">Vous avez</span> envoyé {{@$log->sent_value}} {{@$log->credit->name}} à <span class="sent_to"> {{@$log->sent_to->username}}</span>
+                                <span class="sent_by">Vous avez</span> envoyé {{@$log->sent_value}}
+                                {{@$log->credit->name}} à <span class="sent_to"> {{@$log->sent_to->username}}</span>
                                 @else
-                                    <span class="sent_by">{{@$log->sent_by->username}}</span> vous a envoyé {{@$log->sent_value}} {{@$log->credit->name}}
+                                <span class="sent_by">{{@$log->sent_by->username}}</span> vous a envoyé
+                                {{@$log->sent_value}} {{@$log->credit->name}}
                                 @endif
                             </td>
-                            <td><div class='log-notes'>{!!@$log->notes!!}</div></td>
+                            <td>
+                                <div class='log-notes'>{!!@$log->notes!!}</div>
+                            </td>
                             <td>{{@$log->updated_at}}</td>
                         </tr>
-                    @endforeach
+                        @endforeach
                     </tbody>
                 </table>
             </div>
@@ -44,7 +49,7 @@
     </div>
 </div>
 <script defer>
-        var today = new Date();
+    var today = new Date();
         var dd = String(today.getDate()).padStart(2, '0');
         var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
         var yyyy = today.getFullYear();
@@ -121,4 +126,4 @@
             });
 
         });
-    </script>
+</script>
