@@ -37,7 +37,32 @@ class CategoryForm extends Form
             ]) */
             ->add('type', 'select',[
                 'label' => 'Type',
-                'choices' => ['evènement' => 'Evènement', 'annonce' => 'Annonce'],
+                'choices' => 
+                ['evènement' => 'Evènement', 
+                'annonce' => 'Annonce',
+                          
+                            'Automobile' => 'Automobile',
+                            'Commerciale' => 'Commerciale',
+                            'Construction' => 'Construction',
+                            'Décès' => 'Décès',
+                            'ÉcrivHeur' => 'ÉcrivHeur',
+                            'Emploi' => 'Emploi',
+                            'Gens du pays' => 'Gens du pays',
+                            'Hébergement' => 'Hébergement',
+                            'Immobilière' => 'Immobilière',
+                            'LAGENDA' => 'LAGENDA',
+                            'Politique' => 'Politique',
+                            'Rencontre' => 'Rencontre',
+                            'Service' => 'Service',
+                            // 'Bannière audio' => 'Bannière audio',
+                            // 'Bannière Vidéo' => 'Bannière Vidéo',
+                            // 'Bannière Web' => 'Bannière Web',
+            ],
+                
+                
+                
+                
+         
                 'empty_value' => '=== Choisissez le type de catégorie ===',
                 'rules' => [
                     'required',
