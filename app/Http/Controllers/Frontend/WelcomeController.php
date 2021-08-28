@@ -28,7 +28,7 @@ class WelcomeController extends Controller
 							->get(); */
 		$announcements = Announcement::where('publication_status','1')
                             ->where('lock_publication','!=',1)
-							->orderby('published_at','desc')
+							->orderby('published_at','asc')
 							->limit(6)
 							->get();
 		$last_published = $announcements->all();

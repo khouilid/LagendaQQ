@@ -41,7 +41,7 @@
                             <div class="offset-sm-0 col-12 form-group row">
                                 <label for="owner" class="col-sm-12 col-md-12">Publiée l'annonce pour : </label>
                                 <select name="owner" id="owner" class="form-control">
-                                    <option value=""> --- </option>
+                                
                                     @forelse($children as $child)
                                     <option value="{{$child->id}}"> {{$child->name}} </option>
                                     @empty

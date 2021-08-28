@@ -1,7 +1,7 @@
 @extends('layouts.back.admin')
 
 @section('title',"Ajout d'une annonce en backoffice")
-@section('page_title','Ajout d'une annonce en backoffice')
+@section('page_title','Ajout d\'une annonce en backoffice\')
 
 <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css"> 
 @section('content')
@@ -40,7 +40,7 @@
                             <div class="offset-sm-0 col-12 form-group row">
                                 <label for="owner" class="col-sm-12 col-md-12">Publiée l'annonce pour : </label>
                                 <select name="owner" id="owner" class="form-control">
-                                    <option value=""> --- </option>
+                               
                                     @forelse($children as $child)
                                     <option value="{{$child->id}}" {{old("owner",@$event->owner) == $child->id?'selected':'' }}> {{$child->username}} </option>
                                     @empty
