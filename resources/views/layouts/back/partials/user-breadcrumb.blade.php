@@ -1,5 +1,5 @@
 <!-- Content Header (Page header) -->
-<div class="content-header">
+<div class="">
     <div class="container">
         <div class="row mb-2">
             <div class="col-sm-6">
@@ -12,7 +12,8 @@
                     @endif
                     <li class="breadcrumb-item">@yield('title')</li>
                 </ol>
-            </div> --><!-- /.col -->
+            </div> -->
+            <!-- /.col -->
         </div><!-- /.row -->
     </div><!-- /.container-fluid -->
 </div>
