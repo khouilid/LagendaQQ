@@ -21,6 +21,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link href='https://cdn.jsdelivr.net/npm/froala-editor@2.9.1/css/froala_style.min.css' rel='stylesheet'
         type='text/css' />
 
+    <link rel="stylesheet" href="./css/frontend.css">
+
     <link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css">
 
     <!-- App script -->
@@ -58,61 +60,60 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <body class="hold-transition layout-top-nav" siteurl="{{ config('app.url') }}">
     <div class="wrapper">
         <!-- Navbar -->
-        <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
+        {{-- <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
             <div class="container">
                 <a href="{{ route('welcome') }}" class="navbar-brand">
-                    <img src="{{ asset('/images/logo/logo.png') }}" alt="{{ config('app.name') }}" class="brand-image">
-                </a>
+        <img src="{{ asset('/images/logo/logo.png') }}" alt="{{ config('app.name') }}" class="brand-image">
+        </a>
 
-                <button class="navbar-toggler order-1" type="button" data-toggle="collapse"
-                    data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse order-3" id="navbarCollapse">
-                    <!-- Left navbar links -->
-                    <ul class="navbar-nav">
-                        @if( session()->get('role') !== null && session()->get('role')->name == 'banquier')
+        <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse order-3" id="navbarCollapse">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+                @if( session()->get('role') !== null && session()->get('role')->name == 'banquier')
 
-                        <li class="nav-item">
-                            <a href="{{ route('banker.currencies.accounts') }}"
-                                class="nav-link {{ side_nav_bar_menu_status('dashboard','active') }}"><i
-                                    class="fas fa-coins nav-icon pr-2"></i>Les Monnaies</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('banker.currencies.index') }}"
-                                class="nav-link {{ side_nav_bar_menu_status('dashboard','active') }}"><i
-                                    class="fa fa-plus nav-icon pr-2"></i>Ajouter une monnaie</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('admin.credits.logs') }}"
-                                class="nav-link {{ side_nav_bar_menu_status('dashboard','active') }}"><i
-                                    class="fa fa-list nav-icon pr-2"></i>Historique des transferts</a>
-                        </li>
+                <li class="nav-item">
+                    <a href="{{ route('banker.currencies.accounts') }}"
+                        class="nav-link {{ side_nav_bar_menu_status('dashboard','active') }}"><i
+                            class="fas fa-coins nav-icon pr-2"></i>Les Monnaies</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('banker.currencies.index') }}"
+                        class="nav-link {{ side_nav_bar_menu_status('dashboard','active') }}"><i
+                            class="fa fa-plus nav-icon pr-2"></i>Ajouter une monnaie</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.credits.logs') }}"
+                        class="nav-link {{ side_nav_bar_menu_status('dashboard','active') }}"><i
+                            class="fa fa-list nav-icon pr-2"></i>Historique des transferts</a>
+                </li> --}}
 
 
-                        {{-- @else
+                {{-- @else
                     
     
                         @hasanyrole('banquier')
                             <li class="nav-item">
                                 <a href="{{ route('banker.currencies.accounts') }}" class="nav-link
-                        {{ side_nav_bar_menu_status('dashboard','active') }}"><i
-                            class="fas fa-coins nav-icon pr-2"></i>Les Monnaies</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('banker.currencies.index') }}"
-                                class="nav-link {{ side_nav_bar_menu_status('dashboard','active') }}"><i
-                                    class="fa fa-plus nav-icon pr-2"></i>Ajouter une monnaie</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('admin.credits.logs') }}"
-                                class="nav-link {{ side_nav_bar_menu_status('dashboard','active') }}"><i
-                                    class="fa fa-list nav-icon pr-2"></i>Historique des transferts</a>
-                        </li>
-                        @endrole --}}
+                {{ side_nav_bar_menu_status('dashboard','active') }}"><i class="fas fa-coins nav-icon pr-2"></i>Les
+                Monnaies</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('banker.currencies.index') }}"
+                        class="nav-link {{ side_nav_bar_menu_status('dashboard','active') }}"><i
+                            class="fa fa-plus nav-icon pr-2"></i>Ajouter une monnaie</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.credits.logs') }}"
+                        class="nav-link {{ side_nav_bar_menu_status('dashboard','active') }}"><i
+                            class="fa fa-list nav-icon pr-2"></i>Historique des transferts</a>
+                </li>
+                @endrole --}}
 
-                        @endif
+                {{-- @endif
 
                         @if( session()->get('role') !== null && (session()->get('role')->name == 'super-admin' ||
                         session()->get('role')->name == 'admin' || session()->get('role')->name == 'annonceur' ||
@@ -120,39 +121,39 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                         <li class="nav-item">
                             <a href="{{ route('user.dashboard') }}"
-                                class="nav-link {{ side_nav_bar_menu_status('dashboard','active') }}"><i
-                                    class="fa fa-user-cog"></i> Portrait</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('user.my_events') }}"
-                                class="nav-link {{ side_nav_bar_menu_status('events','active') }}"><i
-                                    class="fas fa-calendar-check"></i> Mes événements</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{route('user.my_announcements')}}" class="nav-link"><i class="fa fa-bullhorn"></i>
-                                Mes annonces</a>
-                        </li>
+                class="nav-link {{ side_nav_bar_menu_status('dashboard','active') }}"><i class="fa fa-user-cog"></i>
+                Portrait</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('user.my_events') }}"
+                        class="nav-link {{ side_nav_bar_menu_status('events','active') }}"><i
+                            class="fas fa-calendar-check"></i> Mes événements</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('user.my_announcements')}}" class="nav-link"><i class="fa fa-bullhorn"></i>
+                        Mes annonces</a>
+                </li> --}}
 
-                        {{-- @else 
+                {{-- @else 
                         @hasanyrole('super-admin|admin|annonceur|vendeur')
                           
                             <li class="nav-item">
                                 <a href="{{ route('user.dashboard') }}" class="nav-link
-                        {{ side_nav_bar_menu_status('dashboard','active') }}"><i class="fa fa-user-cog"></i>
-                        Portrait</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('user.my_events') }}"
-                                class="nav-link {{ side_nav_bar_menu_status('events','active') }}"><i
-                                    class="fas fa-calendar-check"></i> Mes événements</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{route('user.my_announcements')}}" class="nav-link"><i class="fa fa-bullhorn"></i>
-                                Mes annonces</a>
-                        </li>
-                        @endrole --}}
+                {{ side_nav_bar_menu_status('dashboard','active') }}"><i class="fa fa-user-cog"></i>
+                Portrait</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('user.my_events') }}"
+                        class="nav-link {{ side_nav_bar_menu_status('events','active') }}"><i
+                            class="fas fa-calendar-check"></i> Mes événements</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('user.my_announcements')}}" class="nav-link"><i class="fa fa-bullhorn"></i>
+                        Mes annonces</a>
+                </li>
+                @endrole --}}
 
-                        @endif
+                {{-- @endif
 
 
 
@@ -163,65 +164,65 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 
                         <li class="nav-item"><a class="nav-link" href="{{route('vendeurs.my_team')}}"><i
-                                    class="fa fa-user-friends"></i> Mon équipe</a></li>
-                        {{-- @else  --}}
+                    class="fa fa-user-friends"></i> Mon équipe</a></li> --}}
+                {{-- @else  --}}
 
-                        {{-- @hasanyrole('chef-vendeur|vendeur')
+                {{-- @hasanyrole('chef-vendeur|vendeur')
                              <li class="nav-item"><a class="nav-link" href="{{route('vendeurs.my_team')}}"><i
-                            class="fa fa-user-friends"></i> Mon équipe</a></li>
-                        @endrole --}}
+                    class="fa fa-user-friends"></i> Mon équipe</a></li>
+                @endrole --}}
 
-                        @endif
+                {{-- @endif
                         @auth
                         <li class="nav-item dropdown">
                             <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="false" class="nav-link dropdown-toggle">Mon Profil</a>
+                                aria-expanded="false" class="nav-link dropdown-toggle">Mon
+                                Profil</a>
                             <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
                                 <li>
                                     <a class="dropdown-item" href="{{route('user.infosperso')}}/account"><i
-                                            class="fa fa-cogs"></i> Mon Compte</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="{{route('user.infosperso')}}/infos-perso"><i
-                                            class="fa fa-user"></i> Infos personelles</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item link-success"
-                                        href="{{route('user.infosperso')}}/transactions"
-                                        title="Lsite de mes transactions"><i class="fas fa-exchange-alt"
-                                            aria-hidden="true"></i> Mes Transactions</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item link-primary" href="{{route('user.infosperso')}}/wallet"
-                                        title="Mon Portefeuille"><i class="fa fa-wallet" aria-hidden="true"></i> Mon
-                                        Portefeuille </a>
-                                </li>
-                                <li class="dropdown-divider"></li>
-                                <li>
-                                    <a class="dropdown-item link-primary" href="{{route('user.infosperso')}}/security"
-                                        title="Mon Portefeuille"><i class="fa fa-wallet" aria-hidden="true"></i>
-                                        Sécurité </a>
-                                </li>
-                            </ul>
-                        </li>
-                        @endauth
+                    class="fa fa-cogs"></i> Mon Compte</a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="{{route('user.infosperso')}}/infos-perso"><i class="fa fa-user"></i>
+                        Infos personelles</a>
+                </li>
+                <li>
+                    <a class="dropdown-item link-success" href="{{route('user.infosperso')}}/transactions"
+                        title="Lsite de mes transactions"><i class="fas fa-exchange-alt" aria-hidden="true"></i> Mes
+                        Transactions</a>
+                </li>
+                <li>
+                    <a class="dropdown-item link-primary" href="{{route('user.infosperso')}}/wallet"
+                        title="Mon Portefeuille"><i class="fa fa-wallet" aria-hidden="true"></i> Mon
+                        Portefeuille </a>
+                </li>
+                <li class="dropdown-divider"></li>
+                <li>
+                    <a class="dropdown-item link-primary" href="{{route('user.infosperso')}}/security"
+                        title="Mon Portefeuille"><i class="fa fa-wallet" aria-hidden="true"></i>
+                        Sécurité </a>
+                </li>
+            </ul>
+            </li>
+            @endauth
 
-                        @if( session()->get('role') !== null && (session()->get('role')->name == 'super-admin' ||
-                        session()->get('role')->name == 'admin' ))
+            @if( session()->get('role') !== null && (session()->get('role')->name == 'super-admin' ||
+            session()->get('role')->name == 'admin' ))
 
-                        <li class="nav-item dropdown">
-                            <a href="{{route('admin.dashboard')}}" class="btn btn-primary"><i
-                                    class="fa fa-user-shield"></i> Tableau de bord</a>
-                        </li>
-                        {{-- @else 
+            <li class="nav-item dropdown">
+                <a href="{{route('admin.dashboard')}}" class="btn btn-primary"><i class="fa fa-user-shield"></i> Tableau
+                    de bord</a>
+            </li> --}}
+            {{-- @else 
                         @hasanyrole('super-admin|admin')
                         <li class="nav-item dropdown">
                             <a href="{{route('admin.dashboard')}}" class="btn btn-primary"><i
-                            class="fa fa-user-shield"></i> Tableau de bord</a>
-                        </li>
-                        @endrole --}}
+                class="fa fa-user-shield"></i> Tableau de bord</a>
+            </li>
+            @endrole --}}
 
-                        @endif
+            {{-- @endif
 
 
                         <li class="nav-item dropdown">
@@ -235,84 +236,190 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     $category)
                                     <li><a class="dropdown-item"
                                             href="{{route('announcement_page',$category)}}">{{ $category->name }}</a>
-                                    </li>
-                                    @endforeach
-                                    <h5 class="bold">Événements par régions</h5>
+            </li>
+            @endforeach
+            <h5 class="bold">Événements par régions</h5>
 
-                                    @foreach(\App\Models\Region::skip(6)->take(10)->get() as $region)
-                                    <li><a class="dropdown-item"
-                                            href="{{route('event_region',$region)}}">{{ $region->name }}</a></li>
-                                    @endforeach
-                                </ul>
-                            </ul>
-                        </li>
+            @foreach(\App\Models\Region::skip(6)->take(10)->get() as $region)
+            <li><a class="dropdown-item" href="{{route('event_region',$region)}}">{{ $region->name }}</a></li>
+            @endforeach
+            </ul>
+            </ul>
+            </li> --}}
 
-                        @auth
+            {{-- @auth
                         <li class="nav-item dropdown">
                             <form method="GET" id='formswitch' action='{{ route('user.SwitchRole') }}'>
-                                <select id="switchTo" name='switchTo' class="mt-2 bg-white border-0">
-                                    <option value="">Basculer vers</option>
-                                    @foreach(auth()->user()->roles as $fonction)
-                                    @php
-                                    var_dump($fonction);
-                                    @endphp
-                                    @if (session()->get("role") !== null && session()->get("role")->id == $fonction->id
-                                    )
+            <select id="switchTo" name='switchTo' class="mt-2 bg-white border-0">
+                <option value="">Basculer vers</option>
+                @foreach(auth()->user()->roles as $fonction)
+                @php
+                var_dump($fonction);
+                @endphp
+                @if (session()->get("role") !== null && session()->get("role")->id == $fonction->id
+                )
 
-                                    <option style="bg-success" value="{{$fonction->id}}"> {{$fonction->name}}</option>
+                <option style="bg-success" value="{{$fonction->id}}"> {{$fonction->name}}</option>
 
-                                    @else
+                @else
 
-                                    <option value="{{$fonction->id}}"> {{$fonction->name}}</option>
-                                    @endif
-                                    @endforeach
-                                </select>
+                <option value="{{$fonction->id}}"> {{$fonction->name}}</option>
+                @endif
+                @endforeach
+            </select>
 
-                            </form>
-                        </li>
+            </form>
+            </li>
 
-                        <li>
-                            <a class="dropdown-item text-primary" href="{{ route('logout') }}"
-                                onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                                <i class="fas fa-power-off mt-2"></i>
-                            </a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                @csrf
-                            </form>
-                        </li>
-                        @endauth
+            <li>
+                <a class="dropdown-item text-primary" href="{{ route('logout') }}"
+                    onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                    <i class="fas fa-power-off mt-2"></i>
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+            </li>
+            @endauth
 
 
 
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <!-- /.navbar -->
-
-        <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
-
-            @include('layouts.back.partials.user-breadcrumb')
-
-            <!-- Main content -->
-            <div class="content">
-                <div class="container">
-
-                    @yield('content')
-
-                </div><!-- /.container-fluid -->
-            </div>
-            <!-- /.content -->
+            </ul>
         </div>
-        <!-- /.content-wrapper -->
+    </div>
+    </nav> --}}
+    <!-- /.navbar -->
 
-        <!-- Main Footer -->
-        <footer class="main-footer">
-            <!-- Default to the left -->
-            <strong>Copyright &copy; {{ date('Y') }} <a
-                    href="{{ config('app.url') }}">{{ config('app.name') }}</a>.</strong> All rights reserved.
-        </footer>
+    {{-- Nav Start --}}
+    <nav style="z-index: 2" class="navbar navbar-expand-lg navbar-light bg-light bg-white shadow">
+        <div style="height: 48px" class="container">
+
+            <a style="margin-right: 20rem" class="navbar-brand right-spacing" href="{{ route('welcome') }}">
+                <img src="{{ asset('/images/logo/logo.png') }}" alt="{{ config('app.name') }}" class="brand-image"
+                    style="height: 45px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="nav align-items-center">
+                    @auth
+                    <li class="nav-item dropdown">
+                        <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false" class="nav-link dropdown-toggle newnav-color-padding">Mon
+                            Profil</a>
+                        <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
+                            <li>
+                                <a class="dropdown-item" href="{{route('user.infosperso')}}/account"><i
+                                        class="fa fa-cogs"></i> Mon Compte</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{route('user.infosperso')}}/infos-perso"><i
+                                        class="fa fa-user"></i> Infos personelles</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item link-success" href="{{route('user.infosperso')}}/transactions"
+                                    title="Lsite de mes transactions"><i class="fas fa-exchange-alt"
+                                        aria-hidden="true"></i> Mes Transactions</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item link-primary" href="{{route('user.infosperso')}}/wallet"
+                                    title="Mon Portefeuille"><i class="fa fa-wallet" aria-hidden="true"></i> Mon
+                                    Portefeuille </a>
+                            </li>
+                            <li class="dropdown-divider"></li>
+                            <li>
+                                <a class="dropdown-item link-primary" href="{{route('user.infosperso')}}/security"
+                                    title="Mon Portefeuille"><i class="fa fa-wallet" aria-hidden="true"></i>
+                                    Sécurité </a>
+                            </li>
+                        </ul>
+                    </li>
+                    @endauth
+                    <li class="nav-item dropdown">
+                        <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false" class="nav-link dropdown-toggle newnav-color-padding">Publications</a>
+                        <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
+                            <ul>
+                                <h5 class="bold">Annonces Classées</h5>
+
+                                @foreach(\App\Models\Category::where('type','annonce')->skip(0)->take(10)->get() as
+                                $category)
+                                <li><a class="dropdown-item"
+                                        href="{{route('announcement_page',$category)}}">{{ $category->name }}</a>
+                                </li>
+                                @endforeach
+                                <h5 class="bold">Événements par régions</h5>
+
+                                @foreach(\App\Models\Region::skip(6)->take(10)->get() as $region)
+                                <li><a class="dropdown-item"
+                                        href="{{route('event_region',$region)}}">{{ $region->name }}</a></li>
+                                @endforeach
+                            </ul>
+                        </ul>
+                    </li>
+                    @auth
+                    <li class="nav-item dropdown">
+                        <form method="GET" id='formswitch' action='{{ route('user.SwitchRole') }}'>
+                            <select style="color: #68717A" id="switchTo" name='switchTo'
+                                class="bg-white border-0 newnav-color-padding">
+                                <option value="">Basculer vers</option>
+                                @foreach(auth()->user()->roles as $fonction)
+                                @php
+                                var_dump($fonction);
+                                @endphp
+                                @if (session()->get("role") !== null && session()->get("role")->id == $fonction->id
+                                )
+
+                                <option style="bg-success" value="{{$fonction->id}}"> {{$fonction->name}}</option>
+
+                                @else
+
+                                <option value="{{$fonction->id}}"> {{$fonction->name}}</option>
+                                @endif
+                                @endforeach
+                            </select>
+
+                        </form>
+                    </li>
+                    <li class="nav-item custom-left-margin">
+                        <a class="dropdown-item text-primary" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                            <i class="fas fa-power-off mt-2"></i>
+                        </a>
+                    </li>
+                    @endauth
+                </ul>
+            </div>
+        </div>
+    </nav>
+    {{-- Nav end --}}
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+
+        @include('layouts.back.partials.user-breadcrumb')
+
+        <!-- Main content -->
+        <div class="content">
+            <div class="container">
+
+                @yield('content')
+
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <!-- Main Footer -->
+    <footer class="main-footer">
+        <!-- Default to the left -->
+        <strong>Copyright &copy; {{ date('Y') }} <a
+                href="{{ config('app.url') }}">{{ config('app.name') }}</a>.</strong> All rights reserved.
+    </footer>
     </div>
     <!-- ./wrapper -->
 

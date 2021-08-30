@@ -8242,7 +8242,7 @@ tbody.collapse.show {
     color: #868e96;
 } */
 .nav-tabs {
-    border-bottom: 1px solid #ddd;
+    /* border-bottom: 1px solid #ddd; */
 }
 /* .nav-tabs .nav-item {
     margin-bottom: -1px;
@@ -21781,6 +21781,48 @@ header .navbar {
     width: 19em;
 }
 
+/* Mon Profile page */
+
+.fa-power-off {
+    color: black;
+    padding: 10px 20px;
+    color: black;
+    background-color: #EDEDF0;
+    border-radius: 4px;
+}
+
+.nav-link.dropdown-toggle.newnav-color-padding {
+    color: #68717A ;
+}
+
+.custom-left-margin {
+    margin-left: 15rem;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: #152536;
+    background-color: #f4f6f9 !important;
+    border-color: #f4f6f9 !important;
+}
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link {
+    color: #6C757D;
+}
+
+.content-wrapper {
+    background: #F8F9FD !important;
+}
+
+.mon-compt-monai {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.custom-monai-style {
+    color: #4F698B;
+    border-radius: 4px;
+    padding: 10px 5px;
+    background-color: #D8E6FF;
+}
 /* Bootstrap toggler position */
 @media (min-width: 768px) and (max-width: 991px){
     .navbar-toggler {
