@@ -89,7 +89,7 @@
                                 'csv', 'excel', 'pdf'
                             ],
                             ajax: {
-                                url: '{{ url('admin/announcements') }}',
+                                url: '{{ url('admin/announcements2') }}',
                                 data: function (d) {
                                     d.search            = $('input[type="search"]').val(),
                                     d.city_id           = $('#filter_city_id').val(),

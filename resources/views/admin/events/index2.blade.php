@@ -5,10 +5,11 @@
         <div class="my-4 col-12 row">
             <!-- <h2 class="my-0"> - </h2> -->
         </div>
+        
         <div class="col-12 tab-content" id="nav-tabContent">
             <div class="card">
                 <div class="card-header">
-                    <h2 class="card-title font-weight-bold">Liste des événements</h2>
+                    <h2 class="card-title font-weight-bold">Liste des événements  en ettente</h2>
                     <div class="card-tools">
                         <a href="{{route('user.create_event')}}" class="btn btn-primary btn-sm">
                             <i class="mr-2 fa fa-plus"></i> Ajouter un événement
@@ -60,13 +61,13 @@
                 serverSide: true,
                 dom: 'Bfrliptip',
                       buttons: [
-                { extend: 'excel', filename: 'LAgenda du Quebec - Liste des événements_'+ today},
-                { extend: 'pdf', filename: 'LAgenda du Quebec - Liste des événements_'+ today }
+                { extend: 'excel', filename: 'LAgenda du Quebec - Liste des événements  en ettente_'+ today},
+                { extend: 'pdf', filename: 'LAgenda du Quebec - Liste des événements  en ettente_'+ today }
         ],
                 method:'post',
                 dom: 'Bfrliptip',
                 ajax: {
-                    url: '{{ url("admin/events") }}',
+                    url: '{{ url("admin/events2") }}',
                     data: function (d) {
                             d.search            = $('input[type="search"]').val(),
                             d.city_id           = $('#filter_city_id').val(),
@@ -92,9 +93,7 @@
                     { data: "publication", name: 'publication'},
                     { data: 'action', name: 'action'}
                 ],
-                buttons: [
-                    'csv', 'excel', 'pdf'
-                ],
+            
                 order: [[ 6, 'desc' ]],
                 pageLength: 30,
                 responsive: true,

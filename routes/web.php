@@ -209,6 +209,7 @@ Route::middleware(['auth','verified'])->group(function (){
         //BO annoucements routes
         Route::get("/myAnnouncements-data", [BOAnnouncementController::class, 'myAnnouncementsData'])->name('myAnnouncements-data');
         Route::get('announcements',[BOAnnouncementController::class, 'index'])->name('announcements');
+        Route::get('announcements2',[BOAnnouncementController::class, 'index2'])->name('announcements2');
         Route::get("/creation", [BOAnnouncementController::class, 'create'])->name('create_announcement');
         // Route::post("/store", [UserDashboard::class, 'storeAnnouncement'])->name('store_announcement');
         Route::post("/store", [BOAnnouncementController::class, 'store'])->name('store_announcement');
@@ -220,6 +221,7 @@ Route::middleware(['auth','verified'])->group(function (){
         
         Route::get("/myevents-data", [BOEventController::class, 'myEventsData'])->name('myEvents-data');
         Route::get("/events", [BOEventController::class, 'index'])->name("listevents");
+        Route::get("/events2", [BOEventController::class, 'index2'])->name("listeventsToImprove");
         Route::get("/create_event/{announcement?}", [BOEventController::class, 'create'])->name('create_event');
         Route::post("/store_event", [BOEventController::class, 'store'])->name('store_event');
         Route::get("/event/{event}", [BOEventController::class, 'show'])->name('show_event');
@@ -274,6 +276,7 @@ Route::middleware(['auth','verified'])->group(function (){
     //Routes for vendeurs and annonceurs
     Route::middleware(['role:vendeur|annonceur|super-admin|admin'])->name('user.')->group(function(){
         Route::get("/mes_annonces", [AnnouncementController::class, 'index'])->name("my_announcements");
+        // Route::get("/mes_annonces", [AnnouncementController::class, 'index2'])->name("my_announcements");
         Route::get("/mes_annonces/creation", [AnnouncementController::class, 'create'])->name('create_announcement');
         // Route::post("/mes_annonces/store", [UserDashboard::class, 'storeAnnouncement'])->name('store_announcement');
         Route::post("/mes_annonces/store", [AnnouncementController::class, 'store'])->name('store_announcement');
