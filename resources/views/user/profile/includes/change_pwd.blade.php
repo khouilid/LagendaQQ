@@ -1,6 +1,6 @@
 <div class="row mt-4">
     <div class="col-md-12 col-sm-12">
-        <div class="card">
+        <div>
             <div class="card-body">
                 <form method="POST" action="{{ route('user.update_password') }}">
                     @csrf
