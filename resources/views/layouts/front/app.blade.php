@@ -294,7 +294,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <nav style="z-index: 2" class="navbar navbar-expand-lg navbar-light bg-light bg-white shadow">
         <div style="height: 48px" class="container">
 
-            <a style="margin-right: 20rem" class="navbar-brand right-spacing" href="{{ route('welcome') }}">
+            <a style="margin-right: 2rem" class="navbar-brand right-spacing" href="{{ route('welcome') }}">
                 <img src="{{ asset('/images/logo/logo.png') }}" alt="{{ config('app.name') }}" class="brand-image"
                     style="height: 45px;">
             </a>
@@ -304,8 +304,81 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="nav align-items-center">
+                <ul class="nav flex-nowrap align-items-center">
                     @auth
+                    @if( session()->get('role') !== null && session()->get('role')->name  == 'banquier')
+                    
+                    <li class="nav-item">
+                        <a href="{{ route('banker.currencies.accounts') }}" class="nav-link {{ side_nav_bar_menu_status('dashboard','active') }}"><i class="fas fa-coins nav-icon pr-2"></i>Les Monnaies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('banker.currencies.index') }}" class="nav-link {{ side_nav_bar_menu_status('dashboard','active') }}"><i class="fa fa-plus nav-icon pr-2"></i>Ajouter une monnaie</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('admin.credits.logs') }}" class="nav-link {{ side_nav_bar_menu_status('dashboard','active') }}"><i class="fa fa-list nav-icon pr-2"></i>Historique des transferts</a>
+                    </li>
+           
+                    
+                {{-- @else
+                
+
+                    @hasanyrole('banquier')
+                        <li class="nav-item">
+                            <a href="{{ route('banker.currencies.accounts') }}" class="nav-link {{ side_nav_bar_menu_status('dashboard','active') }}"><i class="fas fa-coins nav-icon pr-2"></i>Les Monnaies</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('banker.currencies.index') }}" class="nav-link {{ side_nav_bar_menu_status('dashboard','active') }}"><i class="fa fa-plus nav-icon pr-2"></i>Ajouter une monnaie</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.credits.logs') }}" class="nav-link {{ side_nav_bar_menu_status('dashboard','active') }}"><i class="fa fa-list nav-icon pr-2"></i>Historique des transferts</a>
+                        </li>
+                    @endrole --}}
+             
+                @endif
+
+                @if( session()->get('role') !== null && (session()->get('role')->name  == 'super-admin' || session()->get('role')->name  == 'admin'  || session()->get('role')->name  == 'annonceur'  || session()->get('role')->name  == 'vendeur' ))
+                
+                    <li class="nav-item">
+                        <a href="{{ route('user.dashboard') }}" class="nav-link {{ side_nav_bar_menu_status('dashboard','active') }}"><i class="fa fa-user-cog"></i> Portrait</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('user.my_events') }}" class="nav-link {{ side_nav_bar_menu_status('events','active') }}"><i class="fas fa-calendar-check"></i> Mes événements</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{route('user.my_announcements')}}" class="nav-link"><i class="fa fa-bullhorn"></i> Mes annonces</a>
+                    </li>
+                    
+                {{-- @else 
+                    @hasanyrole('super-admin|admin|annonceur|vendeur')
+                      
+                        <li class="nav-item">
+                            <a href="{{ route('user.dashboard') }}" class="nav-link {{ side_nav_bar_menu_status('dashboard','active') }}"><i class="fa fa-user-cog"></i> Portrait</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('user.my_events') }}" class="nav-link {{ side_nav_bar_menu_status('events','active') }}"><i class="fas fa-calendar-check"></i> Mes événements</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('user.my_announcements')}}" class="nav-link"><i class="fa fa-bullhorn"></i> Mes annonces</a>
+                        </li>
+                    @endrole --}}
+                
+                @endif
+                
+
+
+
+                
+                @if( session()->get('role') !== null && (session()->get('role')->name  == 'chef-vendeur' || session()->get('role')->name  == 'vendeur'))
+
+                   
+                         <li class="nav-item"><a class="nav-link" href="{{route('vendeurs.my_team')}}"><i class="fa fa-user-friends"></i> Mon équipe</a></li>
+                         {{-- @else  --}}
+                         
+                    {{-- @hasanyrole('chef-vendeur|vendeur')
+                         <li class="nav-item"><a class="nav-link" href="{{route('vendeurs.my_team')}}"><i class="fa fa-user-friends"></i> Mon équipe</a></li>
+                    @endrole --}}
+
+                @endif
                     <li class="nav-item dropdown">
                         <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false" class="nav-link dropdown-toggle newnav-color-padding">Mon
@@ -337,6 +410,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </li>
                         </ul>
                     </li>
+                    {{-- @hasanyrole('super-admin|admin') --}}
+
+                    @if( session()->get('role') !== null && (session()->get('role')->name  == 'super-admin' || session()->get('role')->name  == 'admin' ))
+                    
+                        <li class="nav-item dropdown">
+                            <a href="{{route('admin.dashboard')}}" class="btn btn-primary"><i class="fa fa-user-shield"></i> Tableau de bord</a>
+                        </li>
+                    {{-- @endrole --}}
+                    {{-- @else 
+                        @hasanyrole('super-admin|admin')
+                        <li class="nav-item dropdown">
+                            <a href="{{route('admin.dashboard')}}" class="btn btn-primary"><i class="fa fa-user-shield"></i> Tableau de bord</a>
+                        </li>   
+                        @endrole --}}
+                    
+                    @endif
                     @endauth
                     <li class="nav-item dropdown">
                         <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true"
@@ -384,11 +473,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                         </form>
                     </li>
-                    <li class="nav-item custom-left-margin">
+                    <li class="nav-item ">
                         <a class="dropdown-item text-primary" href="{{ route('logout') }}"
-                            onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                            onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
                             <i class="fas fa-power-off mt-2"></i>
                         </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
                     </li>
                     @endauth
                 </ul>

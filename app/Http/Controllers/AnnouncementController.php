@@ -299,6 +299,7 @@ class AnnouncementController extends Controller
             'telephone'     => 'nullable',
             'email'         => 'nullable',
             'website'       => 'nullable',
+            'vide'          => 'required'
         ]);
         $current_user = auth()->user();
         if(!isset($request->owner)){//If the owner is not defined the publisher become the owner
@@ -311,6 +312,7 @@ class AnnouncementController extends Controller
         $data['publication_status'] = $can_post ? $data["publication_status"] : 0;
 
         $data['posted_by'] = $current_user->id;
+        $data['vide'] = implode("-",$request->vide);
         //If announce is published we set the published_at column save the data and update user wallets
         $data['published_at'] = intval($data['publication_status']) === 1 ? date('Y-m-d H:i:s') : null;
         //If price type is set to 1 we need to be sure the price is set

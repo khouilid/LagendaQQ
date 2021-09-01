@@ -21,14 +21,14 @@
 
 <div class="offset-sm-0 col-12 form-group row">
     <label for="title" class="col-sm-12 col-md-12">Vide 1 : *</label>
-    <input type="text" maxlength="35" name="vide_1" id="title" value="{{old('vide_1',@$event->vide_1)}}" class="form-control">
+    <input type="text" maxlength="35" name="vide[]" id="title" value="{{old('vide_1',@$event->vide_1)}}" class="form-control">
     {!! $errors->first('title', '<div class="error-message col-12">:message</div>') !!}
 </div>
 
 
 <div class="offset-sm-0 col-12 form-group row">
     <label for="title" class="col-sm-12 col-md-12">Vide 2 :</label>
-    <input type="text" maxlength="35" name="vide_2" id="title" value="{{old('vide_2',@$event->vide_2)}}" class="form-control">
+    <input type="text" maxlength="35" name="vide[]" id="title" value="{{old('vide_2',@$event->vide_2)}}" class="form-control">
     {!! $errors->first('title', '<div class="error-message col-12">:message</div>') !!}
 </div>
 <div class="offset-sm-0 col-sm-12 col-md-6 form-group row">

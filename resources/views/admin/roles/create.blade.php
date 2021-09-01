@@ -135,7 +135,7 @@
                           <label for="Prix $" class="col-sm-12">Prix $</label>
                         </div>
                         <div class="col-xm-6">
-                          <label for="Credits" class="col-sm-12">Montant</label>
+                          <label for="Credits" class="col-sm-12">Quantité</label>
                         </div>
                         <div id="credit_price_wrapper"></div>
                         <input type="hidden" name="nbr_price_fields" id="nbr_price_fields" value="0" />

@@ -98,7 +98,7 @@
                         </p>
                     </a>
                 </li> -->
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a href="{{route('admin.announcements')}}" class="nav-link {{ side_nav_bar_menu_status('announcements','active') }}">
                         <i class="nav-icon fas fa-award"></i>
                         <p>
@@ -106,8 +106,8 @@
                             <span class="ml-2 badge badge-danger">{{ App\Models\Announcement::count() }}</span>
                         </p>
                     </a>
-                </li>
-                <li class="nav-item">
+                </li> --}}
+                {{-- <li class="nav-item">
                     <a href="{{route('admin.listevents')}}" class="nav-link {{ side_nav_bar_menu_status('events','active') }}">
                         <i class="nav-icon fas fa-th-list"></i>
                         <p>
@@ -115,6 +115,66 @@
                             <span class="ml-2 badge badge-danger">{{ App\Models\Event::count() }}</span>
                         </p>
                     </a>
+                </li> --}}
+                <li class="nav-item has-treeview {{ side_nav_bar_menu_status('security','menu-open') }}">
+                    <a href="#" class="nav-link {{ side_nav_bar_menu_status('security','active') }}">
+                        <i class="nav-icon fas fa-award"></i>
+                        <p>
+                            Annonces
+                            <span class="ml-2 badge badge-danger">{{ App\Models\Announcement::count() }}</span>
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                      
+                        <li class="nav-item">
+                            <a href="{{route('admin.announcements')}}" class="nav-link {{ side_nav_bar_menu_status('announcements','active') }}">
+                                {{-- <i class="nav-icon fas fa-th-list"></i> --}}
+                                <p>Annonces
+
+                                    <span class="ml-2 badge badge-danger">{{ App\Models\Announcement::where('publication_status','<=',3)
+                                        ->where('validated' , '=' , 1)->count() }}</span>
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('admin.announcements2')}}" class="nav-link {{ side_nav_bar_menu_status('announcements','active') }}">
+                                {{-- <i class="nav-icon fas fa-th-list"></i> --}}
+                                <p>Annonces en ettente <span class="ml-2 badge badge-danger">{{ App\Models\Announcement::where('publication_status','<=',3)
+                                    ->where('validated' , '=' , 0)->count() }}</span></p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item has-treeview {{ side_nav_bar_menu_status('security','menu-open') }}">
+                    <a href="#" class="nav-link {{ side_nav_bar_menu_status('security','active') }}">
+                        <i class="nav-icon fas fa-th-list"></i>
+                        <p>
+                            Événements
+                            <span class="ml-2 badge badge-danger">{{ App\Models\Event::count() }}</span>
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                      
+                        <li class="nav-item">
+                            <a href="{{route('admin.listevents')}}" class="nav-link {{ side_nav_bar_menu_status('events','active') }}">
+                                {{-- <i class="nav-icon fas fa-th-list"></i> --}}
+                                <p>Événements
+
+                                    <span class="ml-2 badge badge-danger">{{ App\Models\Event::where('publication_status','<=',3)
+                                        ->where('validated' , '=' , 1)->count() }}</span>
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.listeventsToImprove') }}" class="nav-link {{ side_nav_bar_menu_status('events','active')  }}">
+                                {{-- <i class="nav-icon fas fa-th-list"></i> --}}
+                                <p>Événements en ettente <span class="ml-2 badge badge-danger">{{ App\Models\Event::where('publication_status','<=',3)
+                                    ->where('validated' , '=' , 0)->count() }}</span></p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
                 <li><hr></li>
                 <li class="nav-item">

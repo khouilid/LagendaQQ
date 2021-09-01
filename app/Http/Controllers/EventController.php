@@ -330,12 +330,14 @@ class EventController extends Controller
             'event_time'    => 'nullable',
             'organisation_id'    => 'nullable',
             'url'=> 'nullable',
+            'vide'=> 'required', 
+            'reservation' => 'required',
         ]);
         //21-04-09*09:30;21-04-10*09:30;21-04-16*09:30;
         // dd($data);
         // $date['dates'] = explode(";",$date['dates']);
 
-        // dd();
+        // dd($data['vide_1']);
         $current_user = auth()->user();
         if(!isset($request->owner)){//If the owner is not defined the publisher become the publisher
             $data['owner'] = $current_user->id;
@@ -343,6 +345,8 @@ class EventController extends Controller
             $data['owner'] = $request->owner;
         }
         $data['url'] = implode("-",$request->url);
+        $data['vide'] = implode("-",$request->vide);
+        $data['reservation'] = $request->reservation;
         
         $data['posted_by'] = $current_user->id;
         //Make sure user has enough to publish
@@ -381,6 +385,8 @@ class EventController extends Controller
                 $save_event->images = $image_name;
             }
             $save_event->url = implode("-",$request->url);
+            $save_event->vide = implode("-",$request->vide);
+            $save_event->vide =  $request->reservation;
             
             $save_event->save();
 
