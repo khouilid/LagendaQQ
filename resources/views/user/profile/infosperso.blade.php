@@ -33,17 +33,24 @@
 <div class="row">
     <div class="col d-flex">
         <div style="margin-left: -4rem" class="card shadow-none mr-3">
-            <div class="card-body">
-                <img style="height: 10em; width: 10em;" src="{{asset('dist/img/stefan-stefancik.jpg')}}" alt=""
-                    class="rounded-circle" width="50">
+            <div class="card-body d-flex flex-column position-relative">
+
+
+                <img style="height: 178px; width: 180px;  object-fit: cover;"
+                    src="{{asset('dist/img/stefan-stefancik.jpg')}}" alt="" class="rounded-circle align-self-center"
+                    width="50">
+
+                <img style="right: 10px;" class="position-absolute" src="{{asset('dist/img/Star-1.png')}}" alt="">
+                <img class="position-absolute" src="{{asset('dist/img/Star-1.png')}}" alt="">
+
                 {{-- <h5 class="card-title">{{$user->username}}</h5> --}}
                 <p class="card-text">
                     <h4 class="font-weight-bold">{{$user->prenom}} {{$user->name}}</h4>
-                    <h6 class="card-subtitle mb-2 mt-3 text-muted">{{$user->username}}</h6>
-                    <h5> {{$user->mobile_phone}}</h5>
+                    <h6 class="card-subtitle mb-1 custom-profile-color text-muted">{{$user->username}}</h6>
+                    <h6 class="text-muted mb-1"> {{$user->mobile_phone}}</h6>
                     {{-- <h5 class="my-0 bold"><small></small>{{$user->num_civique}}</h5> --}}
-                    <div><span class="my-0">{{$user->email}}</span></div>
-                    <small>Compte crée {{$user->created_at}}</small>
+                    <h6 class="my-0 text-muted mb-1">{{$user->email}}</h6>
+                    <small class="text-muted">Compte crée {{$user->created_at}}</small>
                 </p>
             </div>
         </div>
