@@ -1,6 +1,6 @@
-<div class="row mt-4">
+<div class="row">
     <div class="col-md-12 col-sm-12">
-        <div class="card">
+        <div>
             <div class="card-header">
                 <h2 class="card-title font-weight-bold">Mes transferts monnaie Vancl @hasanyrole('admin') (admin)
                     @endrole</h2>
