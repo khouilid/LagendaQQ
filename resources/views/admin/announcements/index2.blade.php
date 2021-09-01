@@ -86,7 +86,8 @@
                             serverSide: true,
                             dom: 'Bfrliptip',
                             buttons: [
-                                'csv', 'excel', 'pdf'
+                                    { extend: 'excel', filename: 'LAgenda du Quebec - Liste des annonces en ettente_'+ today},
+                                    { extend: 'pdf', filename: 'LAgenda du Quebec - Liste des annonces en ettente_'+ today }
                             ],
                             ajax: {
                                 url: '{{ url('admin/announcements2') }}',
