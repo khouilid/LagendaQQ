@@ -21,7 +21,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link href='https://cdn.jsdelivr.net/npm/froala-editor@2.9.1/css/froala_style.min.css' rel='stylesheet'
         type='text/css' />
 
-    <link rel="stylesheet" href="./css/frontend.css">
+    <link rel="stylesheet" href="{{ asset('css/frontend.css') }}">
 
     <link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css">
 
