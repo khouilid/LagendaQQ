@@ -21,7 +21,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link href='https://cdn.jsdelivr.net/npm/froala-editor@2.9.1/css/froala_style.min.css' rel='stylesheet'
         type='text/css' />
 
-    <link rel="stylesheet" href="./css/frontend.css">
+    <link rel="stylesheet" href="{{ asset('css/frontend.css') }}">
 
     <link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css">
 
@@ -304,81 +304,107 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="nav flex-nowrap align-items-center">
+                <ul class="nav custom-left-margin align-items-center">
                     @auth
-                    @if( session()->get('role') !== null && session()->get('role')->name  == 'banquier')
-                    
+                    @if( session()->get('role') !== null && session()->get('role')->name == 'banquier')
+
                     <li class="nav-item">
-                        <a href="{{ route('banker.currencies.accounts') }}" class="nav-link {{ side_nav_bar_menu_status('dashboard','active') }}"><i class="fas fa-coins nav-icon pr-2"></i>Les Monnaies</a>
+                        <a href="{{ route('banker.currencies.accounts') }}"
+                            class="nav-link {{ side_nav_bar_menu_status('dashboard','active') }}"><i
+                                class="fas fa-coins nav-icon pr-2"></i>Les Monnaies</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('banker.currencies.index') }}" class="nav-link {{ side_nav_bar_menu_status('dashboard','active') }}"><i class="fa fa-plus nav-icon pr-2"></i>Ajouter une monnaie</a>
+                        <a href="{{ route('banker.currencies.index') }}"
+                            class="nav-link {{ side_nav_bar_menu_status('dashboard','active') }}"><i
+                                class="fa fa-plus nav-icon pr-2"></i>Ajouter une monnaie</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('admin.credits.logs') }}" class="nav-link {{ side_nav_bar_menu_status('dashboard','active') }}"><i class="fa fa-list nav-icon pr-2"></i>Historique des transferts</a>
+                        <a href="{{ route('admin.credits.logs') }}"
+                            class="nav-link {{ side_nav_bar_menu_status('dashboard','active') }}"><i
+                                class="fa fa-list nav-icon pr-2"></i>Historique des transferts</a>
                     </li>
-           
-                    
-                {{-- @else
+
+
+                    {{-- @else
                 
 
                     @hasanyrole('banquier')
                         <li class="nav-item">
-                            <a href="{{ route('banker.currencies.accounts') }}" class="nav-link {{ side_nav_bar_menu_status('dashboard','active') }}"><i class="fas fa-coins nav-icon pr-2"></i>Les Monnaies</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('banker.currencies.index') }}" class="nav-link {{ side_nav_bar_menu_status('dashboard','active') }}"><i class="fa fa-plus nav-icon pr-2"></i>Ajouter une monnaie</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('admin.credits.logs') }}" class="nav-link {{ side_nav_bar_menu_status('dashboard','active') }}"><i class="fa fa-list nav-icon pr-2"></i>Historique des transferts</a>
-                        </li>
+                            <a href="{{ route('banker.currencies.accounts') }}" class="nav-link
+                    {{ side_nav_bar_menu_status('dashboard','active') }}"><i class="fas fa-coins nav-icon pr-2"></i>Les
+                    Monnaies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('banker.currencies.index') }}"
+                            class="nav-link {{ side_nav_bar_menu_status('dashboard','active') }}"><i
+                                class="fa fa-plus nav-icon pr-2"></i>Ajouter une monnaie</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('admin.credits.logs') }}"
+                            class="nav-link {{ side_nav_bar_menu_status('dashboard','active') }}"><i
+                                class="fa fa-list nav-icon pr-2"></i>Historique des transferts</a>
+                    </li>
                     @endrole --}}
-             
-                @endif
 
-                @if( session()->get('role') !== null && (session()->get('role')->name  == 'super-admin' || session()->get('role')->name  == 'admin'  || session()->get('role')->name  == 'annonceur'  || session()->get('role')->name  == 'vendeur' ))
-                
+                    @endif
+
+                    @if( session()->get('role') !== null && (session()->get('role')->name == 'super-admin' ||
+                    session()->get('role')->name == 'admin' || session()->get('role')->name == 'annonceur' ||
+                    session()->get('role')->name == 'vendeur' ))
+
                     <li class="nav-item">
-                        <a href="{{ route('user.dashboard') }}" class="nav-link {{ side_nav_bar_menu_status('dashboard','active') }}"><i class="fa fa-user-cog"></i> Portrait</a>
+                        <a href="{{ route('user.dashboard') }}"
+                            class="nav-link {{ side_nav_bar_menu_status('dashboard','active') }}"><i
+                                class="fa fa-user-cog"></i> Portrait</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('user.my_events') }}" class="nav-link {{ side_nav_bar_menu_status('events','active') }}"><i class="fas fa-calendar-check"></i> Mes événements</a>
+                        <a href="{{ route('user.my_events') }}"
+                            class="nav-link {{ side_nav_bar_menu_status('events','active') }}"><i
+                                class="fas fa-calendar-check"></i> Mes événements</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{route('user.my_announcements')}}" class="nav-link"><i class="fa fa-bullhorn"></i> Mes annonces</a>
+                        <a href="{{route('user.my_announcements')}}" class="nav-link"><i class="fa fa-bullhorn"></i> Mes
+                            annonces</a>
                     </li>
-                    
-                {{-- @else 
+
+                    {{-- @else 
                     @hasanyrole('super-admin|admin|annonceur|vendeur')
                       
                         <li class="nav-item">
-                            <a href="{{ route('user.dashboard') }}" class="nav-link {{ side_nav_bar_menu_status('dashboard','active') }}"><i class="fa fa-user-cog"></i> Portrait</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('user.my_events') }}" class="nav-link {{ side_nav_bar_menu_status('events','active') }}"><i class="fas fa-calendar-check"></i> Mes événements</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{route('user.my_announcements')}}" class="nav-link"><i class="fa fa-bullhorn"></i> Mes annonces</a>
-                        </li>
+                            <a href="{{ route('user.dashboard') }}" class="nav-link
+                    {{ side_nav_bar_menu_status('dashboard','active') }}"><i class="fa fa-user-cog"></i> Portrait</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('user.my_events') }}"
+                            class="nav-link {{ side_nav_bar_menu_status('events','active') }}"><i
+                                class="fas fa-calendar-check"></i> Mes événements</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{route('user.my_announcements')}}" class="nav-link"><i class="fa fa-bullhorn"></i> Mes
+                            annonces</a>
+                    </li>
                     @endrole --}}
-                
-                @endif
-                
+
+                    @endif
 
 
 
-                
-                @if( session()->get('role') !== null && (session()->get('role')->name  == 'chef-vendeur' || session()->get('role')->name  == 'vendeur'))
 
-                   
-                         <li class="nav-item"><a class="nav-link" href="{{route('vendeurs.my_team')}}"><i class="fa fa-user-friends"></i> Mon équipe</a></li>
-                         {{-- @else  --}}
-                         
+
+                    @if( session()->get('role') !== null && (session()->get('role')->name == 'chef-vendeur' ||
+                    session()->get('role')->name == 'vendeur'))
+
+
+                    <li class="nav-item"><a class="nav-link" href="{{route('vendeurs.my_team')}}"><i
+                                class="fa fa-user-friends"></i> Mon équipe</a></li>
+                    {{-- @else  --}}
+
                     {{-- @hasanyrole('chef-vendeur|vendeur')
-                         <li class="nav-item"><a class="nav-link" href="{{route('vendeurs.my_team')}}"><i class="fa fa-user-friends"></i> Mon équipe</a></li>
+                         <li class="nav-item"><a class="nav-link" href="{{route('vendeurs.my_team')}}"><i
+                        class="fa fa-user-friends"></i> Mon équipe</a></li>
                     @endrole --}}
 
-                @endif
+                    @endif
                     <li class="nav-item dropdown">
                         <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false" class="nav-link dropdown-toggle newnav-color-padding">Mon
@@ -412,19 +438,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </li>
                     {{-- @hasanyrole('super-admin|admin') --}}
 
-                    @if( session()->get('role') !== null && (session()->get('role')->name  == 'super-admin' || session()->get('role')->name  == 'admin' ))
-                    
-                        <li class="nav-item dropdown">
-                            <a href="{{route('admin.dashboard')}}" class="btn btn-primary"><i class="fa fa-user-shield"></i> Tableau de bord</a>
-                        </li>
+                    @if( session()->get('role') !== null && (session()->get('role')->name == 'super-admin' ||
+                    session()->get('role')->name == 'admin' ))
+
+                    <li class="nav-item dropdown">
+                        <a href="{{route('admin.dashboard')}}" class="btn btn-primary"><i class="fa fa-user-shield"></i>
+                            Tableau de bord</a>
+                    </li>
                     {{-- @endrole --}}
                     {{-- @else 
                         @hasanyrole('super-admin|admin')
                         <li class="nav-item dropdown">
-                            <a href="{{route('admin.dashboard')}}" class="btn btn-primary"><i class="fa fa-user-shield"></i> Tableau de bord</a>
-                        </li>   
-                        @endrole --}}
-                    
+                            <a href="{{route('admin.dashboard')}}" class="btn btn-primary"><i
+                        class="fa fa-user-shield"></i> Tableau de bord</a>
+                    </li>
+                    @endrole --}}
+
                     @endif
                     @endauth
                     <li class="nav-item dropdown">
@@ -473,9 +502,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                         </form>
                     </li>
-                    <li class="nav-item ">
-                        <a class="dropdown-item text-primary" href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
+                    <li style="margin-left: inherit;">
+                        <a class="dropdown-item text-primary" href="{{ route('logout') }}" onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
                             <i class="fas fa-power-off mt-2"></i>
                         </a>
@@ -497,7 +525,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         <!-- Main content -->
         <div class="content">
-            <div class="container">
+            <div class="container-fluid">
 
                 @yield('content')
 

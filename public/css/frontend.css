@@ -6519,7 +6519,7 @@ pre code {
     border-bottom-width: 2px;
 }
 .table-striped tbody tr:nth-of-type(odd) {
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: #edf2f7 !important;
 }
 .table-hover tbody tr:hover {
     background-color: rgba(0, 0, 0, 0.075);
@@ -21603,7 +21603,7 @@ header .navbar {
 
 /* active color & hover */
 .active a, a.nav-link:hover{
-    color: #1A3E84 !important;
+    /* color: #1A3E84 !important; */
 }
 
 #topbar {
@@ -21824,6 +21824,10 @@ header .navbar {
     border-radius: 4px;
     padding: 10px 5px;
     background-color: #D8E6FF;
+}
+
+btn-outline-secondary:hover {
+    color: #fff !important;
 }
 
 /* Bootstrap toggler position */

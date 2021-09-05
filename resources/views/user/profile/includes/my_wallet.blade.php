@@ -2,16 +2,16 @@
     <div class="col-md-12 col-sm-12">
         <div>
             <div class="card-header">
-                <h2 class="card-title font-weight-bold">Mon portefeuille xx</h2>
+                <h2 class="card-title font-weight-bold">Mon portefeuille</h2>
                 <div class="card-tools">
-                    <a href="{{route('purchase_currency')}}" class="btn btn-primary btn-sm">
+                    <a href="{{route('purchase_currency')}}" class="btn btn-outline-secondary btn-sm">
                         <i class="mr-2 fa fa-credit-card"></i>
                         Recharger mon portefeuille
                     </a>
                 </div>
             </div>
             <div class="card-body">
-                <table class="table table-success table-striped" id="wallet-table">
+                <table class="table table-striped" id="wallet-table">
                     <thead>
                         <tr>
                             <th>Monnaies</th>
@@ -34,7 +34,8 @@
                             </td>
                             <td>
                                 <a href="{{route('user.currencies.transfer', $currency->slug)}}"
-                                    class="btn btn-success"><i class="fa fa-exchange-alt"></i> Transférer</a>
+                                    class="btn btn-outline-success btn-sm"><i class="fa fa-exchange-alt"></i>
+                                    Transférer</a>
                             </td>
                         </tr>
                         @endforeach

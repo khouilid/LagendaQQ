@@ -39,7 +39,8 @@
 
                     <div class="form-group row mb-0">
                         <div class="col-md-8 offset-md-4">
-                            <button type="submit" class="btn btn-primary"><i class="fa fa-user-lock"></i> Mettre à jour
+                            <button type="submit" class="btn btn-outline-secondary"><i class="fa fa-user-lock mr-2"></i>
+                                Mettre à jour
                             </button>
                         </div>
                     </div>
