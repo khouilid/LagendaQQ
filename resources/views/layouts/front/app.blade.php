@@ -456,9 +456,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 class="bg-white border-0 newnav-color-padding">
                                 <option value="">Basculer vers</option>
                                 @foreach(auth()->user()->roles as $fonction)
-                                @php
-                                var_dump($fonction);
-                                @endphp
+                          
                                 @if (session()->get("role") !== null && session()->get("role")->id == $fonction->id
                                 )
 
