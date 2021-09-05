@@ -10326,7 +10326,7 @@ pre code {
     border: 0;
 }
 .table-striped tbody tr:nth-of-type(odd) {
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: #edf2f7;
 }
 .table-hover tbody tr:hover {
     color: #212529;

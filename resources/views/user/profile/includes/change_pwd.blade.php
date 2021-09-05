@@ -10,7 +10,8 @@
                     @endforeach
 
                     <div class="form-group row">
-                        <label for="password" class="col-md-4 col-form-label text-md-right">Mot de passe actuel</label>
+                        <label for="password" class="col-md-4 col-form-label text-md-right text-muted">Mot de passe
+                            actuel</label>
 
                         <div class="col-md-6">
                             <input id="password" type="password" class="form-control" name="current_password"
@@ -19,7 +20,8 @@
                     </div>
 
                     <div class="form-group row">
-                        <label for="password" class="col-md-4 col-form-label text-md-right">Nouveau Mot de passe</label>
+                        <label for="password" class="col-md-4 col-form-label text-md-right text-muted">Nouveau Mot de
+                            passe</label>
 
                         <div class="col-md-6">
                             <input id="new_password" type="password" class="form-control" name="new_password"
@@ -28,7 +30,8 @@
                     </div>
 
                     <div class="form-group row">
-                        <label for="password" class="col-md-4 col-form-label text-md-right">Confirmez le mot de
+                        <label for="password" class="col-md-4 col-form-label text-md-right text-muted">Confirmez le mot
+                            de
                             passe</label>
 
                         <div class="col-md-6">
@@ -39,7 +42,8 @@
 
                     <div class="form-group row mb-0">
                         <div class="col-md-8 offset-md-4">
-                            <button type="submit" class="btn btn-primary"><i class="fa fa-user-lock"></i> Mettre à jour
+                            <button type="submit" class="btn btn-outline-secondary"><i class="fa fa-user-lock mr-2"></i>
+                                Mettre à jour
                             </button>
                         </div>
                     </div>

@@ -32,7 +32,7 @@
 
 <div class="row">
     <div class="col d-flex">
-        <div style="margin-left: -4rem" class="card shadow-none mr-3">
+        <div class="card shadow-none mr-3">
             <div class="card-body d-flex flex-column position-relative">
 
 
