@@ -5,7 +5,7 @@
                 <h2 class="card-title font-weight-bold">Mes transferts monnaie Vancl @hasanyrole('admin') (admin)
                     @endrole</h2>
             </div>
-            <div class="card-body">
+            <div class="card-body table-responsive">
                 <table class="table table-success table-striped table-borderless" id="my-transactions-table">
                     <thead class="table-light">
                         <tr>

@@ -32,28 +32,33 @@
 
 <div class="row">
     <div class="col d-flex">
-        <div class="card shadow-none mr-3">
-            <div class="card-body d-flex flex-column position-relative">
+
+        <div class="toggle" onclick="leftBar()">
+            <div class="card shadow-none mr-3 left-bar">
+                <div class="card-body d-flex flex-column position-relative">
 
 
-                <img style="height: 178px; width: 180px;  object-fit: cover;"
-                    src="{{asset('dist/img/stefan-stefancik.jpg')}}" alt="" class="rounded-circle align-self-center"
-                    width="50">
+                    <img style="height: 178px; width: 180px;  object-fit: cover;"
+                        src="{{asset('dist/img/stefan-stefancik.jpg')}}" alt="" class="rounded-circle align-self-center"
+                        width="50">
 
-                <img style="right: 10px;" class="position-absolute" src="{{asset('dist/img/Star-1.png')}}" alt="">
-                <img class="position-absolute" src="{{asset('dist/img/Star-1.png')}}" alt="">
+                    <img style="right: 10px;" class="position-absolute" src="{{asset('dist/img/Star-1.png')}}" alt="">
+                    <img class="position-absolute" src="{{asset('dist/img/Star-1.png')}}" alt="">
 
-                {{-- <h5 class="card-title">{{$user->username}}</h5> --}}
-                <p class="card-text">
-                    <h4 class="font-weight-bold">{{$user->prenom}} {{$user->name}}</h4>
-                    <h6 class="card-subtitle mb-1 custom-profile-color text-muted">{{$user->username}}</h6>
-                    <h6 class="text-muted mb-1"> {{$user->mobile_phone}}</h6>
-                    {{-- <h5 class="my-0 bold"><small></small>{{$user->num_civique}}</h5> --}}
-                    <h6 class="my-0 text-muted mb-1">{{$user->email}}</h6>
-                    <small class="text-muted">Compte crée {{$user->created_at}}</small>
-                </p>
+                    {{-- <h5 class="card-title">{{$user->username}}</h5> --}}
+                    <p class="card-text">
+                        <h4 class="font-weight-bold">{{$user->prenom}} {{$user->name}}</h4>
+                        <h6 class="card-subtitle mb-1 custom-profile-color text-muted">{{$user->username}}</h6>
+                        <h6 class="text-muted mb-1"> {{$user->mobile_phone}}</h6>
+                        {{-- <h5 class="my-0 bold"><small></small>{{$user->num_civique}}</h5> --}}
+                        <h6 class="my-0 text-muted mb-1">{{$user->email}}</h6>
+                        <small class="text-muted">Compte crée {{$user->created_at}}</small>
+                    </p>
+                </div>
             </div>
         </div>
+
+
 
         {{-- </div> --}}
         <div class="">
@@ -84,7 +89,7 @@
             </nav>
 
 
-            <div style="width: 65vw;" class="card shadow-none">
+            <div class="card card-width shadow-none main">
                 <div class="card-body">
 
                     <div class="tab-content" id="nav-tabContent">
@@ -160,6 +165,17 @@
                 });
             });
         });
+
+        function leftBar(){
+            let toggle = document.querySelector('.toggle');
+            toggle.classList.toggle('active');
+
+            let leftBar = document.querySelector('.left-bar');
+            leftBar.classList.toggle('active');
+
+            let main = document.querySelector('.main');
+            main.classList.toggle('active');
+        }
 </script>
 
 @endpush
