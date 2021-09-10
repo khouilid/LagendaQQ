@@ -1,5 +1,5 @@
 <div class="col-12 mt-4">
-    <form action="{{route('user.updateInfosPerso')}}" method="post" class="row col-12">
+    <form action="{{route('user.updateInfosPerso')}}" method="post" class="row col-md-12 custom-responsive">
         @csrf
         <input type="hidden" name="id" value="{{$user->id}}">
         <div class="offset-sm-2 col-8 form-group row">
@@ -87,7 +87,8 @@
             </select>
         </div>
         <div class="col-4 offset-8 mb-4">
-            <button class="btn btn-block btn-primary" type="submit"><i class="fa fa-save"></i> Enregistrer</button>
+            <button class="btn btn-block btn-outline-primary" type="submit"><i class="fa fa-save"></i>
+                Enregistrer</button>
         </div>
     </form>
 </div>
