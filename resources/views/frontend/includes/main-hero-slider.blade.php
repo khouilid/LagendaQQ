@@ -231,9 +231,9 @@
 
 <section class="home">
 
-  <video class="video-slide active" src="{{ asset('slider-videos/video-01.mp4') }}" autoplay muted loop></video>
-  <video class="video-slide" src="{{ asset('slider-videos/video-02.mp4') }}" autoplay muted loop></video>
-  <video class="video-slide" src="{{ asset('slider-videos/video-03.mp4') }}" autoplay muted loop></video>
+  <video class="video-slide active" src="{{ asset('dist/slider-videos/video-01.mp4') }}" autoplay muted loop></video>
+  <video class="video-slide" src="{{ asset('dist/slider-videos/video-02.mp4') }}" autoplay muted loop></video>
+  <video class="video-slide" src="{{ asset('dist/slider-videos/video-03.mp4') }}" autoplay muted loop></video>
 
   <div class="d-flex justify-content-center">
     <div class="content slide-01 active">

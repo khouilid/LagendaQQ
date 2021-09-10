@@ -6,6 +6,7 @@
 @section('content')
 <form class="uk-child-width-1-1 uk-grid-small" uk-grid method="POST" action="{{ route('login') }}">
     @csrf
+    {{ csrf_field() }}
     <div>
         <div class="uk-form-group">
             <label for="email" class="uk-form-label">Nom D'utilisateur <small>ou</small> Adresse Email</label>
