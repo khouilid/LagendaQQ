@@ -89,7 +89,9 @@
             </nav>
 
 
-            <div class="card card-width shadow-none main">
+
+            <div style="width: 43vw;" class="card shadow-none">
+
                 <div class="card-body">
 
                     <div class="tab-content" id="nav-tabContent">
