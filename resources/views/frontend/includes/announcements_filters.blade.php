@@ -2,14 +2,14 @@
     <!-- <div class="row form-group datatable-filter"> -->
     <div class="col-sm-12 col-md-2 px-0">
         <label><small>Titre :</small><a href="#" class="reset-field" data-target="#filter_title">x</a></label>
-        <input  id='filter_title' type="text" name="title" placeholder="" class="form-control" />
+        <input id='filter_title' type="text" name="title" placeholder="" class="form-control" />
     </div>
     <div class="col-sm-12 col-md-2 px-0">
         <label><small>Régions :</small><a href="#" class="reset-field" data-target="#filter_region_id">x</a></label>
         <select id='filter_region_id' class="form-control">
             <option value=""> --- </option>
             @foreach($regions as $key => $region)
-                <option value="{{$region->id}}">{{$region->region_number}} {{$region->name}}</option>
+            <option value="{{$region->id}}">{{$region->region_number}} {{$region->name}}</option>
             @endforeach
         </select>
     </div>
@@ -18,18 +18,19 @@
         <select id='filter_city_id' class="form-control">
             <option value=""> --- </option>
             @foreach($cities as $key => $value)
-                <option value="{{$key}}">{{$value}}</option>
+            <option value="{{$key}}">{{$value}}</option>
             @endforeach
         </select>
     </div>
     <div class="col-sm-12 col-md-1 px-0">
-        <label><small>Code postal :</small><a href="#" class="reset-field" data-target="#filter_postal_code_id">x</a></label>
+        <label><small>Code postal :</small><a href="#" class="reset-field"
+                data-target="#filter_postal_code_id">x</a></label>
         <input class="form-control" id='filter_postal_code_id' type="text" name="postal_code" placeholder="" />
     </div>
 </form>
 
 <script defer>
-        $(function() {
+    $(function() {
    
             /* *  load the date picker **/
             $('#filter_date_min_id,#filter_date_max_id').datepicker({
@@ -81,6 +82,6 @@
                 });
             });
             
-            $('.dt-buttons').append(' - <button class="dt-button buttons-csv buttons-html5 btn btn-success m-0" tabindex="0" aria-controls="announcements-table" type="button" id="reset_filter"><span><i class="fa fa-broom"></i>Effacer les filtres</span></button>');
+            $('.dt-buttons').append(' - <button class="dt-button buttons-csv buttons-html5 btn btn-success m-0" tabindex="0" aria-controls="announcements-table" type="button" id="reset_filter"><span><i class="fa fa-broom mr-1"></i>Effacer les filtres</span></button>');
         });
 </script>

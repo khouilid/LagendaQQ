@@ -3,48 +3,48 @@
 @section('title','Bienvenus')
 
 @section('content')
-    <section id="tw-blog" class="tw-blog">
-        <div class="container">
-            <div class="row text-center">
-                <div class="col section-heading wow fadeInDown" data-wow-duration="1s" data-wow-delay=".5s">
-                    <h2>
-                        <small>Annonce </small>
-                        <span>Catégorie / {{@$category->name}}</span>
-                    </h2>
-                    <span class="animate-border border-offwhite ml-auto mr-auto tw-mt-20"></span>
-                </div>
-                <!-- Col end -->
+<section id="tw-blog" class="tw-blog">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col section-heading wow fadeInDown" data-wow-duration="1s" data-wow-delay=".5s">
+                <h2>
+                    <small>Annonce </small>
+                    <span>Catégorie / {{@$category->name}}</span>
+                </h2>
+                <span class="animate-border border-offwhite ml-auto mr-auto tw-mt-20"></span>
             </div>
-            <!-- Row End -->
-            <div class="row fadeInDown" data-wow-duration="1s" data-wow-delay=".2s">
-                <div class="col-sm-12 col-md-12" id="list-component-wrapper">
-                    @include("frontend.includes.announcements_filters")
-                    <table class="table table-primary table-striped table-borderless" id="announcements-table">
-                        <thead class="table-light">
-                            <tr>
-                                <th>Images</th>
-                                <th>Titre</th>
-                                <th>Categorie</th>
-                                <th>Prix</th>
-                                <th>Identité</th>
-                                <th>Region & Ville</th>
-                                <th>Publiée le</th>
-                            </tr>
-                        </thead>
-                    </table>
-                </div>
-            </div>
-            <!-- End Row -->
+            <!-- Col end -->
         </div>
-        <!-- Container End -->
-    </section>
-    <!-- template tag -->
+        <!-- Row End -->
+        <div class="row fadeInDown" data-wow-duration="1s" data-wow-delay=".2s">
+            <div class="col-sm-12 col-md-12" id="list-component-wrapper">
+                @include("frontend.includes.announcements_filters")
+                <table class="table table-primary table-striped table-borderless" id="announcements-table">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Images</th>
+                            <th>Titre</th>
+                            <th>Categorie</th>
+                            <th>Prix</th>
+                            <th>Identité</th>
+                            <th>Region & Ville</th>
+                            <th>Publiée le</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+        <!-- End Row -->
+    </div>
+    <!-- Container End -->
+</section>
+<!-- template tag -->
 @stop
 
 @push('scripts')
 
-    <script defer>
-        $(function() {
+<script defer>
+    $(function() {
             // Create our number formatter.
             var formatter = new Intl.NumberFormat('en-US', {
             style: 'currency',
@@ -147,7 +147,7 @@
                 });
             });
 
-            $('.dt-buttons').append(' <button class="dt-button buttons-csv buttons-html5 btn btn-success m-0" tabindex="0" aria-controls="announcements-table" type="button" id="reset_filter"><span><i class="fa fa-broom"></i>Effacer les filtres</span></button>')
+            $('.dt-buttons').append(' <button class="dt-button buttons-csv buttons-html5 btn btn-success m-0" tabindex="0" aria-controls="announcements-table" type="button" id="reset_filter"><span><i class="fa fa-broom mr-1"></i>Effacer les filtres</span></button>')
         });
-    </script>
+</script>
 @endpush
