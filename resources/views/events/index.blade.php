@@ -8,7 +8,14 @@
         <div class="col-12 tab-content" id="nav-tabContent">
             <div class="card">
                 <div class="card-header">
-                    <h2 class="card-title font-weight-bold">Mes événements (Vacl)</h2>
+                    <h2 class="card-title font-weight-bold">Mes événements
+
+
+@if (session()->get('role') !== null)
+{{    session()->get('role')->name
+}}    
+@endif
+                    </h2>
                     <div class="card-tools">
                         <a href="{{route('user.create_event')}}" class="btn btn-primary btn-sm">
                             <i class="mr-2 fa fa-plus"></i> Ajouter un événement
@@ -25,6 +32,8 @@
                                 <th>Date(s)</th>
                                 <th>Catégorie</th>
                                 <th>Identité</th>
+                                <th>Medifié le</th>
+                                <th>Ajouté le</th>
                                 <th>État Publication</th>
                             </tr>
                         </thead>
@@ -85,6 +94,8 @@
                     { data: "dates", name: 'dates'},
                     { data: "category_id", name: 'category_id'},
                     { data: "owner", name: 'owner'},
+                    { data: "created_at", name: 'Ajouté le'},
+                    { data: "updated_at", name: 'Medifié le'},
                     { data: "publication", name: 'publication'}
                 ],
            

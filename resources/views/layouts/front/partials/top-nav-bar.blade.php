@@ -102,11 +102,12 @@
                     <li class="nav-item px-2">
                         <a class="nav-link" href="#">Publications</a>
                     </li> -->
+                  
                     @php
                     $menus = \App\Models\Menu::where('visible',1)->orderby('position')->get();
 
                     foreach($menus as $menu){
-                    echo '<li class="nav-item ml-2 dropdown">
+                    echo '<li class="nav-item ml-2  dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false"> '.$menu->name.' </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">';

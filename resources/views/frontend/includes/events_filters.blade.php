@@ -1,16 +1,16 @@
 <form class="col-sm-12 col-md-12 justify-content-center row p-0 bg-light datatable-filter mb-2">
     <!-- <div class="row form-group datatable-filter"> -->
     <div class="col-sm-12 col-md-2 px-0">
-        <label><small>Id :</small><a href="#" class="reset-field" data-target="#filter__id">x</a></label>
+        <label><small>Id :</small><a href="#" class="reset-field" data-target="#filter__id">X</a></label>
         <input  id='filter__id' type="text" name="id" placeholder="" class="form-control" />
     </div>
     <div class="col-sm-12 col-md-2 px-0">
-        <label><small>Date :</small><a href="#" class="reset-field" data-target="#filter__date">x</a></label>
+        <label><small>Date :</small><a href="#" class="reset-field" data-target="#filter__date">X</a></label>
         <input  id='filter__date' type="text" name="dates" placeholder="" class="form-control" />
     </div>
 
     <!-- <div class="col-sm-12 col-md-2 px-0">
-        <label><small>Régions :</small><a href="#" class="reset-field" data-target="#filter_region_id">x</a></label>
+        <label><small>Régions :</small><a href="#" class="reset-field" data-target="#filter_region_id">X</a></label>
         <select id='filter_region_id' class="form-control">
             <option value=""> --- </option>
             @foreach($regions as $key => $region)
@@ -19,7 +19,7 @@
         </select>
     </div> -->
     <div class="col-sm-12 col-md-2 px-0">
-        <label><small> Villes :</small><a href="#" class="reset-field" data-target="#filter_city_id">x</a></label>
+        <label><small> Villes :</small><a href="#" class="reset-field" data-target="#filter_city_id">X</a></label>
         <select id='filter_city_id' class="form-control">
             <option value=""> --- </option>
             @foreach($cities as $key => $value)
@@ -29,7 +29,7 @@
     </div>
 
     <div class="col-sm-12 col-md-2 px-0">
-        <label><small> Ajouté par :</small><a href="#" class="reset-field" data-target="#annonceur_filter">x</a></label>
+        <label><small> Ajouté par :</small><a href="#" class="reset-field" data-target="#annonceur_filter">X</a></label>
         <select id='annonceur_filter' class="form-control">
             <option value=""> --- </option>
             @foreach($list_users as $user)
@@ -38,7 +38,7 @@
         </select>
     </div>
     <div class="col-sm-12 col-md-2 px-0">
-        <label><small>Publiée le :</small><a href="#" class="reset-field" data-target="#filter_created_at">x</a></label>
+        <label><small>Publiée le :</small><a href="#" class="reset-field" data-target="#filter_created_at">X</a></label>
         <input class="form-control" id='filter_created_at' type="text" name="id" placeholder="Ex: 2021-04-28" />
     </div>
 </form>
