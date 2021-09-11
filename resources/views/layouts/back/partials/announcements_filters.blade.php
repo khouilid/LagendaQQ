@@ -1,7 +1,7 @@
 <form class="col-sm-12 col-md-12 justify-content-center row p-0 bg-light datatable-filter mb-2">
     <!-- <div class="row form-group datatable-filter"> -->
     <div class="col-sm-12 col-md-2 px-0">
-        <label><small>Régions :</small><a href="#" class="reset-field" data-target="#filter_region_id">x</a></label>
+        <label><small>Régions :</small><a href="#" class="reset-field" data-target="#filter_region_id">X</a></label>
         <select id='filter_region_id' class="form-control">
             <option value=""> --- </option>
             @foreach($regions as $key => $region)
@@ -10,7 +10,7 @@
         </select>
     </div>
     <div class="col-sm-12 col-md-2 px-0">
-        <label><small> Villes :</small><a href="#" class="reset-field" data-target="#filter_city_id">x</a></label>
+        <label><small> Villes :</small><a href="#" class="reset-field" data-target="#filter_city_id">X</a></label>
         <select id='filter_city_id' class="form-control">
             <option value=""> --- </option>
             @foreach($cities as $key => $value)
@@ -19,11 +19,11 @@
         </select>
     </div>
     <div class="col-sm-12 col-md-2 px-0">
-        <label><small>Code postal :</small><a href="#" class="reset-field" data-target="#filter_postal_code_id">x</a></label>
+        <label><small>Code postal :</small><a href="#" class="reset-field" data-target="#filter_postal_code_id">X</a></label>
         <input class="form-control" id='filter_postal_code_id' type="text" name="postal_code" placeholder="" />
     </div>
     <div class="col-sm-12 col-md-1 px-0">
-        <label><small> Catégories :</small><a href="#" class="reset-field" data-target="#filter_categ_id">x</a></label>
+        <label><small> Catégories :</small><a href="#" class="reset-field" data-target="#filter_categ_id">X</a></label>
         <select id='filter_categ_id' class="form-control">
             <option value=""> --- </option>
             @foreach($categories as $key => $value)
@@ -32,32 +32,32 @@
         </select>
     </div>
     <div class="col-sm-12 col-md-2 px-0">
-        <label><small>Titre :</small><a href="#" class="reset-field" data-target="#filter_title">x</a></label>
+        <label><small>Titre :</small><a href="#" class="reset-field" data-target="#filter_title">X</a></label>
         <input  id='filter_title' type="text" name="title" placeholder="" class="form-control" />
     </div>
     <div class="col-sm-12 col-md-1 px-0">
-        <label><small>Id :</small><a href="#" class="reset-field" data-target="#filter__id">x</a></label>
+        <label><small>Id :</small><a href="#" class="reset-field" data-target="#filter__id">X</a></label>
         <input  id='filter__id' type="text" name="id" placeholder="" class="form-control" />
     </div>
     @hasanyrole('super-admin|admin')
         <div class="col-sm-12 col-md-2 px-0">
-            <label for="annonceur_filter"><small>Ajouté par</small><a href="#" class="reset-field" data-target="#annonceur_filter">x</a></label>
+            <label for="annonceur_filter"><small>Ajouté par</small><a href="#" class="reset-field" data-target="#annonceur_filter">X</a></label>
             <input name="autocomplete_user" id="annonceur_filter" class="form-control select-members" >
             <input name="user_id" id="user_id" type="hidden">
             <ul id="autocompletes" style="display: none;"></ul> 
         </div>
         <div class="col-sm-12 col-md-1 px-0">
-            <label><small>Modifier le :</small><a href="#" class="reset-field" data-target="#filter_updated_at">x</a></label>
+            <label><small>Modifier le :</small><a href="#" class="reset-field" data-target="#filter_updated_at">X</a></label>
             <input class="form-control" id='filter_updated_at' type="text" name="id" placeholder="Ex: 2021-04-28" />
         </div>
     @endrole
     @hasanyrole('vendeur|chef-vendeur')
         <div class="col-sm-12 col-md-1 px-0">
-            <label><small>Ajouté le :</small><a href="#" class="reset-field" data-target="#filter_created_at">x</a></label>
+            <label><small>Ajouté le :</small><a href="#" class="reset-field" data-target="#filter_created_at">X</a></label>
             <input class="form-control" id='filter_created_at' type="text" name="id" placeholder="Ex: 2021-04-28" />
         </div>
         <div class="col-sm-12 col-md-1 px-0">
-            <label><small>Modifié le :</small><a href="#" class="reset-field" data-target="#filter_updated_at">x</a></label>
+            <label><small>Modifié le :</small><a href="#" class="reset-field" data-target="#filter_updated_at">X</a></label>
             <input class="form-control" id='filter_updated_at' type="text" name="id" placeholder="Ex: 2021-04-28" />
         </div>
     @endrole

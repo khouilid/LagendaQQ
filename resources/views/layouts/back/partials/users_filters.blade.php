@@ -1,31 +1,31 @@
 <form class="col-sm-12 col-md-12 justify-content-center row p-0 bg-light datatable-filter mb-2">
     @hasanyrole('super-admin|admin')
         <div class="col-sm-12 col-md-1 px-0">
-            <label><small>N° :</small><a href="#" class="reset-field" data-target="#filter_id">x</a></label>
+            <label><small>N° :</small><a href="#" class="reset-field" data-target="#filter_id">X</a></label>
             <input class="form-control" id='filter_id' type="text" name="id" placeholder="" />
         </div>
     @endrole
     @hasanyrole('super-admin|admin|vendeur|chef-vendeur')
         <div class="col-sm-12 col-md-2 px-0">
-            <label><small>Prenom :</small><a href="#" class="reset-field" data-target="#filter_prenom">x</a></label>
+            <label><small>Prenom :</small><a href="#" class="reset-field" data-target="#filter_prenom">X</a></label>
             <input class="form-control" id='filter_prenom' type="text" name="prenom" placeholder="" />
         </div>
         <div class="col-sm-12 col-md-2 px-0">
-            <label><small>Nom :</small><a href="#" class="reset-field" data-target="#filter_name">x</a></label>
+            <label><small>Nom :</small><a href="#" class="reset-field" data-target="#filter_name">X</a></label>
             <input class="form-control" id='filter_name' type="text" name="name" placeholder="" />
         </div>
         <div class="col-sm-12 col-md-2 px-0">
-            <label><small>Nom utilisateur :</small><a href="#" class="reset-field" data-target="#filter_username">x</a></label>
+            <label><small>Nom utilisateur :</small><a href="#" class="reset-field" data-target="#filter_username">X</a></label>
             <input class="form-control" id='filter_username' type="text" name="username" placeholder="" />
         </div>
         <div class="col-sm-12 col-md-2 px-0">
-            <label><small>Email :</small><a href="#" class="reset-field" data-target="#filter_email">x</a></label>
+            <label><small>Email :</small><a href="#" class="reset-field" data-target="#filter_email">X</a></label>
             <input class="form-control" id='filter_email' type="text" name="email" placeholder="" />
         </div>
     @endrole
     @hasanyrole('super-admin|admin')
         <div class="col-sm-12 col-md-2 px-0">
-            <label><small> Fonctions :</small><a href="#" class="reset-field" data-target="#filter_roles">x</a></label>
+            <label><small> Fonctions :</small><a href="#" class="reset-field" data-target="#filter_roles">X</a></label>
             <select id='filter_roles' class="form-control">
                 <option value=""> --- </option>
                 @foreach($roles as $key => $value)

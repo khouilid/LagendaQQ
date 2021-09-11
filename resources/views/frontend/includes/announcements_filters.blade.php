@@ -1,11 +1,11 @@
 <form class="col-sm-12 col-md-12 justify-content-center row p-0 bg-light datatable-filter mb-2">
     <!-- <div class="row form-group datatable-filter"> -->
     <div class="col-sm-12 col-md-2 px-0">
-        <label><small>Titre :</small><a href="#" class="reset-field" data-target="#filter_title">x</a></label>
+        <label><small>Titre :</small><a href="#" class="reset-field" data-target="#filter_title">X</a></label>
         <input  id='filter_title' type="text" name="title" placeholder="" class="form-control" />
     </div>
     <div class="col-sm-12 col-md-2 px-0">
-        <label><small>Régions :</small><a href="#" class="reset-field" data-target="#filter_region_id">x</a></label>
+        <label><small>Régions :</small><a href="#" class="reset-field" data-target="#filter_region_id">X</a></label>
         <select id='filter_region_id' class="form-control">
             <option value=""> --- </option>
             @foreach($regions as $key => $region)
@@ -14,7 +14,7 @@
         </select>
     </div>
     <div class="col-sm-12 col-md-2 px-0">
-        <label><small> Villes :</small><a href="#" class="reset-field" data-target="#filter_city_id">x</a></label>
+        <label><small> Villes :</small><a href="#" class="reset-field" data-target="#filter_city_id">X</a></label>
         <select id='filter_city_id' class="form-control">
             <option value=""> --- </option>
             @foreach($cities as $key => $value)
@@ -23,7 +23,7 @@
         </select>
     </div>
     <div class="col-sm-12 col-md-1 px-0">
-        <label><small>Code postal :</small><a href="#" class="reset-field" data-target="#filter_postal_code_id">x</a></label>
+        <label><small>Code postal :</small><a href="#" class="reset-field" data-target="#filter_postal_code_id">X</a></label>
         <input class="form-control" id='filter_postal_code_id' type="text" name="postal_code" placeholder="" />
     </div>
 </form>
