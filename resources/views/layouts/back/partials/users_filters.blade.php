@@ -1,5 +1,6 @@
 <form class="col-sm-12 col-md-12 justify-content-center row p-0 bg-light datatable-filter mb-2">
     @hasanyrole('super-admin|admin')
+
         <div class="col-sm-12 col-md-1 px-0">
             <label><small>N° :</small><a href="#" class="reset-field" data-target="#filter_id">X</a></label>
             <input class="form-control" id='filter_id' type="text" name="id" placeholder="" />
@@ -33,13 +34,14 @@
                 @endforeach
             </select>
         </div>
+
     @endrole
     @hasanyrole('vendeur|chef-vendeur')
     @endrole
 </form>
 
 <script defer>
-        $(function() {
+    $(function() {
    
             /* *  load the date picker **/
             $('#filter_date_min_id,#filter_date_max_id').datepicker({
@@ -91,6 +93,6 @@
                 });
             }); */
             
-            $('.dt-buttons').append(' - <button class="dt-button buttons-csv buttons-html5 btn btn-success m-0" tabindex="0" aria-controls="announcements-table" type="button" id="reset_filter"><span><i class="fa fa-broom"></i>Effacer les filtres</span></button>')
+            $('.dt-buttons').append(' - <button class="dt-button buttons-csv buttons-html5 btn btn-success m-0" tabindex="0" aria-controls="announcements-table" type="button" id="reset_filter"><span><i class="fa fa-broom mr-1"></i>Effacer les filtres</span></button>')
         });
 </script>

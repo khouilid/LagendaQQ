@@ -1,76 +1,77 @@
 @extends('layouts.front.app')
 
 @section('content')
-    <div class="row">
-        <div class="my-4 col-12 row">
-        </div>
-        <div class="col-12 tab-content" id="nav-tabContent">
-            <div class="card">
-                <div class="card-header">
-                    <h2 class="card-title font-weight-bold">Mes annonces  (Vacl) </h2>
-                    <div class="card-tools">
-                        <a href="{{route('user.create_announcement')}}" class="btn btn-primary btn-sm">
-                            <i class="mr-2 fa fa-plus"></i> Ajouter une annonce
-                        </a>
-                    </div>
+<div class="row">
+    <div class="my-4 col-12 row">
+    </div>
+    <div class="col-12 tab-content" id="nav-tabContent">
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title font-weight-bold">Mes annonces (Vacl) </h2>
+                <div class="card-tools">
+                    <a href="{{route('user.create_announcement')}}" class="btn btn-outline-primary btn-sm">
+                        <i class="mr-2 fa fa-plus"></i> Ajouter une annonce
+                    </a>
                 </div>
-                <div class="card-body">
-                    @include("layouts.back.partials.announcements_filters")
-                    <table class="table table-success table-striped table-borderless" id="announcements-table">
-                        <thead class="table-light">
-                            <tr>
-                                <th>N°</th>
-                                <th>Titre</th>
-                                <th>Region et Ville</th>
-                                <th>Categorie</th>
-                                <th>Code postal</th>
-                                <th>Ajouté le</th>
-                                <th>Modifié le</th>
-                            </tr>
-                        </thead>
-                    </table>
-                </div>
+            </div>
+            <div class="card-body">
+                @include("layouts.back.partials.announcements_filters")
+                <table class="table table-success table-striped table-borderless" id="announcements-table">
+                    <thead class="table-light">
+                        <tr>
+                            <th>N°</th>
+                            <th>Titre</th>
+                            <th>Region et Ville</th>
+                            <th>Categorie</th>
+                            <th>Code postal</th>
+                            <th>Ajouté le</th>
+                            <th>Modifié le</th>
+                        </tr>
+                    </thead>
+                </table>
             </div>
         </div>
     </div>
+</div>
 
-    
-    <div id="HoursPickupModal" class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <h4 class="modal-title">Veuillez sélectionner les heures pour chaque dates</h4>
-                </div>
-                <div class="modal-body">
-                    <form class="form-horizontal" action="/membres/send_registration" method="post" accept-charset="utf-8">
-                        <div class="form-group hourselection row">
-                            <label for="username" class="col-sm-4  control-label">Heure pour tous: </label>
-                            <div class="col-sm-3 input-group clockpickerall" data-placement="left" data-align="top" data-autoclose="true">
-                                <input type="text" class="form-control " value="09:30">
-                                <span class="input-group-addon">
-                                    <span class="glyphicon glyphicon-time"></span>
-                                </span>
-                            </div>
+
+<div id="HoursPickupModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">Veuillez sélectionner les heures pour chaque dates</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" action="/membres/send_registration" method="post" accept-charset="utf-8">
+                    <div class="form-group hourselection row">
+                        <label for="username" class="col-sm-4  control-label">Heure pour tous: </label>
+                        <div class="col-sm-3 input-group clockpickerall" data-placement="left" data-align="top"
+                            data-autoclose="true">
+                            <input type="text" class="form-control " value="09:30">
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-time"></span>
+                            </span>
                         </div>
-                        <div id="themodal"></div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-                    <button type="button" class="btn btn-primary SaveFinalDate">Sauvegarder</button>
-                </div>
+                    </div>
+                    <div id="themodal"></div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+                <button type="button" class="btn btn-primary SaveFinalDate">Sauvegarder</button>
             </div>
         </div>
     </div>
+</div>
 @endsection
 
 @push('scripts')
 
-    <script defer>
-        var today = new Date();
+<script defer>
+    var today = new Date();
         var dd = String(today.getDate()).padStart(2, '0');
         var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
         var yyyy = today.getFullYear();
@@ -171,6 +172,6 @@
                 });
             });
         });
-    </script>
+</script>
 
 @endpush

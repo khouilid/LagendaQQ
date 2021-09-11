@@ -24261,12 +24261,12 @@ table.dataTable tbody td {
 }
 
 #reset_filter {
-    padding       : 1vh 3vw;
-    margin        : 0 0 3vw !important;
-    font-size     : x-small;
-    text-transform: none;
-    position      : relative;
-    z-index       : 1;
+    padding          : 5px 10px;
+    /* margin        : 0 0 3vw !important; */
+    font-size        : x-small;
+    text-transform   : none;
+    position         : relative;
+    z-index          : 1;
 }
 
 #events-table_length,

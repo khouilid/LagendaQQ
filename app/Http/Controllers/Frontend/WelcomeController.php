@@ -22,16 +22,15 @@ class WelcomeController extends Controller
     public function welcomePage()
     {
 		$user = Auth::user();
-		$announcements = Event::where('publication_status','1')
+		/* $events = Event::where('publication_status','1')
 							->orderby('published_at','desc')
+							->limit(3)
+							->get(); */
+		$announcements = Announcement::where('publication_status','1')
+                            ->where('lock_publication','!=',1)
+							->orderby('published_at','asc')
 							->limit(6)
-							->get(); 
-		// $announcements = Announcement::where('publication_status','1')
-        //                     ->where('lock_publication','!=',1)
-        //                     ->where("images" , '!=', null)
-		// 					->orderby('published_at','asc')
-		// 					->limit(6)
-		// 					->get();
+							->get();
 		$last_published = $announcements->all();
 		/* shuffle($last_published); */
 		$month_array = ['','Jan','Fev','Mar','Avr','Mai','Jun','Jul','Aoû','Sep','Oct','Nov','Dec'];

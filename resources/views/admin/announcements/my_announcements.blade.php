@@ -3,48 +3,48 @@
 @section('title','Liste des annonces')
 
 @section('content')
-    <div class="row">
-        <div class="my-4 col-12 row">
-            <!-- <h2 class="my-0"> - </h2> -->
-        </div>
-        <div class="col-12 tab-content" id="nav-tabContent">
-            <div class="card">
-                <div class="card-header">
-                    <h2 class="card-title font-weight-bold">Mes annonces</h2>
-                    <div class="card-tools">
-                        <a href="{{route('admin.create_announcement')}}" class="btn btn-primary btn-sm">
-                            <i class="mr-2 fa fa-plus"></i> Ajouter une annonce
-                        </a>
-                    </div>
+<div class="row">
+    <div class="my-4 col-12 row">
+        <!-- <h2 class="my-0"> - </h2> -->
+    </div>
+    <div class="col-12 tab-content" id="nav-tabContent">
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title font-weight-bold">Mes annonces</h2>
+                <div class="card-tools">
+                    <a href="{{route('admin.create_announcement')}}" class="btn btn-outline-primary btn-sm">
+                        <i class="mr-2 fa fa-plus"></i> Ajouter une annonce
+                    </a>
                 </div>
-                <div class="card-body">
-                    <table class="table table-success table-striped table-borderless" id="announcements-table">
-                        <thead class="table-light">
-                            <tr>
-                                <th>-</th>
-                                <th>Titre</th>
-                                <th>Categorie</th>
-                                <th>Prix</th>
-                                <th>Identité</th>
-                                <th>Region et Ville</th>
-                                <th>Status</th>
-                                <th>Validated</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                    </table>
-                </div>
+            </div>
+            <div class="card-body">
+                <table class="table table-success table-striped table-borderless" id="announcements-table">
+                    <thead class="table-light">
+                        <tr>
+                            <th>-</th>
+                            <th>Titre</th>
+                            <th>Categorie</th>
+                            <th>Prix</th>
+                            <th>Identité</th>
+                            <th>Region et Ville</th>
+                            <th>Status</th>
+                            <th>Validated</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                </table>
             </div>
         </div>
     </div>
+</div>
 
-    @include('layouts.back.alerts.validate-confirmation')
+@include('layouts.back.alerts.validate-confirmation')
 @endsection
 
 @push('scripts')
 
-    <script defer>
-        $(function() {
+<script defer>
+    $(function() {
             // Create our number formatter.
             var formatter = new Intl.NumberFormat('ca-CA', {
             style: 'currency',
@@ -183,6 +183,6 @@
                  $('#limit').val(table.page.info().recordsDisplay);
             });
         });
-    </script>
+</script>
 
 @endpush

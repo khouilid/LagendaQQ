@@ -309,7 +309,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" onclick="leftBar()">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <div class=" d-flex justify-content-center collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav align-items-center">
 
                     @auth
@@ -437,7 +437,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 class="bg-white border-0">
                                 <option value="">Basculer vers</option>
                                 @foreach(auth()->user()->roles as $fonction)
-                          
+                                @php
+                                var_dump($fonction);
+                                @endphp
                                 @if (session()->get("role") !== null && session()->get("role")->id == $fonction->id
                                 )
 

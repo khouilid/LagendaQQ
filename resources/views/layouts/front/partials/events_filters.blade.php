@@ -1,6 +1,7 @@
 <form class="col-sm-12 col-md-12 justify-content-center row p-0 bg-light datatable-filter mb-2">
     <!-- <div class="row form-group datatable-filter"> -->
     <div class="col-sm-12 col-md-1 px-0">
+
         <label><small>Id :</small><a href="#" class="reset-field" data-target="#filter__id">X</a></label>
         <input  id='filter__id' type="text" name="id" placeholder="" class="form-control" />
     </div>
@@ -42,10 +43,12 @@
     @hasanyrole('admin')
         <!-- <div class="col-sm-12 col-md-1 px-0">
             <label><small>Modifier le :</small><a href="#" class="reset-field" data-target="#filter_updated_at">X</a></label>
+
             <input class="form-control" id='filter_updated_at' type="text" name="id" placeholder="Ex: 2021-04-28" />
         </div> -->
     @endrole
     @hasanyrole('vendeur|chef-vendeur')
+
         <div class="col-sm-12 col-md-1 px-0">
             <label><small> Catégories :</small><a href="#" class="reset-field" data-target="#filter_categ_id">X</a></label>
             <select id='filter_categ_id' class="form-control">
@@ -72,10 +75,12 @@
     @hasanyrole('super-admin|vendeur|chef-vendeur|admin')
         <!-- <div class="col-sm-12 col-md-2 px-0">
             <label for="annonceur_filter"><small>Ajouté par</small><a href="#" class="reset-field" data-target="#annonceur_filter">X</a></label>
+
             <input name="autocomplete_user" id="annonceur_filter" class="form-control select-members" >
             <input name="user_id" id="user_id" type="hidden">
             <ul id="autocompletes" style="display: none;"></ul> 
         </div> -->
+
         <div class="col-sm-12 col-md-2 px-0">
             <label><small> Ajouté par :</small><a href="#" class="reset-field" data-target="#annonceur_filter">X</a></label>
             <select id='annonceur_filter' class="form-control">
@@ -95,11 +100,12 @@
                 <input class="form-control" id='filter_updated_at' type="text" name="id" placeholder="Ex: 2021-04-28" />
             </div>
         @endrole
+
     @endrole
 </form>
 
 <script defer>
-        $(function() {
+    $(function() {
    
             /* *  load the date picker **/
             $('#filter_date_min_id,#filter_date_max_id').datepicker({
@@ -152,6 +158,6 @@
                     });
                 });
             }
-            $('.dt-buttons').append(' - <button class="dt-button buttons-csv buttons-html5 btn btn-success m-0" tabindex="0" aria-controls="announcements-table" type="button" id="reset_filter"><span><i class="fa fa-broom"></i>Effacer les filtres</span></button>')
+            $('.dt-buttons').append(' - <button class="dt-button buttons-csv buttons-html5 btn btn-success m-0" tabindex="0" aria-controls="announcements-table" type="button" id="reset_filter"><span><i class="fa fa-broom mr-1"></i>Effacer les filtres</span></button>')
         });
 </script>
