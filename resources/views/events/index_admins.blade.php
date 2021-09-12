@@ -1,47 +1,47 @@
 @extends('layouts.front.app')
 
 @section('content')
-    <div class="row">
-        <div class="my-4 col-12 row">
-            <!-- <h2 class="my-0"> - </h2> -->
-        </div>
-        <div class="col-12 tab-content" id="nav-tabContent">
-            <div class="card">
-                <div class="card-header">
-                    <h2 class="card-title font-weight-bold">Mes événements</h2>
-                    <div class="card-tools">
-                        <a href="{{route('user.create_event')}}" class="btn btn-primary btn-sm">
-                            <i class="mr-2 fa fa-plus"></i> Ajouter un événement
-                        </a>
-                    </div>
+<div class="row">
+    <div class="my-4 col-12 row">
+        <!-- <h2 class="my-0"> - </h2> -->
+    </div>
+    <div class="col-12 tab-content" id="nav-tabContent">
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title font-weight-bold">Mes événements</h2>
+                <div class="card-tools">
+                    <a href="{{route('user.create_event')}}" class="btn btn-outline-primary btn-sm">
+                        <i class="mr-2 fa fa-plus"></i> Ajouter un événement
+                    </a>
                 </div>
-                <div class="card-body">
-                    @include("layouts.front.partials.events_filters")
-                    <table class="table table-success table-striped table-borderless" id="events-table">
-                        <thead class="table-light">
-                            <tr>
-                                <th>Id</th>
-                                <th>Titre</th>
-                                <th>Date(s)</th>
-                                <th>Région et Ville</th>
-                                <th>Organisateur</th>
-                                <th>Ajouté par</th>
-                                <th>Ajouté le</th>
-                                <th>Modifié le</th>
-                            </tr>
-                        </thead>
-                    </table>
-                </div>
+            </div>
+            <div class="card-body">
+                @include("layouts.front.partials.events_filters")
+                <table class="table table-success table-striped table-borderless" id="events-table">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Id</th>
+                            <th>Titre</th>
+                            <th>Date(s)</th>
+                            <th>Région et Ville</th>
+                            <th>Organisateur</th>
+                            <th>Ajouté par</th>
+                            <th>Ajouté le</th>
+                            <th>Modifié le</th>
+                        </tr>
+                    </thead>
+                </table>
             </div>
         </div>
     </div>
-    @include('layouts.back.alerts.validate-confirmation')
+</div>
+@include('layouts.back.alerts.validate-confirmation')
 @endsection
 
 @push('scripts')
 
-     <script defer>
-             var today = new Date();
+<script defer>
+    var today = new Date();
         var dd = String(today.getDate()).padStart(2, '0');
         var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
         var yyyy = today.getFullYear();
@@ -162,7 +162,7 @@
                 table.draw();
             });*/
         });
-    </script>
+</script>
 
 
 @endpush

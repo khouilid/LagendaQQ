@@ -1,62 +1,69 @@
 @extends('layouts.front.app')
-<link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css"> 
+<link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
 @section('content')
-    <div class="row">
-        <div class="offset-sm-2 col-10 text-blue mb-4"><h2><i class="fa fa-plus"></i> Ajout d'une annonce classée ( le montage )
+<div class="row">
+    <div class="d-flex justify-content-center w-100">
+        <h2><i class="fa fa-plus"></i> Ajout d'une annonce classée ( le montage )
         </h2>
-            <div class="d-flex">
-               
-                @if(session()->get('role') !== null)
-                <span class="badge bg-info">{{session()->get('role')->name}}</span>
-                @else
-                @foreach ($user->roles as $role)
-                    <p><span class="badge bg-info">{{$role->name}}</span></p>
-                @endforeach
-                    
-                @endif
-            </div>
-        
+        <div class="ml-2">
+
+            @if(session()->get('role') !== null)
+            <span class="badge bg-info">{{session()->get('role')->name}}</span>
+            @else
+            @foreach ($user->roles as $role)
+            <p><span class="badge bg-info">{{$role->name}}</span></p>
+            @endforeach
+
+            @endif
         </div>
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
+
+    </div>
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+    @if(!$can_post)
+    <div class="mx-auto badge text-danger badge-light mb-4 py-2" style="line-height: 2.4;">
+        Vous n'avez pas assez de <strong>{{strtolower(@$role_currency->name)}}</strong> dans votre portefeuille pour
+        publier votre annonce.<br>Vous pouvez tout de même l'enregistrer en brouillon. Vous pouvez aussi <a
+            href="{{route('purchase_currency')}}" class="btn btn-sm btn-outline-success"> Recharger votre
+            portefeuille.</a>
+    </div>
+    @endif
+    <div class="col-8 tab-content mx-auto" id="nav-tabContent">
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title font-weight-bold">- </h2>
             </div>
-        @endif
-        @if(!$can_post)
-            <div class="badge text-danger badge-light mb-4 py-2" style="line-height: 2.4;">
-                Vous n'avez pas assez de <strong>{{strtolower(@$role_currency->name)}}</strong> dans votre portefeuille pour publier votre annonce.<br>Vous pouvez tout de même l'enregistrer en brouillon. Vous pouvez aussi <a href="{{route('purchase_currency')}}" class="btn btn-sm btn-success"> Recharger votre portefeuille.</a>
-            </div>
-        @endif
-        <div class="col-8 tab-content mx-auto" id="nav-tabContent">
-            <div class="card">
-                <div class="card-header">
-                    <h2 class="card-title font-weight-bold">- </h2>
-                </div>
-                <div class="card-body">
-                    <form action="{{route('user.store_announcement')}}" method="post" enctype="multipart/form-data">
-                        <div class="row">
-                            @csrf
+            <div class="card-body">
+                <form action="{{route('user.store_announcement')}}" method="post" enctype="multipart/form-data">
+                    <div class="row">
+                        @csrf
 
 
 
 
-                            @if( session()->get('role') !== null && (session()->get('role')->name  == 'chef-vendeur' || session()->get('role')->name  == 'vendeur'))
-                            <div class="offset-sm-0 col-12 form-group row">
-                                <label for="owner" class="col-sm-12 col-md-12">Publiée l'annonce pour : </label>
-                                <select name="owner" id="owner" class="form-control">
-                                
-                                    @forelse($children as $child)
-                                    <option value="{{$child->id}}" {{old("owner",@$announcement->owner) == $child->id?'selected':'' }}> {{$child->username}} </option>
-                                    @empty
-                                    <option value="{{$user->id}}">Vous n'avez enregistré aucun équipier.</option>
-                                    @endforelse
-                                </select>
-                            </div>
-                            @endif
+                        @if( session()->get('role') !== null && (session()->get('role')->name == 'chef-vendeur' ||
+                        session()->get('role')->name == 'vendeur'))
+                        <div class="offset-sm-0 col-12 form-group row">
+                            <label for="owner" class="col-sm-12 col-md-12">Publiée l'annonce pour : </label>
+                            <select name="owner" id="owner" class="form-control">
+
+                                @forelse($children as $child)
+                                <option value="{{$child->id}}"
+                                    {{old("owner",@$announcement->owner) == $child->id?'selected':'' }}>
+                                    {{$child->username}} </option>
+                                @empty
+                                <option value="{{$user->id}}">Vous n'avez enregistré aucun équipier.</option>
+                                @endforelse
+                            </select>
+                        </div>
+                        @endif
 
 
 
@@ -64,44 +71,52 @@
 
 
 
-                            <input type="hidden" name="posted_by" value="{{$user->id}}">
-                            @include("announcements.includes.announcement_form")
-                            <hr class="my-2">
-                            @if(!empty(@$user_events))
-                                <div id="" class="bg-lightblue col-md-12 col-sm-12 form-group py-2 row">
-                                    <label for="title" class="col-sm-12 col-md-12"><strong>Lier l'annonce à un événement :*</strong> </label>
-                                    <select name="event_id" id="event_id" class="form-control col-sm-12 col-md-6">
-                                        <option value=""> --- </option>
-                                        @foreach($user_events as $key => $title)
-                                            <option value="{{$key}}" {{old('event_id',@$announcement->event_id) === $key?'selected':''}}> {{$title}} </option>
-                                        @endforeach
-                                    </select>
-                                    <div class="col-sm-12 col-md-6">
-                                        <label for="new_event">Ou ajouter un nouvel événement</label> <input type="checkbox" name="new_event" value="1" id="new_event" />
-                                    </div>
-                                </div>
-                            @endif
-                            <div class="offset-sm-4 col-sm-8 form-group row">
-                                <button id="new_event_wrapper" class="btn btn-success" type="submit">Lier un nouvel événement <i class="fa fa-angle-double-right"></i>  <br><small>Créer un nouvel événement qui sera lier à votre annonce.</small></button>
-                                <button id="save_announcement" type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Enregistrer</button>
+                        <input type="hidden" name="posted_by" value="{{$user->id}}">
+                        @include("announcements.includes.announcement_form")
+                        <hr class="my-2">
+                        @if(!empty(@$user_events))
+                        <div id="" class="bg-lightblue col-md-12 col-sm-12 form-group py-2 row">
+                            <label for="title" class="col-sm-12 col-md-12"><strong>Lier l'annonce à un événement
+                                    :*</strong> </label>
+                            <select name="event_id" id="event_id" class="form-control col-sm-12 col-md-6">
+                                <option value=""> --- </option>
+                                @foreach($user_events as $key => $title)
+                                <option value="{{$key}}"
+                                    {{old('event_id',@$announcement->event_id) === $key?'selected':''}}> {{$title}}
+                                </option>
+                                @endforeach
+                            </select>
+                            <div class="col-sm-12 col-md-6">
+                                <label for="new_event">Ou ajouter un nouvel événement</label> <input type="checkbox"
+                                    name="new_event" value="1" id="new_event" />
                             </div>
                         </div>
-                    </form>
-                </div>
+                        @endif
+                        <div class="offset-sm-4 col-sm-8 form-group row">
+                            <button id="new_event_wrapper" class="btn btn-success" type="submit">Lier un nouvel
+                                événement <i class="fa fa-angle-double-right"></i> <br><small>Créer un nouvel événement
+                                    qui sera lier à votre annonce.</small></button>
+                            <button id="save_announcement" type="submit" class="btn btn-primary"><i
+                                    class="fa fa-save"></i> Enregistrer</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
+</div>
 @endsection
 
 @push('scripts')
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js" defer></script>
-    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js" defer></script>
-    <script src="{{asset('dist/multiple_dates_picker/jquery-ui.multidatespicker.js')}}" defer></script>
-    <!-- Froala 2.7.3 -->
-    <script type='text/javascript' src="https://cdn.jsdelivr.net/npm/froala-editor@2.9.1/js/froala_editor.pkgd.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/froala-editor@2.9.1/js/languages/fr.js"></script>
-    <script>
-        $(document).ready(function(){
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js" defer></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js" defer></script>
+<script src="{{asset('dist/multiple_dates_picker/jquery-ui.multidatespicker.js')}}" defer></script>
+<!-- Froala 2.7.3 -->
+<script type='text/javascript' src="https://cdn.jsdelivr.net/npm/froala-editor@2.9.1/js/froala_editor.pkgd.min.js">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/froala-editor@2.9.1/js/languages/fr.js"></script>
+<script>
+    $(document).ready(function(){
             $('#datePick').multiDatesPicker({
                 dateFormat: "d/m/yy",
                 minDate: 0, // today
@@ -148,10 +163,10 @@
             }
 
         });
-    </script>
+</script>
 
-    <script>
-            $(document).ready(function () {
+<script>
+    $(document).ready(function () {
                 
 
                 //processing upload of image
@@ -200,5 +215,5 @@
 
 
 
-    </script>
+</script>
 @endpush

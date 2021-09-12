@@ -15,6 +15,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <title>{{ config('app.name') }} - @yield(('title'))</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+
     <!-- FROALA -->
     <link href='https://cdn.jsdelivr.net/npm/froala-editor@2.9.1/css/froala_editor.min.css' rel='stylesheet'
         type='text/css' />
@@ -45,9 +51,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
     @stack('scripts')
 
     <!-- Theme style -->
+    {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous"> --}}
+
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous"> -->
+
+
+
     <link rel="stylesheet" type="text/css" href="{{asset('dist/ckeditor5/build/styles.css')}}">
     <link rel="stylesheet" href="{{ asset('/dist/datepicker/combined.css') }}">
     <link rel="stylesheet" href="{{ asset('css/all.css') }}">
@@ -296,9 +307,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow">
         <div class="container-fluid">
 
-            <button class="btn btn-outline-secondary mr-2" onclick="leftBar()">
+            {{-- <button class="btn btn-outline-secondary mr-2" onclick="leftBar()">
                 <i class="fas fa-bars"></i>
-            </button>
+            </button> --}}
 
             <a class="navbar-brand" href="{{ route('welcome') }}">
                 {{-- website Logo --}}
@@ -496,11 +507,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 href="{{ config('app.url') }}">{{ config('app.name') }}</a>.</strong> All rights reserved.
     </footer>
     </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+
+
     <!-- ./wrapper -->
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+    {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> --}}
+
+    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
-    </script>
+    </script> --}}
+
     <noscript>
         <style>
             .wrapper {
@@ -522,7 +543,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     @include('layouts.back.alerts.sweetalerts')
 
     <script src="{{asset('dist/ckeditor5/build/ckeditor.js')}}"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <script>
         ClassicEditor
         .create( document.querySelector( '.editor, .ckeditor' ), {
