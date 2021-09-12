@@ -31,9 +31,9 @@
 {{-- </div> --}}
 
 <div class="row">
-    <div class="col d-flex">
+    <div class="col d-flex justify-content-center">
 
-        <div class="toggle" onclick="leftBar()">
+        <div class="toggle mt-5" onclick="leftBar()">
             <div class="card shadow-none mr-3 left-bar">
                 <div class="card-body d-flex flex-column position-relative">
 
@@ -45,6 +45,11 @@
                     <img style="right: 10px;" class="position-absolute" src="{{asset('dist/img/Star-1.png')}}" alt="">
                     <img class="position-absolute" src="{{asset('dist/img/Star-1.png')}}" alt="">
 
+
+                    {{-- @php 
+                        dd($user);
+                        
+                    @endphp --}}
                     {{-- <h5 class="card-title">{{$user->username}}</h5> --}}
                     <p class="card-text">
                         <h4 class="font-weight-bold">{{$user->prenom}} {{$user->name}}</h4>

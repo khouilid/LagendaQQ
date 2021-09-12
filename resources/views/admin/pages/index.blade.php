@@ -19,11 +19,11 @@
                     <form class="col-sm-12 col-md-12 justify-content-center row p-0 bg-light datatable-filter mb-2">
                     <h4 class="col-12">Filtres</h4>
                         <div class="col-sm-12 col-md-2 px-0">
-                            <label><small>Titre :</small><a href="#" class="reset-field" data-target="#filter_title">x</a></label>
+                            <label><small>Titre :</small><a href="#" class="reset-field" data-target="#filter_title">X</a></label>
                             <input class="form-control" id='filter_title' type="text" name="filter_title" placeholder="" />
                         </div>
                         <div class="col-sm-12 col-md-2 px-0">
-                            <label><small>Type de page :</small><a href="#" class="reset-field" data-target="#filtre_page_type">x</a></label>
+                            <label><small>Type de page :</small><a href="#" class="reset-field" data-target="#filtre_page_type">X</a></label>
                             <select name="filtre_page_type" id="filtre_page_type" class="form-control">
                                 <option value=""> --- </option>
                                 <option value="0"> Page générique </option>
@@ -31,7 +31,7 @@
                             </select>
                         </div>
                         <div class="col-sm-12 col-md-2 px-0">
-                            <label><small>Menu :</small><a href="#" class="reset-field" data-target="#menu_filter">x</a></label>
+                            <label><small>Menu :</small><a href="#" class="reset-field" data-target="#menu_filter">X</a></label>
                             <select name="menu_filter" id="menu_filter" class="form-control">
                                 <option value="">---</option>
                                 @foreach($menus as $menu)
