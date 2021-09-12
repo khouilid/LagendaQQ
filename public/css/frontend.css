@@ -25006,6 +25006,11 @@ btn-outline-secondary:hover {
     .nav-tabs .nav-link.active {
         background-color: #cbd5e0 !important;
     }
+
+    .responsive-annonceur {
+        display       : flex;
+        flex-direction: column;
+    }
 }
 
 /* Extra small devices (portrait phones, less than 320px) */
@@ -25143,6 +25148,11 @@ btn-outline-secondary:hover {
     }
 
     .custom-responsive {
+        display       : flex;
+        flex-direction: column;
+    }
+
+    .responsive-annonceur {
         display       : flex;
         flex-direction: column;
     }
@@ -25299,6 +25309,11 @@ btn-outline-secondary:hover {
         display       : flex;
         flex-direction: column;
     }
+
+    .responsive-annonceur {
+        display       : flex;
+        flex-direction: column;
+    }
 }
 
 @media (min-width: 575.98px) and (max-width: 767.98px) {
@@ -25448,6 +25463,11 @@ btn-outline-secondary:hover {
     }
 
     .custom-responsive {
+        display       : flex;
+        flex-direction: column;
+    }
+
+    .responsive-annonceur {
         display       : flex;
         flex-direction: column;
     }
@@ -25628,6 +25648,10 @@ btn-outline-secondary:hover {
 
 .card-width {
     width: 65vw;
+}
+
+.datatable-filter input {
+    height: 2.25rem !important;
 }
 
 
