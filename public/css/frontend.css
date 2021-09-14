@@ -25601,6 +25601,10 @@ btn-outline-secondary:hover {
     .nav-tabs .nav-link {
         font-size: small;
     }
+
+    .top-bar-links a {
+        font-size: 12px;
+    }
 }
 
 @media (min-width: 992px) and (max-width: 1199.98px) {
