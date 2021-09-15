@@ -80,9 +80,9 @@
 
                     foreach($menus as $menu){
                     echo '<li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown02" role="button"
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarSecond" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false"> '.$menu->name.' </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown02">';
+                        <ul class="dropdown-menu" aria-labelledby="navbarSecond">';
                             if($menu->hasLinks()){
                             foreach($menu->menu_links as $link){
                             $linkToArray = explode("/", $link->url);
