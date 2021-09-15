@@ -22,14 +22,6 @@
                 {{-- {!!@$section_apropos->content!!} --}}
             </div>
             <!-- Col End -->
-            {{-- Lotti animation start --}}
-            <div class="d-sm-none d-lg-block position-absolute custom-lotti-position">
-                <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-                <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_h4bos27x.json"
-                    background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay>
-                </lottie-player>
-            </div>
-            {{-- Lotti animation end --}}
         </div>
         <!-- End Row 1 -->
         {{--<div class="row">
