@@ -1,20 +1,6 @@
 @extends('layouts.front.app')
 
 @section('content')
-<<<<<<< HEAD
-<div class="row">
-    <div class="my-4 col-12 row">
-        <!-- <h2 class="my-0"> - </h2> -->
-    </div>
-    <div class="col-12 tab-content" id="nav-tabContent">
-        <div class="card">
-            <div class="card-header">
-                <h2 class="card-title font-weight-bold">Mes événements (Vacl)</h2>
-                <div class="card-tools">
-                    <a href="{{route('user.create_event')}}" class="btn btn-outline-primary btn-sm">
-                        <i class="mr-2 fa fa-plus"></i> Ajouter un événement
-                    </a>
-=======
     <div class="row">
         <div class="my-4 col-12 row">
             <!-- <h2 class="my-0"> - </h2> -->
@@ -52,7 +38,6 @@
                             </tr>
                         </thead>
                     </table>
->>>>>>> 89fa04b93721fb58d6221fdecf5410e0659b59aa
                 </div>
             </div>
             <div class="card-body">
