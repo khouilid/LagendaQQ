@@ -2,8 +2,12 @@
     <div class="col-md-12 col-sm-12">
         <div>
             <div class="card-header">
-                <h2 class="card-title font-weight-bold">Mes transferts monnaie Vancl @hasanyrole('admin') (admin)
-                    @endrole</h2>
+                <h2 class="card-title font-weight-bold">Mes transferts monnaie
+                    @if (session()->get('role') !== null)
+                    {{    session()->get('role')->name
+                    }}    
+                    @endif
+                </h2>
             </div>
             <div class="card-body table-responsive">
                 <table class="table table-success table-striped table-borderless" id="my-transactions-table">

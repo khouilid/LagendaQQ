@@ -31,7 +31,7 @@ class UserController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['auth','verified','role:super-admin|admin|chef-vendeur|vendeur'],['except' => ['updateInfosPerso','updatePWD','assignRole','assignRoleCheckout']]);
+        // $this->middleware(['auth','verified','role:super-admin|admin|chef-vendeur|vendeur'],['except' => ['updateInfosPerso','updatePWD','assignRole','assignRoleCheckout']]);
     }
 
     public function usersData()
