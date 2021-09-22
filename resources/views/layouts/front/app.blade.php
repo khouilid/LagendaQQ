@@ -354,11 +354,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     session()->get('role')->name == 'vendeur' ))
 
                     <li class="nav-item">
-                        <a href="{{ route('user.dashboard') }}"
-                            class="nav-link {{ side_nav_bar_menu_status('dashboard','active') }}">
-                            <i class="fa fa-user-cog"></i> Portrait</a>
-                    </li>
-                    <li class="nav-item">
                         <a href="{{ route('user.my_events') }}"
                             class="nav-link {{ side_nav_bar_menu_status('events','active') }}"><i
                                 class="fas fa-calendar-check mr-1"></i>événements</a>
@@ -389,6 +384,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <a class="dropdown-item" href="{{route('user.infosperso')}}/account"><i
                                         class="fa fa-cogs"></i> Mon Compte</a>
                             </li>
+
+                            <li class="nav-item ">
+                                <a style="font-size: .9rem;" href="{{route('admin.dashboard')}}" class="nav-link"><i
+                                        class="fa fa-user-shield"></i>
+                                    Tableau de bord</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="{{ route('user.dashboard') }}"
+                                    class="nav-link {{ side_nav_bar_menu_status('dashboard','active') }}">
+                                    <i class="fa fa-user-cog"></i> Portrait</a>
+                            </li>
+
                             <li>
                                 <a class="dropdown-item" href="{{route('user.infosperso')}}/infos-perso"><i
                                         class="fa fa-user"></i> Infos personelles</a>
@@ -414,12 +422,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                     @if( session()->get('role') !== null && (session()->get('role')->name == 'super-admin' ||
                     session()->get('role')->name == 'admin' ))
-
-                    <li class="nav-item dropdown">
-                        <a href="{{route('admin.dashboard')}}" class="btn btn-sm rounded btn-outline-primary"><i
-                                class="fa fa-user-shield"></i>
-                            Tableau de bord</a>
-                    </li>
 
                     @endif
                     @endauth

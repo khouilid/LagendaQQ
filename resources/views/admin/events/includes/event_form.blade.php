@@ -4,33 +4,38 @@
     {!! $errors->first('title', '<div class="error-message col-12">:message</div>') !!}
 </div>
 <div class="offset-sm-0 col-sm-12 col-md-6 form-group row">
-    <label for="datePick" class="col-sm-12 col-md-12">Dates de l'annonce : * <br><small>Vous pouvez sélectionner plusieurs dates</small> </label>
+    <label for="datePick" class="col-sm-12 col-md-12">Dates de l'annonce : * <br><small>Vous pouvez sélectionner
+            plusieurs dates</small> </label>
     <!-- <input name="dates" id="datePick" class="form-control" value="{{old('dates',@$event->dates)}}"/>
     <label for="inputPassword3" class="col-sm-12 control-label">Dates</label> -->
     <div class="input-group date">
-        <input type="text" class="form-control" id="datetimepicker1" data-validation="required" value="{{old('dates',str_replace('*',' ', @$event->dates) ) }}" />
-      <span class="input-group-addon border-0 datepicker-incon-wrapper">
-           
+        <input type="text" class="form-control" id="datetimepicker1" data-validation="required"
+            value="{{old('dates',str_replace('*',' ', @$event->dates) ) }}" />
+        <span class="input-group-addon border-0 datepicker-incon-wrapper">
+
         </span>
     </div>
 </div>
 <div class="offset-sm-0 col-sm-12 col-md-6 form-group row">
-<!-- <div class="col-lg-2 col-md-2 col-sm-5 sandbox-container"> -->
+    <!-- <div class="col-lg-2 col-md-2 col-sm-5 sandbox-container"> -->
     <input type="hidden" id="datefinal" name="dates" value="{{old('dates',@$event->dates)}}">
     <input type="hidden" id="hourselected" class="hourselected" name="hourselected">
     <button class="btn btn-primary hide btn-TimeSelection mt-5" type="button">Choisir les heures</button>
-<!-- </div> --
+    <!-- </div> --
     <label for="timePick" class="col-sm-12 col-md-12">Heure de l'annonce : * <br><small>Précisez l'heure de l'activité</small> </label>
     <input data-clocklet="format: H:mm" name="event_time" id="timePick" class="form-control" value="{{old('event_time',@$event->event_time)}}"/>
     -->
 </div>
-<div class="col-12"><hr/></div>
+<div class="col-12">
+    <hr />
+</div>
 <div class="offset-sm-0 col-sm-12 col-md-6 form-group row">
     <label for="region_id" class="col-sm-12 col-md-12">Region de l'événement : *</label>
     <select name="region_id" id="region_id" class="form-control">
         <option value=""> --- </option>
         @forelse($regions as $key => $region)
-            <option value="{{$key}}" {{ (old('region_id',@$event->region_id)  == $key) ? "selected":"" }}>{{$region}}</option>
+        <option value="{{$key}}" {{ (old('region_id',@$event->region_id)  == $key) ? "selected":"" }}>{{$region}}
+        </option>
         @empty
         @endforelse
     </select>
@@ -41,16 +46,19 @@
     <select name="city_id" id="city_id" class="form-control">
         <option value=""> --- </option>
         @forelse($cities as $key => $city)
-            <option value="{{$key}}" {{  @$event->city_id == $key ? "selected":"" }}>{{$city}}</option>
+        <option value="{{$key}}" {{  @$event->city_id == $key ? "selected":"" }}>{{$city}}</option>
         @empty
         @endforelse
     </select>
 </div>
-<div class="col-12"><hr></div>
+<div class="col-12">
+    <hr>
+</div>
 <div class="offset-sm-0 col-sm-12 col-md-4 form-group row">
     <label for="postal_code" class="col-sm-12 col-md-12">Code postal : </label>
-    <input name="postal_code" id="postal_code" class="form-control" value="{{old('postal_code',@$event->postal_code)}}" />
-    <p class=" text-danger " style="display: none" id="postal_warning" >Veuillez entrer un code postal valide</p>
+    <input name="postal_code" id="postal_code" class="form-control"
+        value="{{old('postal_code',@$event->postal_code)}}" />
+    <p class=" text-danger " style="display: none" id="postal_warning">Veuillez entrer un code postal valide</p>
 
 </div>
 <div class="offset-sm-0 col-sm-12 col-md-4 form-group row">
@@ -59,21 +67,26 @@
 </div>
 <div class="offset-sm-0 col-sm-12 col-md-4 form-group row">
     <label for="telephone" class="col-sm-12 col-md-12">Téléphone : </label>
-    <input name="telephone" id="telephone" class="form-control phone_number" value="{{old('telephone',@$event->telephone)}}" />
+    <input name="telephone" id="telephone" class="form-control phone_number"
+        value="{{old('telephone',@$event->telephone)}}" />
 </div>
 <div class="offset-sm-0 col-sm-12 form-group row">
     <label for="organiation_id" class="col-sm-12 col-md-12">Organisations : </label>
     <select name="organisation_id" id="organisation_id" class="form-control">
-    <option value=""> --- </option>
-    @foreach($organisations as $key => $organisation)
-        <option value="{{$key}}" {{intval(old('organisation_id',@$event->organisation_id)) === $key ? 'selected':""}}>{{$organisation}}</option>
-    @endforeach
+        <option value=""> --- </option>
+        @foreach($organisations as $key => $organisation)
+        <option value="{{$key}}" {{intval(old('organisation_id',@$event->organisation_id)) === $key ? 'selected':""}}>
+            {{$organisation}}</option>
+        @endforeach
     </select>
 </div>
-<div class="col-12"><hr/></div>
+<div class="col-12">
+    <hr />
+</div>
 <div class="offset-sm-0 col-12 form-group row">
     <label for="description" class="col-sm-12 col-md-12">Description de l'événement (Le poumon) : </label>
-    <div><textarea name="description" id="description" class="ckeditor form-control">{{old('description',@$event->description)}}</textarea></div>
+    <div><textarea name="description" id="description"
+            class="ckeditor form-control">{{old('description',@$event->description)}}</textarea></div>
 </div>
 <div class="offset-sm-0 col-sm-12 col-md-6 form-group row">
     <label for="images" class="col-sm-12 col-md-12">images de l'événement : </label>
@@ -83,13 +96,17 @@
 <div class="offset-sm-0 col-sm-12 col-md-6 form-group row">
     <img src="{{ route('show_image',@$event->images) }}" alt="{{@$event->title}}" style="width:50%; height: auto">
 </div>
-<div class="col-12"><hr/></div>
+<div class="col-12">
+    <hr />
+</div>
 <div class="offset-sm-0 col-sm-12 col-md-6 form-group row">
     <label for="category_id" class="col-sm-12 col-md-12">Categorie de l'événement : </label>
     <select name="category_id" id="category_id" class="form-control">
         <option value=""> --- </option>
         @foreach($categories as $category)
-            <option value="{{$category->id}}" {{intval(old('category_id',@$event->category_id)) === $category->id?'selected':''}}> {{$category->name}} </option>
+        <option value="{{$category->id}}"
+            {{intval(old('category_id',@$event->category_id)) === $category->id?'selected':''}}> {{$category->name}}
+        </option>
         @endforeach
     </select>
     {!! $errors->first('category_id', '<div class="error-message col-12">:message</div>') !!}
@@ -99,7 +116,9 @@
     <select name="publication_status" id="publication_status" class="form-control">
         <option value=""> --- </option>
         @forelse($status as $key => $statu)
-            <option value="{{$key}}" {{intval(old('publication_status',@$event->publication_status)) === $key ? "selected":"" }}>{{$statu}}</option>
+        <option value="{{$key}}"
+            {{intval(old('publication_status',@$event->publication_status)) === $key ? "selected":"" }}>{{$statu}}
+        </option>
         @empty
         @endforelse
     </select>
@@ -120,7 +139,8 @@
                 <form class="form-horizontal" action="/membres/send_registration" method="post" accept-charset="utf-8">
                     <div class="form-group hourselection row">
                         <label for="username" class="col-sm-4  control-label">Heure pour tous: </label>
-                        <div class="col-sm-3 input-group clockpickerall" data-placement="left" data-align="top" data-autoclose="true">
+                        <div class="col-sm-3 input-group clockpickerall" data-placement="left" data-align="top"
+                            data-autoclose="true">
                             <input type="text" class="form-control " value="09:30">
                             <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-time"></span>
@@ -227,7 +247,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default event-finalize-button" data-dismiss="modal">Rafraîchir le solde actuel</button>
+                <button type="button" class="btn btn-default event-finalize-button" data-dismiss="modal">Rafraîchir le
+                    solde actuel</button>
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Retour</button>
                 <button type="button" class="btn btn-primary FinalizeEvent">Finaliser</button>
             </div>
