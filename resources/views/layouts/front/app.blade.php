@@ -353,20 +353,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     session()->get('role')->name == 'admin' || session()->get('role')->name == 'annonceur' ||
                     session()->get('role')->name == 'vendeur' ))
 
-                    <li class="nav-item">
-                        <a href="{{ route('user.dashboard') }}"
-                            class="nav-link {{ side_nav_bar_menu_status('dashboard','active') }}">
-                            <i class="fa fa-user-cog"></i> Portrait</a>
-                    </li>
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a href="{{ route('user.my_events') }}"
-                            class="nav-link {{ side_nav_bar_menu_status('events','active') }}"><i
-                                class="fas fa-calendar-check mr-1"></i>événements</a>
-                    </li>
-                    <li class="nav-item">
+                    class="nav-link {{ side_nav_bar_menu_status('events','active') }}"><i
+                        class="fas fa-calendar-check mr-1"></i>événements</a>
+                    </li> --}}
+                    {{-- <li class="nav-item">
                         <a href="{{route('user.my_announcements')}}" class="nav-link"><i class="fa fa-bullhorn"></i>
-                            annonces</a>
-                    </li>
+                    annonces</a>
+                    </li> --}}
 
                     @endif
 
@@ -389,6 +384,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <a class="dropdown-item" href="{{route('user.infosperso')}}/account"><i
                                         class="fa fa-cogs"></i> Mon Compte</a>
                             </li>
+
+                            <li class="nav-item ">
+                                <a style="font-size: .9rem;" href="{{route('admin.dashboard')}}" class="nav-link"><i
+                                        class="fa fa-user-shield"></i>
+                                    Tableau de bord</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="{{ route('user.dashboard') }}"
+                                    class="nav-link {{ side_nav_bar_menu_status('dashboard','active') }}">
+                                    <i class="fa fa-user-cog"></i> Portrait</a>
+                            </li>
+
                             <li>
                                 <a class="dropdown-item" href="{{route('user.infosperso')}}/infos-perso"><i
                                         class="fa fa-user"></i> Infos personelles</a>
@@ -415,33 +423,58 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     @if( session()->get('role') !== null && (session()->get('role')->name == 'super-admin' ||
                     session()->get('role')->name == 'admin' ))
 
-                    <li class="nav-item dropdown">
-                        <a href="{{route('admin.dashboard')}}" class="btn btn-sm rounded btn-outline-primary"><i
-                                class="fa fa-user-shield"></i>
-                            Tableau de bord</a>
-                    </li>
-
                     @endif
                     @endauth
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown has-megamenu">
                         <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false" class="nav-link dropdown-toggle newnav-color-padding">Publications</a>
                         <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-                            <ul>
-                                <h5 class="bold">Annonces Classées</h5>
+                            <ul class="d-flex megamenu">
 
-                                @foreach(\App\Models\Category::where('type','annonce')->skip(0)->take(10)->get() as
-                                $category)
-                                <li><a class="dropdown-item"
-                                        href="{{route('announcement_page',$category)}}">{{ $category->name }}</a>
-                                </li>
-                                @endforeach
-                                <h5 class="bold">Événements par régions</h5>
+                                @auth
 
-                                @foreach(\App\Models\Region::skip(6)->take(10)->get() as $region)
-                                <li><a class="dropdown-item"
-                                        href="{{route('event_region',$region)}}">{{ $region->name }}</a></li>
-                                @endforeach
+                                @if( session()->get('role') !== null && (session()->get('role')->name == 'super-admin'
+                                ||
+                                session()->get('role')->name == 'admin' || session()->get('role')->name == 'annonceur'
+                                ||
+                                session()->get('role')->name == 'vendeur' ))
+
+                                <div class="">
+                                    <li class="nav-item">
+                                        <a href="{{ route('user.my_events') }}"
+                                            class="nav-link {{ side_nav_bar_menu_status('events','active') }}">événements</a>
+                                    </li>
+                                </div>
+
+                                <div class="">
+                                    <li class="nav-item">
+                                        <h5 class="bold"><a href="{{route('user.my_announcements')}}" class="nav-link">
+                                                annonces</a></h5>
+                                    </li>
+                                </div>
+
+                                @endif
+                                @endauth
+
+                                <div class="mr-4">
+                                    <h5 class="bold">Annonces Classées</h5>
+
+                                    @foreach(\App\Models\Category::where('type','annonce')->skip(0)->take(10)->get() as
+                                    $category)
+                                    <li><a class="dropdown-item"
+                                            href="{{route('announcement_page',$category)}}">{{ $category->name }}</a>
+                                    </li>
+                                    @endforeach
+                                </div>
+
+                                <div class="">
+                                    <h5 class="bold">Événements par régions</h5>
+
+                                    @foreach(\App\Models\Region::skip(6)->take(10)->get() as $region)
+                                    <li><a class="dropdown-item"
+                                            href="{{route('event_region',$region)}}">{{ $region->name }}</a></li>
+                                    @endforeach
+                                </div>
                             </ul>
                         </ul>
                     </li>
