@@ -50,22 +50,28 @@
                                     aria-expanded="false"
                                     class="nav-link dropdown-toggle newnav-color-padding">Publications</a>
                                 <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-                                    <ul>
-                                        <h5 class="bold">Annonces Classées</h5>
+                                    <ul class="d-flex">
+                                        <div class="mr-4 megamenu">
+                                            <h5 class="bold">Annonces Classées</h5>
 
-                                        @foreach(\App\Models\Category::where('type','annonce')->skip(0)->take(10)->get()
-                                        as
-                                        $category)
-                                        <li><a class="dropdown-item"
-                                                href="{{route('announcement_page',$category)}}">{{ $category->name }}</a>
-                                        </li>
-                                        @endforeach
-                                        <h5 class="bold">Événements par régions</h5>
+                                            @foreach(\App\Models\Category::where('type','annonce')->skip(0)->take(10)->get()
+                                            as
+                                            $category)
+                                            <li><a class="dropdown-item"
+                                                    href="{{route('announcement_page',$category)}}">{{ $category->name }}</a>
+                                            </li>
+                                            @endforeach
+                                        </div>
 
-                                        @foreach(\App\Models\Region::skip(6)->take(10)->get() as $region)
-                                        <li><a class="dropdown-item"
-                                                href="{{route('event_region',$region)}}">{{ $region->name }}</a></li>
-                                        @endforeach
+                                        <div class="">
+                                            <h5 class="bold">Événements par régions</h5>
+
+                                            @foreach(\App\Models\Region::skip(6)->take(10)->get() as $region)
+                                            <li><a class="dropdown-item"
+                                                    href="{{route('event_region',$region)}}">{{ $region->name }}</a>
+                                            </li>
+                                            @endforeach
+                                        </div>
                                     </ul>
                                 </ul>
                             </li>
