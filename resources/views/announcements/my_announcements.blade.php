@@ -71,9 +71,10 @@
                 processing: true,
                 serverSide: true,
                 dom: 'Bfrliptip',
-                  { extend: 'excel', filename: 'LAgenda du Quebec - Liste mes announnces_'+ today},
-                { extend: 'pdf', filename: 'LAgenda du Quebec - Liste mes announnces_'+ today }
-        ],
+                buttons: [
+                                    { extend: 'excel', filename: 'LAgenda du Quebec - Liste des annonces_'+ today},
+                                    { extend: 'pdf', filename: 'LAgenda du Quebec - Liste des annonces_'+ today }
+                            ],
                 method:'post',
                 dom: 'Bfrliptip',
                 ajax: '{{ route("user.myAnnouncements-data") }}',
@@ -113,21 +114,21 @@
                         render: data => {
                             let annonce_status = '';
                             switch (parseInt(data.publication_status)) {
-                                case 0:
-                                    annonce_status = `<h1 class="text-md badge badge-warning font-bold">Bouillon</h1>`;
-                                    break;
-                                case 1:
-                                    annonce_status = `<h1 class="text-md badge badge-success font-bold">Publiée</h1>`;
-                                    break;
-                                case 2:
-                                    annonce_status = `<h1 class="text-md badge badge-primary font-bold">Privée</h1>`;
-                                    break;
-                                case 4:
-                                    annonce_status = `<h1 class="text-md badge badge-danger font-bold">Suprimée</h1>`;
-                                    break;
-                            
-                                default:
-                                    break;
+                                        case 0:
+                                        $annonce_status = '<span class="badge badge-warning font-bold">Bouillon</span>';
+                                        break;
+                                    case 1:
+                                        $annonce_status = '<span class="badge badge-success font-bold">Publiée</span>';
+                                        break;
+                                    case 2:
+                                        $annonce_status = '<span class="badge badge-primary font-bold">Privée</span>';
+                                        break;
+                                    case 4:
+                                        $annonce_status = '<span class="badge badge-danger font-bold">Suprimée</span>';
+                                        break;
+                                
+                                    default:
+                                        break;
                             }
                             return parseInt(data.lock_publication) == 1 ? '<span class="badge badge-warning"><i class="fa fa-ban"></i> Publication bloquée</span>':`${annonce_status}`;
                         }, width: '40'
