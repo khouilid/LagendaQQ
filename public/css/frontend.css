@@ -23061,12 +23061,12 @@ ul.comments-reply .comment-body {
         display: none;
     } */
     ul.navbar-nav a {
-        display      : block;
-        position     : relative;
-        border-radius: 30px;
-        line-height  : 1;
-        padding      : 2rem 1rem 0;
-        margin       : 2rem 0 1rem;
+        display         : block;
+        position        : relative;
+        border-radius   : 30px;
+        line-height     : 1;
+        padding         : 2rem 1rem 0;
+        /* margin       : 2rem 0 1rem; */
     }
 
     .navbar-toggler {
@@ -24783,9 +24783,9 @@ a.nav-link:hover {
 }
 
 .top-bar-links a {
-    font-family: 'Poppins', sans-serif;
-    font-size  : 16px;
-    color      : white;
+    font-family   : 'Poppins', sans-serif;
+    font-size     : 16px;
+    /* color      : white; */
 
 }
 
@@ -24848,6 +24848,45 @@ a.nav-link:hover {
 btn-outline-secondary:hover {
     color: #fff !important;
 }
+
+
+.navbar .megamenu {
+    padding: 1rem;
+}
+
+/* ============ desktop view ============ */
+@media all and (min-width: 992px) {
+
+    .navbar .has-megamenu {
+        position: static !important;
+    }
+
+    .navbar .megamenu {
+        left      : 0;
+        right     : 0;
+        width     : 100%;
+        margin-top: 0;
+    }
+
+}
+
+/* ============ desktop view .end// ============ */
+
+/* ============ mobile view ============ */
+@media(max-width: 991px) {
+
+    .navbar.fixed-top .navbar-collapse,
+    .navbar.sticky-top .navbar-collapse {
+        overflow-y: auto;
+        max-height: 90vh;
+        margin-top: 10px;
+    }
+}
+
+/* ============ mobile view .end// ============ */
+
+
+
 
 /* Bootstrap toggler position */
 @media (min-width: 768px) and (max-width: 991px) {

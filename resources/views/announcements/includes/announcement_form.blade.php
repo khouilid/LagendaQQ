@@ -6,7 +6,7 @@
 
 
 <div class="offset-sm-0 col-sm-12 col-md-6 form-group row">
-    <label for="title" class="col-sm-12 col-md-12">Categorie de l'annonce classée :* </label>
+    <label for="title" class="col-sm-12 col-md-12">Categorie : * </label>
     <select name="category_id" id="category_id" class="form-control">
         <option value=""> --- </option>
         @foreach($categories as $category)

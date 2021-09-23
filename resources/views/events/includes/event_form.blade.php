@@ -6,7 +6,7 @@
 </div>
 
 <div class="offset-sm-0 col-sm-12 col-md-6 form-group row">
-    <label for="catigorie_id" class="col-sm-12 col-md-12">catégorie de l'événement : *</label>
+    <label for="catigorie_id" class="col-sm-12 col-md-12">Type de la publication : *</label>
     <select name="catigorie_id" id="catigorie_id" class="form-control">
         <option value=""> --- </option>
         @php
@@ -38,7 +38,7 @@
     {!! $errors->first('region_id', '<div class="error-message col-12">:message</div>') !!}
 </div>
 <div class="offset-sm-0 col-sm-12 col-md-6 form-group row">
-    <label for="catigorie_id" class="col-sm-12 col-md-12">Sous catégorie de l'événement : *</label>
+    <label for="catigorie_id" class="col-sm-12 col-md-12">Sous catégorie de la publication : *</label>
     <select name="category_id" id="subcatigorie_id" class="form-control">
 
     </select>
@@ -135,7 +135,7 @@
 
 
 <div class="offset-sm-0 col-sm-12 col-md-6 form-group row">
-    <label for="region_id" class="col-sm-12 col-md-12">Region de l'événement : *</label>
+    <label for="region_id" class="col-sm-12 col-md-12">Région : *</label>
     <select name="region_id" id="region_id" class="form-control">
         <option value=""> --- </option>
         @forelse($regions as $key => $region)
@@ -147,7 +147,7 @@
     {!! $errors->first('region_id', '<div class="error-message col-12">:message</div>') !!}
 </div>
 <div class="offset-sm-0 col-sm-12 col-md-6 form-group row">
-    <label for="city_id" class="col-sm-12 col-md-12">Ville de l'événement : </label>
+    <label for="city_id" class="col-sm-12 col-md-12">Ville : </label>
     <select name="city_id" id="city_id" class="form-control">
         <option value=""> --- </option>
         @forelse($cities as $key => $city)

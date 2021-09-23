@@ -1,68 +1,4 @@
 <header>
-    <!-- top-bar start -->
-    <div id="topbar">
-        <div class="topbar-styles container d-flex align-items-center justify-content-end">
-            <div class="px-3">
-                @guest
-                <a class="text-white" href="{{ route('login') }}"><i class="fas fa-sign-in-alt mr-1"></i>Se
-                    connecter</a>
-                @endguest
-                @auth
-                <div class="d-flex align-items-center top-bar-links">
-                    {{-- start --}}
-
-                    <a class="mr-4" href="{{route('user.dashboard')}}" class="dropdown-item">
-                        <i class="fas fa-tachometer-alt mr-2"></i> Adminstration
-                    </a>
-
-                    <a class="mr-4" href="{{route('user.infosperso')}}">
-                        <i class="fas fa-user mr-2"></i> Mon Profil
-                    </a>
-
-                    <a class="mr-4" href="{{route('user.infosperso','security')}}">
-                        <i class="fas fa-lock mr-2"></i> Securité
-                    </a>
-                    {{-- end --}}
-
-                    <div class="">
-                        <a class="text-white" href="#"><i class="far fa-comment-dots mr-1"></i>Assistance</a>
-                    </div>
-
-                    <form action="{{ route('logout') }}" method="post">
-                        @csrf
-                        <button class="btn btn-deconnecter" type="submit" class="text-white"><i
-                                class="fas fa-sign-out-alt mr-1"></i>Se
-                            Déconnecter</button>
-                    </form>
-                </div>
-                @endauth
-            </div>
-
-            <!-- profile start -->
-            <!-- <div class="ml-1">
-                @php 
-            $menus = \App\Models\Menu::where('visible',1)->orderby('position')->get();
-        
-            foreach($menus as $menu){
-                echo '<li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false"> '.$menu->name.' <span class="icon icon-chevron-down"></span> </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">';
-                if($menu->hasLinks()){
-                    foreach($menu->menu_links as $link){
-                        $linkToArray =  explode("/", $link->url);               
-                        echo '<li><a class="dropdown-item" href="/pages/'. end($linkToArray).'">'.$link->name.'</a></li>';
-                    }
-                }
-                                echo '  </ul>
-                                </li>';
-            }
-                                @endphp
-            </div> -->
-            <!-- profile end -->
-        </div>
-    </div>
-    <!-- top-bar end -->
-
     <!-- Navbar start -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
@@ -94,6 +30,104 @@
                     </li>';
                     }
                     @endphp
+
+                    <div class="align-self-center">
+                        @guest
+                        <a href="{{ route('login') }}"><i class="fas fa-sign-in-alt mr-1"></i>Se
+                            connecter</a>
+                        @endguest
+
+                        @auth
+                        <div style="margin-top: -5px;" class="d-flex align-items-center top-bar-links">
+                            {{-- start --}}
+
+                            {{-- <a class="mr-4" href="{{route('user.dashboard')}}" class="dropdown-item">
+                            <i class="fas fa-tachometer-alt mr-2"></i> Adminstration
+                            </a> --}}
+
+                            <li class="nav-item dropdown">
+                                <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false"
+                                    class="nav-link dropdown-toggle newnav-color-padding">Publications</a>
+                                <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
+                                    <ul class="d-flex">
+                                        <div class="mr-4 megamenu">
+                                            <h5 class="bold">Annonces Classées</h5>
+
+                                            @foreach(\App\Models\Category::where('type','annonce')->skip(0)->take(10)->get()
+                                            as
+                                            $category)
+                                            <li><a class="dropdown-item"
+                                                    href="{{route('announcement_page',$category)}}">{{ $category->name }}</a>
+                                            </li>
+                                            @endforeach
+                                        </div>
+
+                                        <div class="">
+                                            <h5 class="bold">Événements par régions</h5>
+
+                                            @foreach(\App\Models\Region::skip(6)->take(10)->get() as $region)
+                                            <li><a class="dropdown-item"
+                                                    href="{{route('event_region',$region)}}">{{ $region->name }}</a>
+                                            </li>
+                                            @endforeach
+                                        </div>
+                                    </ul>
+                                </ul>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false"
+                                    class="nav-link dropdown-toggle newnav-color-padding">Profil</a>
+                                <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
+                                    <li>
+                                        <a class="dropdown-item" href="{{route('user.infosperso')}}/account"><i
+                                                class="fa fa-cogs"></i> Mon Compte</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="{{route('user.infosperso')}}/infos-perso"><i
+                                                class="fa fa-user"></i> Infos personelles</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item link-success"
+                                            href="{{route('user.infosperso')}}/transactions"
+                                            title="Lsite de mes transactions"><i class="fas fa-exchange-alt"
+                                                aria-hidden="true"></i> Mes Transactions</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item link-primary" href="{{route('user.infosperso')}}/wallet"
+                                            title="Mon Portefeuille"><i class="fa fa-wallet" aria-hidden="true"></i> Mon
+                                            Portefeuille </a>
+                                    </li>
+                                    <li class="dropdown-divider"></li>
+                                    <li>
+                                        <a class="dropdown-item link-primary"
+                                            href="{{route('user.infosperso')}}/security" title="Mon Portefeuille"><i
+                                                class="fa fa-wallet" aria-hidden="true"></i>
+                                            Sécurité </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            {{-- <a class="mr-4" href="{{route('user.infosperso','security')}}">
+                            <i class="fas fa-lock mr-2"></i> Securité
+                            </a> --}}
+                            {{-- end --}}
+
+                            <div class="">
+                                <a class="" href="#"><i class="far fa-comment-dots mr-1"></i>Assistances</a>
+                            </div>
+
+                            <form action="{{ route('logout') }}" method="post">
+                                @csrf
+                                <button class="btn btn-deconnecter text-primary" type="submit"><i
+                                        class="fas fa-sign-out-alt mr-1"></i>Se
+                                    Déconnecter</button>
+                            </form>
+                        </div>
+                        @endauth
+                    </div>
                 </ul>
             </div>
         </div>

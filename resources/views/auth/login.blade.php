@@ -46,7 +46,7 @@
         <div class="uk-form-group">
             <input type="checkbox" name="remembe" id="d_pwd">
             <label class="font-weight-bold" for="remembe">
-                Afficher le mot de passe
+                Je me souviens
             </label>
         </div>
         <div class="uk-form-group">
