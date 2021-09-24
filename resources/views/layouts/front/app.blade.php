@@ -436,38 +436,73 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false" class="nav-link dropdown-toggle newnav-color-padding">Publications</a>
                         <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
+                            @auth
+
+                            @if( session()->get('role') !== null && (session()->get('role')->name == 'super-admin'
+                            ||
+                            session()->get('role')->name == 'admin' || session()->get('role')->name == 'annonceur'
+                            ||
+                            session()->get('role')->name == 'vendeur' ))
+
+                            <div class="row border-bottom">
+                                <li class="nav-item">
+                                    <h5 class="bold"> <a href="{{ route('user.my_events') }}"
+                                        class="nav-link {{ side_nav_bar_menu_status('events','active') }}"> Mes événements</a></h5>
+                                </li>
+                                <li class="nav-item">
+                                    <h5 class="bold"><a href="{{route('user.my_announcements')}}" class="nav-link">
+                                            Mes annonces</a></h5>
+                                </li>
+                          
+                            </div>
+
+                            @endif
+                            @endauth
                             <ul class="d-flex flex-wrap megamenu">
 
-                                @auth
 
-                                @if( session()->get('role') !== null && (session()->get('role')->name == 'super-admin'
-                                ||
-                                session()->get('role')->name == 'admin' || session()->get('role')->name == 'annonceur'
-                                ||
-                                session()->get('role')->name == 'vendeur' ))
 
-                                <div class="">
-                                    <li class="nav-item">
-                                        <a href="{{ route('user.my_events') }}"
-                                            class="nav-link {{ side_nav_bar_menu_status('events','active') }}">événements</a>
-                                    </li>
-                                </div>
 
-                                <div class="">
-                                    <li class="nav-item">
-                                        <h5 class="bold"><a href="{{route('user.my_announcements')}}" class="nav-link">
-                                                annonces</a></h5>
-                                    </li>
-                                </div>
+                                @php
+                                $cats = ['evènement' => 'Evènement',
+                                'annonce' => 'Annonces Classées',
+                                'Automobile' => 'Automobile',
+                                'Commerciale' => 'Commerciale',
+                                'Construction' => 'Construction',
+                                'Décès' => 'Décès',
+                                'ÉcrivHeur' => 'ÉcrivHeur',
+                                'Emploi' => 'Emploi',
+                                'Gens du pays' => 'Gens du pays',
+                                'Hébergement' => 'Hébergement',
+                                'Immobilière' => 'Immobilière',
+                                'LAGENDA' => 'LAGENDA',
+                                'Politique' => 'Politique',
+                                'Rencontre' => 'Rencontre',
+                                'Service' => 'Service',
+                                // 'Bannière audio' => 'Bannière audio',
+                                // 'Bannière Vidéo' => 'Bannière Vidéo',
+                                // 'Bannière Web' => 'Bannière Web',
+                                ];
+                                @endphp
 
-                                @endif
-                                @endauth
-
+@foreach($cats as $key => $value )
+<div class="mr-4">
+    @php $result = \App\Models\Category::where('type',$key)->get(); @endphp
+    @if (count($result) !== 0) 
+      <h5 class="bold">{{$value}}</h5>
+      @foreach($result as $category)
+        <li>
+            <a class="dropdown-item" href="{{route('announcement_page',$category)}}">{{ $category->name }}</a>
+        </li>
+      @endforeach
+    @endif
+</div>
+@endforeach
+{{-- 
                                 <div class="mr-4">
                                     <h5 class="bold">Annonces Classées</h5>
 
-                                    @foreach(\App\Models\Category::where('type','annonce')->skip(0)->take(10)->get() as
-                                    $category)
+                                    @foreach(\App\Models\Category::where('type','annonce')->get() as $category)
                                     <li><a class="dropdown-item"
                                             href="{{route('announcement_page',$category)}}">{{ $category->name }}</a>
                                     </li>
@@ -477,7 +512,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <div class="">
                                     <h5 class="bold">Événements par régions</h5>
 
-                                    @foreach(\App\Models\Region::skip(6)->take(10)->get() as $region)
+                                    @foreach(\App\Models\Region::() as $region)
                                     <li><a class="dropdown-item"
                                             href="{{route('event_region',$region)}}">{{ $region->name }}</a></li>
                                     @endforeach
@@ -516,7 +551,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <h5 class="">categorie 10</h5>
                                         <li>subMenu</li>
                                     </div>
-                                </div>
+                                </div> --}}
                             </ul>
                         </ul>
                     </li>
