@@ -11,11 +11,29 @@
                 <div class="col-md-3 col-lg-3 row">
                     <div class="col-12">
                         <div class="overlay"></div>
-                        @if($user->gender != null)
+
+
+
+
+                        @if ($user->avatar !== null)
+                        <img style="height: 178px; width: 180px;  object-fit: cover;"
+                            src="{{$user->avatar}}" alt="" class="rounded-circle align-self-center"
+                            width="50">
+                        
+                        @else
+                                <img style="height: 178px; width: 180px;  object-fit: cover;"
+                                src="{{asset('dist/img/29213195-male-silhouette-avatar-profile-picture.jpg')}}" alt="" class="rounded-circle align-self-center"
+                                width="50">
+                        @endif
+
+
+
+
+                        {{-- @if($user->gender != null)
                         <img class="img rounded-circle w-100" src="{{asset('dist/img/avatar'.$user->gender.'.png')}}">
                         @else
                         <img class="img rounded-circle w-100" src="{{asset('dist/img/avatardefault.jpg')}}">
-                        @endif
+                        @endif --}}
                     </div>
                     <div class="col-12">
                         <h3>Fonctions :</h3>

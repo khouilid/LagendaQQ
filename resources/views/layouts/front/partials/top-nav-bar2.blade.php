@@ -7,7 +7,7 @@
                         @hasanyrole('super-admin|annonceur')
                         <li class="nav-item dropdown tw-megamenu-wrapper px-4">
                             <a href="{{route('user.create_announcement')}}" class="nav-link"> Ajouter une annonce
-                                classée <i class="fa fa-bullhorn"></i></a>
+                                 <i class="fa fa-bullhorn"></i></a>
                         </li>
                         <li class="nav-item dropdown tw-megamenu-wrapper px-4">
                             <a href="{{route('user.create_event')}}" class="nav-link"> Ajouter un évènement <i

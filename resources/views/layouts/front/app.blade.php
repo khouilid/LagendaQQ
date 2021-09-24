@@ -385,11 +385,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         class="fa fa-cogs"></i> Mon Compte</a>
                             </li>
 
-                            <li class="nav-item ">
-                                <a style="font-size: .9rem;" href="{{route('admin.dashboard')}}" class="nav-link"><i
-                                        class="fa fa-user-shield"></i>
-                                    Tableau de bord</a>
-                            </li>
+
+
+
+                            @if( session()->get('role') !== null && (session()->get('role')->name == 'super-admin'))
+                                <li class="nav-item ">
+                                    <a style="font-size: .9rem;" href="{{route('admin.dashboard')}}" class="nav-link"><i
+                                            class="fa fa-user-shield"></i>
+                                        Tableau de bord</a>
+                                </li>
+                          
+                            @endif
+
 
                             <li class="nav-item">
                                 <a href="{{ route('user.dashboard') }}"

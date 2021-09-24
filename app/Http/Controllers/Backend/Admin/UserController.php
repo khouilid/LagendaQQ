@@ -371,6 +371,7 @@ class UserController extends Controller
     {
         // dd($request->username);
         $data = $request->validated();
+        // dd($data['avatar']);
         if($user->update($data)){
             $roles = Role::pluck('name','id');
             //We now need to loop through the roles and assign the checked role and remove the unchecked ones
@@ -415,12 +416,14 @@ class UserController extends Controller
             "age_group"     => "nullable",
             "mobile_phone"  => "nullable",
             "num_tel"       => "nullable",
+            "avatar"       => "nullable"
         ]);
+        // dd($data['avatar']);
         $user = User::find($request->input('id'));
         if(isset($data['gender']))
             $data['gender'] = intval($data['gender']);
         if($user->update($data)){
-            return redirect()->back()->with("success","Vos informations ont été mise à jour 111");
+            return redirect()->back()->with("success","Vos informations ont été mise à jour");
         }
 
         return redirect()->back()->with("error","Une erreur s'est produite!");

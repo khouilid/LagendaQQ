@@ -19,6 +19,18 @@
             @csrf
             @method('PUT')
             <input type="hidden" name="id" value="{{$user->id}}">
+             <div class="m-auto p-4">
+                @if ($user->avatar !== null)
+                <img style="height: 178px; width: 180px;  object-fit: cover;"
+                    src="{{$user->avatar}}" alt="" class="rounded-circle align-self-center"
+                    width="50">
+                
+                @else
+                        <img style="height: 178px; width: 180px;  object-fit: cover;"
+                        src="{{asset('dist/img/29213195-male-silhouette-avatar-profile-picture.jpg')}}" alt="" class="rounded-circle align-self-center"
+                        width="50">
+                @endif
+             </div>
             <div class="offset-sm-1 mx-auto col-11 form-group row">
                 <label for="godfather" class="col-sm-6 col-md-6">Parain :  <br><small>Ce champ est utile pour inscrire un équipier dans une équipe.</small></label>
                 <select name="godfather" id="godfather" class="form-control">
@@ -29,6 +41,11 @@
                     @endforelse
                 </select>
                 {!! $errors->first('gofather', '<div class="error-message col-12">:message</div>') !!}
+            </div>
+          
+            <div class="offset-sm-1 mx-auto col-5 form-group row">
+                <label for="avatar" class="col-sm-6 col-md-6">Avatar : </label>
+                <input  class="form-control" name="avatar" id="avatar" type="url" value="{{old('avatar',$user->avatar)}}">
             </div>
             <div class="offset-sm-1 mx-auto col-5 form-group row">
                 <label for="prenom" class="col-sm-6 col-md-6">Prénom : </label>

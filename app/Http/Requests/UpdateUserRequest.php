@@ -39,6 +39,7 @@ class UpdateUserRequest extends FormRequest
             "num_tel"       => "nullable",
             "mobile_phone"  => "nullable",
             "description"   => "nullable",
+            "avatar"        => "nullable"
         ];
     }
 

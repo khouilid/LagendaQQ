@@ -36,11 +36,18 @@
         <div class="toggle mt-5" onclick="leftBar()">
             <div class="card shadow-none mr-3 left-bar">
                 <div class="card-body d-flex flex-column position-relative">
+                    @if ($user->avatar !== null)
+                        <img style="height: 178px; width: 180px;  object-fit: cover;"
+                            src="{{$user->avatar}}" alt="" class="rounded-circle align-self-center"
+                            width="50">
+                        
+                    @else
+                            <img style="height: 178px; width: 180px;  object-fit: cover;"
+                            src="{{asset('dist/img/29213195-male-silhouette-avatar-profile-picture.jpg')}}" alt="" class="rounded-circle align-self-center"
+                            width="50">
+                    @endif
 
 
-                    <img style="height: 178px; width: 180px;  object-fit: cover;"
-                        src="{{asset('dist/img/stefan-stefancik.jpg')}}" alt="" class="rounded-circle align-self-center"
-                        width="50">
 
                     <img style="right: 10px;" class="position-absolute" src="{{asset('dist/img/Star-1.png')}}" alt="">
                     <img class="position-absolute" src="{{asset('dist/img/Star-1.png')}}" alt="">

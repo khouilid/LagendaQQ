@@ -13,7 +13,7 @@
             </select>
         </div>
         <div class="offset-sm-1 col-5 form-group row">
-            <label for="prenom" class="col-sm-12 col-md-12">Prénom : </label>
+            <label for="prenom" class="col-sm-12 col-md-12">Prénom  </label>
             <input tabindex="6" class="form-control" name="prenom" id="prenom" type="text" value="{{old('prenom',$user->prenom)}}">
         </div>
         <div class="offset-sm-1 col-5 form-group row">
