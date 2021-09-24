@@ -429,7 +429,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false" class="nav-link dropdown-toggle newnav-color-padding">Publications</a>
                         <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-                            <ul class="d-flex megamenu">
+                            <ul class="d-flex flex-wrap megamenu">
 
                                 @auth
 
@@ -474,6 +474,41 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <li><a class="dropdown-item"
                                             href="{{route('event_region',$region)}}">{{ $region->name }}</a></li>
                                     @endforeach
+                                </div>
+                                <div class="mr-4">
+                                    <h5 class="">categorie 03</h5>
+                                    <li>subMenu</li>
+                                </div>
+                                <div class="mr-4">
+                                    <h5 class="">categorie 04</h5>
+                                    <li>subMenu</li>
+                                </div>
+                                <div class="mr-4">
+                                    <h5 class="">categorie 05</h5>
+                                    <li>subMenu</li>
+                                </div>
+                                <div class="mr-4">
+                                    <h5 class="">categorie 06</h5>
+                                    <li>subMenu</li>
+                                </div>
+                                <div class="row">
+
+                                    <div class="mr-4">
+                                        <h5 class="">categorie 07</h5>
+                                        <li>subMenu</li>
+                                    </div>
+                                    <div class="mr-4">
+                                        <h5 class="">categorie 08</h5>
+                                        <li>subMenu</li>
+                                    </div>
+                                    <div class="mr-4">
+                                        <h5 class="">categorie 09</h5>
+                                        <li>subMenu</li>
+                                    </div>
+                                    <div class="mr-4">
+                                        <h5 class="">categorie 10</h5>
+                                        <li>subMenu</li>
+                                    </div>
                                 </div>
                             </ul>
                         </ul>

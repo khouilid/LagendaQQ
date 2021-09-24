@@ -10193,12 +10193,21 @@ tbody.collapse.show {
     }
 
     .navbar-expand-lg .navbar-nav .dropdown-menu {
-        position: absolute;
+        position   : absolute;
+        /* width   : 100%; */
     }
 
     .navbar-expand-lg .navbar-nav .dropdown-menu-right {
         right: 0;
         left : auto;
+    }
+
+    .megamenu li {
+        font-weight: lighter;
+    }
+
+    .megamenu li {
+        list-style-type: none;
     }
 
     /* .navbar-expand-lg .navbar-nav .nav-link {
