@@ -3,6 +3,11 @@
         @csrf
         <input type="hidden" name="id" value="{{$user->id}}">
         <div class="offset-sm-2 col-8 form-group row">
+            <label for="avatar" class="col-sm-12 col-md-12">Avatar : </label>
+            <input class="form-control" name="avatar" id="avatar" type="url"
+                value="{{old('avatar',$user->avatar)}}" >
+        </div>
+        <div class="offset-sm-2 col-8 form-group row">
             <label for="Région de résidence:" class="col-sm-12 col-md-12">Nom d'utilisateur : </label>
             <input tabindex="6" class="form-control" name="username" id="username" type="text"
                 value="{{old('username',$user->username)}}" readonly>

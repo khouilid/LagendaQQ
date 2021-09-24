@@ -44,30 +44,30 @@ class AnnouncementController extends Controller
             }
             return Datatables::of($data)
                     ->addIndexColumn()
-                ->addColumn('publication',function ($row) {
-                    $annonce_status = "";
-                    if($row->lock_publication)
-                        return '<span class="badge badge-warning position-relative"><span class="text-danger"><i class="fa fa-ban"></i></span> Publication bloquée: ';
-                    switch (intval($row->publication_status)){
-                        case 0:
-                            $annonce_status = '<span class="badge badge-warning font-bold">Bouillon</span>';
-                            break;
-                        case 1:
-                            $annonce_status = '<span class="badge badge-success font-bold">Publiée</span>';
-                            break;
-                        case 2:
-                            $annonce_status = '<span class="badge badge-primary font-bold">Privée</span>';
-                            break;
-                        case 4:
-                            $annonce_status = '<span class="badge badge-danger font-bold">Suprimée</span>';
-                            break;
-                    
-                        default:
-                            break;
-                    }
-                    $validation_status = intval($row->validated) === 1?'<span class="badge badge-success"><i class="fa fa-check"></i> Validée</span>':(intval($row->validated > 1)?'<span class="badge badge-danger">Rejetée</span>':'<span class="badge badge-primary">Validation en attente</span>');
-                    return $validation_status."<br>".$annonce_status;
-                })
+                    ->addColumn('publication',function ($row) {
+                        $annonce_status = "";
+                        if($row->lock_publication)
+                            return '<span class="badge badge-warning position-relative"><span class="text-danger"><i class="fa fa-ban"></i></span> Publication bloquée: ';
+                        switch (intval($row->publication_status)){
+                            case 0:
+                                $annonce_status = '<span class="badge badge-warning font-bold">Bouillon</span>';
+                                break;
+                            case 1:
+                                $annonce_status = '<span class="badge badge-success font-bold">Publiée</span>';
+                                break;
+                            case 2:
+                                $annonce_status = '<span class="badge badge-primary font-bold">Privée</span>';
+                                break;
+                            case 4:
+                                $annonce_status = '<span class="badge badge-danger font-bold">Suprimée</span>';
+                                break;
+                        
+                            default:
+                                break;
+                        }
+                        $validation_status = intval($row->validated) === 1?'<span class="badge badge-success"><i class="fa fa-check"></i> Validé</span>':(intval($row->validated > 1)?'<span class="badge badge-danger">Rejeté</span>':'<span class="badge badge-primary">Validation en attente</span>');
+                        return $validation_status."<br>".$annonce_status;
+                    })
                 ->addColumn('id',function ($row) {
                     return $row->id;
                 })

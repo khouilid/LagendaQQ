@@ -8,7 +8,7 @@
     <div class="col-12 tab-content" id="nav-tabContent">
         <div class="card">
             <div class="card-header">
-                <h2 class="card-title font-weight-bold">Liste des annonces</h2>
+                <h2 class="card-title font-weight-bold">Liste des annonces en ettente</h2>
                 <div class="card-tools">
                     <a href="{{route('admin.create_announcement')}}" class="btn btn-outline-primary btn-sm">
                         <i class="mr-2 fa fa-plus"></i> Ajouter une annonce
@@ -74,6 +74,12 @@
 @push('scripts')
 
 <script defer>
+     var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        var yyyy = today.getFullYear();
+        today = dd + '_' + mm + '_' + yyyy +'_' + today.getHours() +'_'+ today.getMinutes() ;
+
     $(function() {
             // Create our number formatter.
             var formatter = new Intl.NumberFormat('en-US', {
@@ -87,7 +93,8 @@
                             serverSide: true,
                             dom: 'Bfrliptip',
                             buttons: [
-                                'csv', 'excel', 'pdf'
+                                { extend: 'excel', filename: 'LAgenda du Quebec - Liste des annonces en ettente_'+ today},
+                                    { extend: 'pdf', filename: 'LAgenda du Quebec - Liste des annonces en ettente_'+ today }
                             ],
                             ajax: {
                                 url: '{{ url('admin/announcements2') }}',

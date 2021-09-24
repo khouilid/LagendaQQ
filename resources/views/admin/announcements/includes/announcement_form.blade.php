@@ -1,5 +1,5 @@
 <div class="offset-sm-0 col-12 form-group row">
-    <label for="title" class="col-sm-12 col-md-12">Titre de l'annonce classée : *</label>
+    <label for="title" class="col-sm-12 col-md-12">Titre de l'annonce  : *</label>
     <input type="text" name="title" id="title" value="{{old('title',@$announcement->title)}}" class="form-control">
     {!! $errors->first('title', '<div class="error-message col-12">:message</div>') !!}
 </div>
@@ -40,7 +40,7 @@
     <hr />
 </div>
 <div class="offset-sm-0 col-sm-12 col-md-6 form-group row">
-    <label for="title" class="col-sm-12 col-md-12">Categorie de l'annonce classée :* </label>
+    <label for="title" class="col-sm-12 col-md-12">Categorie de l'annonce  :* </label>
     <select name="category_id" id="category_id" class="form-control">
         <option value=""> --- </option>
         @foreach($categories as $category)
@@ -63,7 +63,7 @@
     {!! $errors->first('advertiser_type', '<div class="error-message col-12">:message</div>') !!}
 </div>
 <div class="offset-sm-0 col-sm-12 col-md-6 form-group row">
-    <label for="title" class="col-sm-12 col-md-12">Region de l'annonce classée : </label>
+    <label for="title" class="col-sm-12 col-md-12">Région de l'annonce  : </label>
     <select name="region_id" id="region_id" class="form-control">
         <option value=""> --- </option>
         @forelse($regions as $key => $region)
@@ -74,7 +74,7 @@
     </select>
 </div>
 <div class="offset-sm-0 col-sm-12 col-md-6 form-group row">
-    <label for="title" class="col-sm-12 col-md-12">Ville de l'annonce classée : </label>
+    <label for="title" class="col-sm-12 col-md-12">Ville de l'annonce  : </label>
     <select name="city_id" id="city_id" class="form-control">
         <option value=""> --- </option>
         @forelse($cities as $key => $city)
