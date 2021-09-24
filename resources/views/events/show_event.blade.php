@@ -107,14 +107,24 @@
                         <div class="col-sm-12 col-md-3"><span class="small font-bold">Relais vers :</span></div>
                         <div class="col-sm-12 col-md-9">
                             @php
-                            $events = explode("-", $event->url);
-                            @endphp
+                                $events = explode("-", $event->url);
+                                unset($events[1]);
+                                @endphp
 
-                            @foreach(@$events as $url )
-                            <a href="{{$url}}" target="_blank" class="badge badge-primary list-event-dates"><i
-                                    class="fa fa-link"></i> {{$url}} </a>
-                            @endforeach
+@foreach(@$events as $url )
+<a href="{{$url}}" target="_blank" class="badge badge-primary list-event-dates"><i
+    class="fa fa-link"></i> {{$url}} </a>
+    @endforeach
+    
+</div>
+<div class="col-sm-12 col-md-3"><span class="small font-bold">Vide :</span></div>
+                        <div class="col-sm-12 col-md-9">
+
+
+
+                            <h3 class="badge badge-success list-event-dates">{{$event->vide}} </h3>
                         </div>
+
                     </div>
                     <div class="announcement-stats">
                         <ul>

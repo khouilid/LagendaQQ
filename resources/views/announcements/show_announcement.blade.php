@@ -1,4 +1,4 @@
-@php use Carbon\Carbon @endphp
+@php use Carbon\Carbon; @endphp
 @extends('layouts.front.app')
 @section('content')
 <div class="row">
@@ -11,6 +11,9 @@
                 <div class="col-sm-12 col-md-3 announcement-side-bar">
                     <div class="announcement-meta-wrapper py-3">
                         <div class="announcement-img-wrapper mb-3">
+                            {{-- @php
+                              dd($announcement);
+                            @endphp  --}}
                             <img src="{{ route('show_image',@$announcement->images) }}" alt="{{@$announcement->title}}">
                         </div>
                         <div class="row justify-content-between announcement-metas">
@@ -84,6 +87,8 @@
                     <div class="announcement-dates mt-3 bg-gray-light px-3 py-3">
                         <strong>Prix : </strong>
                         <h3 class="badge badge-primary list-event-dates">{{$announcement->getPrice()}} </h3>
+                        <strong>Vide : </strong>
+                        <h3 class="badge badge-success list-event-dates">{{$announcement->vide}} </h3>
                     </div>
                     <div class="col-12"><strong>N° de l'annonce : </strong>
                         <span>{{sprintf("%05d",@$announcement->id)}}</span></div>

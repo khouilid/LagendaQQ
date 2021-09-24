@@ -47,11 +47,14 @@
 
 
 
-
-
+@php
+        $url = explode("-", $event->vide);
+        // unset($url[1]);
+        // dd($url);
+@endphp
 <div class="offset-sm-0 col-12 form-group row">
-    <label for="title" class="col-sm-12 col-md-12">Vide 1 : *</label>
-    <input type="text" maxlength="35" name="vide[]" id="title" value="{{old('vide_1',@$event->vide_1)}}"
+    <label for  ="title" class="col-sm-12 col-md-12">Vide 1 : *</label>
+    <input type="text" maxlength="35" name="vide[]" id="title" value="{{old('vide[]',@$url[0])}}"
         class="form-control">
     {!! $errors->first('title', '<div class="error-message col-12">:message</div>') !!}
 </div>
@@ -59,7 +62,7 @@
 
 <div class="offset-sm-0 col-12 form-group row">
     <label for="title" class="col-sm-12 col-md-12">Vide 2 :</label>
-    <input type="text" maxlength="35" name="vide[]" id="title" value="{{old('vide_2',@$event->vide_2)}}"
+    <input type="text" maxlength="35" name="vide[]" id="title" value="{{old('vide[]',@$url[1])}}"
         class="form-control">
     {!! $errors->first('title', '<div class="error-message col-12">:message</div>') !!}
 </div>
@@ -196,12 +199,11 @@
 
 
 
-
-
+@php $links = explode('-', $event->url); @endphp 
 <div class="offset-sm-0 col-sm-12 col-md-6 form-group row">
     <label for="images" class="col-sm-12 col-md-12">Relais vers : </label>
-    <input type="url" name="url[]" id="url" placeholder="Lien 1" class="form-control">
-    <input type="url" name="url[]" id="url" placeholder="Lien 2" class="mt-2 form-control">
+    <input type="url" name="url[]" id="url" placeholder="Lien 1"  value="{{old('url[]',@$links[0])}}"  class="form-control">
+    <input type="url" name="url[]" id="url" placeholder="Lien 2" value="{{old('url[]',@$links[1])}}" class="mt-2 form-control">
 
     @error('url') <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div> @enderror
 </div>
