@@ -267,12 +267,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </ul>
             </li>
             @auth
-            <li class="nav-item dropdown">
+            <li class="nav-item  dropdown">
                 <form method="GET" id='formswitch' action='{{ route('user.SwitchRole') }}'>
                     <select style="font-family: 'Poppins', sans-serif;
                             font-weight: 600; color: #68717A !important;" id="switchTo" name='switchTo'
                         class="bg-white border-0">
-                        <option value="">Basculer vers</option>
+                        <option value="">Basculer : </option>
                         @foreach(auth()->user()->roles as $fonction)
                         @php
                         var_dump($fonction);

@@ -33,8 +33,7 @@
 
                     <div class="align-self-center">
                         @guest
-                        <a class="connecter-btn" href="{{ route('login') }}">Se
-                            connecter</a>
+                        <a class="connecter-btn" href="{{ route('login') }}">Se connecter</a>
                         @endguest
 
                         @auth
@@ -173,13 +172,15 @@
                                     Déconnecter</button>
                             </form>
 
-                            <div class="ml-2">
-                                {{-- @if(session()->get('role') !== null)
-                                <span class="badge bg-info">{{session()->get('role')->name}}</span>
-                                @else --}}
 
-                                <span class="badge badge-secondary">SuperAdmin</span>
-                            </div>
+                            <div class="ml-2">                        
+
+                                @if(session()->get('role') !== null)
+                                    <span class="badge p-2 badge-secondary">{{session()->get('role')->name}}</span>
+                                @endif
+            
+                        </div>
+
                         </div>
                         @endauth
                     </div>
