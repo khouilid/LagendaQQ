@@ -67,17 +67,17 @@
                         </div>
                         <!-- <hr> -->
                         @if(!empty($announcement->event))
-                        <hr>
-                        <div class="bg-light p-2 mt-5">
-                            <strong><i class="fa fa-bullhorm"></i> Vers l'activité de l'annonce :</strong>
-                            <div>
-                                <a href="{{route('user.show_event',@$announcement->event->slug)}}">
-                                    <img class="img-fluid" src="{{ route('show_image',@$announcement->event->images) }}"
-                                        alt="{{@$event->title}}" style="width:6vh">
-                                    {{ucfirst($announcement->event->title)}}
-                                </a>
+                            <hr>
+                            <div class="bg-light p-2 mt-5">
+                                <strong><i class="fa fa-bullhorm"></i> Vers l'activité de l'annonce :</strong>
+                                <div>
+                                    <a href="{{route('user.show_event',@$announcement->event->slug)}}">
+                                        <img class="img-fluid" src="{{ route('show_image',@$announcement->event->images) }}"
+                                            alt="{{@$event->title}}" style="width:6vh">
+                                        {{ucfirst($announcement->event->title)}}
+                                    </a>
+                                </div>
                             </div>
-                        </div>
                         @endif
                     </div>
                 </div>
