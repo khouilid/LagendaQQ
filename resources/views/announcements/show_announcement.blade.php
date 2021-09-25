@@ -42,19 +42,22 @@
                             <div class="col-12 text-center">
                                 <hr>
                             </div>
-                            <div class="col-12"> <strong>Publié par :</strong> </div>
+                            <div class="col-12 mb-2"> <strong class="text-black">Publié par :</strong> </div>
                             <ul class="row flex-column p-0 mx-1 publication-meta w-100">
-                                <li class="list-group-item"><i class="fa fa-user"></i> {{@$announcement->owned->prenom}}
+                                <li class="list-group-item"><i class="fa fa-user mr-2"></i>
+                                    {{@$announcement->owned->prenom}}
                                     {{@$announcement->owned->name}} </li>
                                 @if(trim(@$announcement->owned->mainRole()->name) !== "")<li class="list-group-item">
-                                    <strong><i class="fa fa-user-lock"></i> Fonction</strong>
+                                    <strong><i class="fa fa-user-lock mr-2"></i> Fonction</strong>
                                     {{@$announcement->owned->mainRole()->name}} </li>@endif
-                                <li class="list-group-item"><i class="fa fa-envelope"></i> {{@$announcement->email}}
+                                <li class="list-group-item"><i class="fa fa-envelope"></i>
+                                    {{@$announcement->email}}
                                 </li>
                                 @if(trim(@$announcement->telephone) !== "")<li class="list-group-item"><i
-                                        class="fa fa-phone-alt"></i> {{@$announcement->telephone}}</li>@endif
+                                        class="fa fa-phone-alt mr-2"></i> {{@$announcement->telephone}}</li>@endif
                                 @if(trim(@$announcement->postal_code) !== "")<li class="list-group-item"><i
-                                        class="fa fa-mail-bulk"> Code Postal</i> {{@$announcement->postal_code}}</li>
+                                        class="fa fa-mail-bulk mr-2"> Code Postal</i> {{@$announcement->postal_code}}
+                                </li>
                                 @endif
                                 <li class="list-group-item"><i class="fa fa-map-marked-alt"></i><br>
                                     {{@$announcement->city->name}} <br> {{@$announcement->region->name}}</li>
@@ -62,9 +65,19 @@
                                         class="fa fa-laptop-house"></i><a href="{{@$announcement->website}}"
                                         target="_blank"> {{@$announcement->website}}</a></li>@endif
                             </ul>
-                            <i class="fa fa-map-marked-alt"></i><br> {{@$announcement->city->name}} <br>
+                            <i class="fa fa-map-marked-alt mr-2"></i><br> {{@$announcement->city->name}} <br>
                             {{@$announcement->region->name}}
                         </div>
+
+
+                        {{-- card start --}}
+                        <div class="card text-black">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Vendu par:</li>
+                                <li class="list-group-item">Annonceur:</li>
+                            </ul>
+                        </div>
+                        {{-- card end --}}
                         <!-- <hr> -->
                         @if(!empty($announcement->event))
                             <hr>

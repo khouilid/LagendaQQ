@@ -33,7 +33,7 @@
 
                     <div class="align-self-center">
                         @guest
-                        <a href="{{ route('login') }}"><i class="fas fa-sign-in-alt mr-1"></i>Se
+                        <a class="connecter-btn" href="{{ route('login') }}">Se
                             connecter</a>
                         @endguest
 
@@ -115,16 +115,23 @@
                             </a> --}}
                             {{-- end --}}
 
-                            <div class="">
-                                <a class="" href="#"><i class="far fa-comment-dots mr-1"></i>Assistances</a>
+                            <div class="ml-2">
+                                <a style="color: #00000080" class="" href="#">Assistances</a>
                             </div>
 
                             <form action="{{ route('logout') }}" method="post">
                                 @csrf
-                                <button class="btn btn-deconnecter text-primary" type="submit"><i
-                                        class="fas fa-sign-out-alt mr-1"></i>Se
+                                <button class="ml-2 btn btn-deconnecter text-primary" type="submit">Se
                                     Déconnecter</button>
                             </form>
+
+                            <div class="ml-2">
+                                {{-- @if(session()->get('role') !== null)
+                                <span class="badge bg-info">{{session()->get('role')->name}}</span>
+                                @else --}}
+
+                                <span class="badge badge-secondary">SuperAdmin</span>
+                            </div>
                         </div>
                         @endauth
                     </div>

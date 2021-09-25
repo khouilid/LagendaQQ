@@ -10210,10 +10210,20 @@ tbody.collapse.show {
         list-style-type: none;
     }
 
-    /* .navbar-expand-lg .navbar-nav .nav-link {
-        padding-right: 0.5rem;
-        padding-left: 0.5rem;
-    } */
+    .connecter-btn {
+        border-radius: 4px;
+        border       : 1px solid #4A4A4B;
+        color        : rgba(0, 0, 0, .5) !important;
+        padding      : 5px 10px;
+    }
+
+    .connecter-btn:hover {
+        background-color: rgba(65, 65, 65, 0.5) !important;
+        color           : white !important;
+        border          : none;
+    }
+
+
     .navbar-expand-lg>.container,
     .navbar-expand-lg>.container-fluid {
         -ms-flex-wrap: nowrap;
@@ -24781,14 +24791,18 @@ a.nav-link:hover {
 /* se deconnecter btn */
 
 .btn-deconnecter {
-    font-family     : 'Poppins', sans-serif;
-    font-weight     : 500;
-    background-color: transparent;
-    padding-left    : 1.5rem;
+    font-family  : 'Poppins', sans-serif;
+    font-weight  : 500;
+    border-radius: 4px;
+    border       : 1px solid #4A4A4B;
+    color        : rgba(0, 0, 0, .5) !important;
+    padding      : 5px 10px;
 }
 
 .btn-deconnecter:hover {
-    color: white;
+    background-color: rgba(65, 65, 65, 0.5) !important;
+    color           : white !important;
+    border          : none;
 }
 
 .top-bar-links a {
@@ -24817,7 +24831,7 @@ a.nav-link:hover {
 }
 
 .nav-link.dropdown-toggle.newnav-color-padding {
-    color: #68717A;
+    color: #00000080;
 }
 
 .custom-left-margin {
