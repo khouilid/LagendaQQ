@@ -38,33 +38,86 @@
 
                         @auth
                         <div style="margin-top: -5px;" class="d-flex align-items-center top-bar-links">
-                            <li class="nav-item dropdown">
+                            {{-- start --}}
+
+                            {{-- <a class="mr-4" href="{{route('user.dashboard')}}" class="dropdown-item">
+                            <i class="fas fa-tachometer-alt mr-2"></i> Adminstration
+                            </a> --}}
+
+
+                            <li class="nav-item dropdown has-megamenu">
                                 <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true"
                                     aria-expanded="false"
                                     class="nav-link dropdown-toggle newnav-color-padding">Publications</a>
                                 <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-                                    <ul class="d-flex">
-                                        <div class="mr-4 megamenu">
-                                            <h5 class="bold">Annonces Classées</h5>
+                                    @auth
 
-                                            @foreach(\App\Models\Category::where('type','annonce')->skip(0)->take(10)->get()
-                                            as
-                                            $category)
-                                            <li><a class="dropdown-item"
+                                    @if( session()->get('role') !== null && (session()->get('role')->name ==
+                                    'super-admin'
+                                    ||
+                                    session()->get('role')->name == 'admin' || session()->get('role')->name ==
+                                    'annonceur'
+                                    ||
+                                    session()->get('role')->name == 'vendeur' ))
+
+                                    <div class="row border-bottom">
+                                        <li class="nav-item">
+                                            <h5 class="bold"> <a href="{{ route('user.my_events') }}"
+                                                    class="nav-link {{ side_nav_bar_menu_status('events','active') }}">
+                                                    Mes
+                                                    événements</a></h5>
+                                        </li>
+                                        <li class="nav-item">
+                                            <h5 class="bold"><a href="{{route('user.my_announcements')}}"
+                                                    class="nav-link">
+                                                    Mes annonces</a></h5>
+                                        </li>
+
+                                    </div>
+
+                                    @endif
+                                    @endauth
+                                    <ul class="d-flex flex-wrap megamenu">
+
+
+
+
+                                        @php
+                                        $cats = ['evènement' => 'Evènement',
+                                        'annonce' => 'Annonces Classées',
+                                        'Automobile' => 'Automobile',
+                                        'Commerciale' => 'Commerciale',
+                                        'Construction' => 'Construction',
+                                        'Décès' => 'Décès',
+                                        'ÉcrivHeur' => 'ÉcrivHeur',
+                                        'Emploi' => 'Emploi',
+                                        'Gens du pays' => 'Gens du pays',
+                                        'Hébergement' => 'Hébergement',
+                                        'Immobilière' => 'Immobilière',
+                                        'LAGENDA' => 'LAGENDA',
+                                        'Politique' => 'Politique',
+                                        'Rencontre' => 'Rencontre',
+                                        'Service' => 'Service',
+                                        // 'Bannière audio' => 'Bannière audio',
+                                        // 'Bannière Vidéo' => 'Bannière Vidéo',
+                                        // 'Bannière Web' => 'Bannière Web',
+                                        ];
+                                        @endphp
+
+                                        @foreach($cats as $key => $value )
+                                        <div class="mr-4">
+                                            @php $result = \App\Models\Category::where('type',$key)->get(); @endphp
+                                            @if (count($result) !== 0)
+                                            <h5 class="bold">{{$value}}</h5>
+                                            @foreach($result as $category)
+                                            <li>
+                                                <a class="dropdown-item"
                                                     href="{{route('announcement_page',$category)}}">{{ $category->name }}</a>
                                             </li>
                                             @endforeach
+                                            @endif
                                         </div>
-
-                                        <div class="">
-                                            <h5 class="bold">Événements par régions</h5>
-
-                                            @foreach(\App\Models\Region::skip(6)->take(10)->get() as $region)
-                                            <li><a class="dropdown-item"
-                                                    href="{{route('event_region',$region)}}">{{ $region->name }}</a>
-                                            </li>
-                                            @endforeach
-                                        </div>
+                                        @endforeach
                                     </ul>
                                 </ul>
                             </li>
@@ -86,7 +139,8 @@
                                         <a class="dropdown-item link-success"
                                             href="{{route('user.infosperso')}}/transactions"
                                             title="Lsite de mes transactions"><i class="fas fa-exchange-alt"
-                                                aria-hidden="true"></i> Mes Transactions</a>
+                                                aria-hidden="true"></i>
+                                            Mes Transactions</a>
                                     </li>
                                     <li>
                                         <a class="dropdown-item link-primary" href="{{route('user.infosperso')}}/wallet"
