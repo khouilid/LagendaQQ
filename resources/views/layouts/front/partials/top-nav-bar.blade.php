@@ -33,18 +33,11 @@
 
                     <div class="align-self-center">
                         @guest
-                        <a class="connecter-btn" href="{{ route('login') }}">Se
-                            connecter</a>
+                        <a class="connecter-btn" href="{{ route('login') }}">Se connecter</a>
                         @endguest
 
                         @auth
                         <div style="margin-top: -5px;" class="d-flex align-items-center top-bar-links">
-                            {{-- start --}}
-
-                            {{-- <a class="mr-4" href="{{route('user.dashboard')}}" class="dropdown-item">
-                            <i class="fas fa-tachometer-alt mr-2"></i> Adminstration
-                            </a> --}}
-
                             <li class="nav-item dropdown">
                                 <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true"
                                     aria-expanded="false"
@@ -125,19 +118,13 @@
                                     Déconnecter</button>
                             </form>
 
-                            <div class="ml-2">
-                                
+                            <div class="ml-2">                        
 
-                                <span class="badge badge-secondary">
-                                    
-
-                                    @if(session()->get('role') !== null)
-                                        <span class="badge bg-info">{{session()->get('role')->name}}</span>
-                                    @else
-
-                                    
-                                </span>
-                            </div>
+                                @if(session()->get('role') !== null)
+                                    <span class="badge p-2 badge-secondary">{{session()->get('role')->name}}</span>
+                                @endif
+            
+                        </div>
                         </div>
                         @endauth
                     </div>
