@@ -32,8 +32,8 @@
 
 <div class="row">
     <div class="col d-flex justify-content-center">
-
-        <div class="toggle mt-5" onclick="leftBar()">
+        {{-- onclick="leftBar()" --}}
+        <div class="toggle mt-5" >
             <div class="card shadow-none mr-3 left-bar">
                 <div class="card-body d-flex flex-column position-relative">
                     @if ($user->avatar !== null)
