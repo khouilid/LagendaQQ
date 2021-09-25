@@ -19,11 +19,7 @@
 </div>
 
 
-@php
-        $url = explode("-", $announcement->vide);
-        // unset($url[1]);
-        // dd($url);
-@endphp
+@php $url = explode("-", $announcement->vide);@endphp
 <div class="offset-sm-0 col-12 form-group row">
     <label for  ="title" class="col-sm-12 col-md-12">Vide 1 : *</label>
     <input type="text" maxlength="35" name="vide[]" id="title" value="{{old('vide[]',@$url[0])}}"
@@ -190,4 +186,7 @@
 
                 }
     });
+document.getElementById("category_id").addEventListener('change', () =>{
+   document.getElementById("titles").innerHTML = '<i class="fa fa-plus"></i> Ajout d\'une annonce (Le montage de ' +  $("#category_id option:selected").text() +' ) '; 
+})
 </script>

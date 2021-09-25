@@ -3,7 +3,7 @@
 @section('content')
 <div class="row">
     <div class="d-flex justify-content-center w-100">
-        <h2><i class="fa fa-plus"></i> Ajout d'une annonce  ( le montage )
+        <h2 id ='titles'><i class="fa fa-plus"></i> Ajout d'une annonce  ( le montage )
         </h2>
         <div class="ml-2">
 
@@ -45,9 +45,6 @@
                     <div class="row">
                         @csrf
 
-
-
-
                         @if( session()->get('role') !== null && (session()->get('role')->name == 'chef-vendeur' ||
                         session()->get('role')->name == 'vendeur'))
                         <div class="offset-sm-0 col-12 form-group row">
@@ -64,11 +61,6 @@
                             </select>
                         </div>
                         @endif
-
-
-
-
-
 
 
                         <input type="hidden" name="posted_by" value="{{$user->id}}">

@@ -430,6 +430,7 @@ class AnnouncementController extends Controller
             'telephone'     => 'nullable',
             'email'         => 'nullable',
             'website'       => 'nullable',
+            'vide'          => 'nullable',
         ]);
         $current_user = auth()->user();
         if(!isset($request->owner)){//If the owner is not defined the publisher become the publisher
@@ -442,6 +443,7 @@ class AnnouncementController extends Controller
             $data['published_at'] = date('Y-m-d H:i:s');
         }
         $data['posted_by'] = $current_user->id;
+        $data['vide'] = implode('-', $request->vide);
         //Make sure user has enough to publish
         $can_post   = $current_user->userHasEnoughCredit('annoucements_price','paid_currency');
         $data['publication_status'] = $can_post ? $data["publication_status"] : 0;
