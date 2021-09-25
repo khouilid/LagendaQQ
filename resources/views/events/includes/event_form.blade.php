@@ -48,9 +48,7 @@
 
 
 @php
-        $url = explode("-", $event->vide);
-        // unset($url[1]);
-        // dd($url);
+    $url = explode("-", $event->vide);
 @endphp
 <div class="offset-sm-0 col-12 form-group row">
     <label for  ="title" class="col-sm-12 col-md-12">Vide 1 : *</label>
@@ -199,7 +197,7 @@
 
 
 
-@php $links = explode('-', $event->url); @endphp 
+@php $links = explode('-', $event->url);  @endphp 
 <div class="offset-sm-0 col-sm-12 col-md-6 form-group row">
     <label for="images" class="col-sm-12 col-md-12">Relais vers : </label>
     <input type="url" name="url[]" id="url" placeholder="Lien 1"  value="{{old('url[]',@$links[0])}}"  class="form-control">
@@ -210,17 +208,7 @@
 <div class="col-12">
     <hr />
 </div>
-{{-- <div class="offset-sm-0 col-sm-12 col-md-6 form-group row">
-    <label for="category_id" class="col-sm-12 col-md-12">Categorie de l'événement : </label>
-    <select name="category_id" id="category_id" class="form-control">
-        <option value=""> --- </option>
-        @foreach($categories as $category)
-            <option value="{{$category->id}}"
-{{intval(old('category_id',@$event->category_id)) === $category->id?'selected':''}}> {{$category->name}} </option>
-@endforeach
-</select>
-{!! $errors->first('category_id', '<div class="error-message col-12">:message</div>') !!}
-</div> --}}
+
 <div class="offset-sm-0 col-sm-12 col-md-6 form-group row">
     <label for="publication_status" class="col-sm-12 col-md-12">Statut de l'événement : * </label>
     <select name="publication_status" id="publication_status" class="form-control">

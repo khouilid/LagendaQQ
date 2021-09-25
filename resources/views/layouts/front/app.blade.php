@@ -485,19 +485,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 ];
                                 @endphp
 
-@foreach($cats as $key => $value )
-<div class="mr-4">
-    @php $result = \App\Models\Category::where('type',$key)->get(); @endphp
-    @if (count($result) !== 0) 
-      <h5 class="bold">{{$value}}</h5>
-      @foreach($result as $category)
-        <li>
-            <a class="dropdown-item" href="{{route('announcement_page',$category)}}">{{ $category->name }}</a>
-        </li>
-      @endforeach
-    @endif
-</div>
-@endforeach
+                                @foreach($cats as $key => $value )
+                                    <div class="mr-4">
+                                        @php $result = \App\Models\Category::where('type',$key)->get(); @endphp
+                                        @if (count($result) !== 0) 
+                                            <h5 class="bold">{{$value}}</h5>
+                                            @foreach($result as $category)
+                                                <li>
+                                                    <a class="dropdown-item" href="{{route('announcement_page',$category)}}">{{ $category->name }}</a>
+                                                </li>
+                                            @endforeach
+                                        @endif
+                                    </div>
+                                @endforeach
 {{-- 
                                 <div class="mr-4">
                                     <h5 class="bold">Annonces Classées</h5>
