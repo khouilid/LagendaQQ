@@ -355,3 +355,10 @@
     </div>
     <!-- /.modal-dialog -->
 </div>
+
+
+<script>
+     document.getElementById("subcatigorie_id").addEventListener('change', () =>{
+        document.getElementById("titles").innerHTML = '<i class="fa fa-plus"></i> Ajout d\'un événement (Le montage de ' +  $("#subcatigorie_id option:selected").text() +' ) '; 
+    })
+</script>

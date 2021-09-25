@@ -3,7 +3,7 @@
 @section('content')
 <div class="row">
     <div class="d-flex justify-content-center w-100">
-        <h2><i class="fa fa-plus"></i> Ajout d'une annonce  ( le montage )
+        <h2 id ='titles'><i class="fa fa-plus"></i> Ajout d'une annonce  ( le montage )
         </h2>
         <div class="ml-2">
 

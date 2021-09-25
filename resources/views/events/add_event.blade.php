@@ -4,7 +4,7 @@
 @section('content')
 <div class="row">
     <div class="d-flex justify-content-center titles-heading w-100 mb-5">
-        <h2><i class="fa fa-plus"></i> Ajout d'un événement (Le montage)</h2>
+        <h2 id ='titles'><i class="fa fa-plus"></i> Ajout d'un événement (Le montage)</h2>
 
         <div class="ml-2">
 
@@ -87,6 +87,8 @@
 <script src="{{asset('dist/multiple_dates_picker/jquery-ui.multidatespicker.js')}}" defer></script>
 <script src="{{asset('dist/timepicker/clocklet.js')}}" defer></script>
 <script>
+
+   
     $(document).ready(function(){
             //processing upload of image
             $(document).on("click", ".browse", function () {
