@@ -124,6 +124,14 @@
                                 <button class="ml-2 btn btn-deconnecter text-primary" type="submit">Se
                                     Déconnecter</button>
                             </form>
+
+                            <div class="ml-2">
+                                {{-- @if(session()->get('role') !== null)
+                                <span class="badge bg-info">{{session()->get('role')->name}}</span>
+                                @else --}}
+
+                                <span class="badge badge-secondary">SuperAdmin</span>
+                            </div>
                         </div>
                         @endauth
                     </div>

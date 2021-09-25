@@ -389,12 +389,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 
                             @if( session()->get('role') !== null && (session()->get('role')->name == 'super-admin'))
-                                <li class="nav-item ">
-                                    <a style="font-size: .9rem;" href="{{route('admin.dashboard')}}" class="nav-link"><i
-                                            class="fa fa-user-shield"></i>
-                                        Tableau de bord</a>
-                                </li>
-                          
+                            <li class="nav-item ">
+                                <a style="font-size: .9rem;" href="{{route('admin.dashboard')}}" class="nav-link"><i
+                                        class="fa fa-user-shield"></i>
+                                    Tableau de bord</a>
+                            </li>
+
                             @endif
 
 
@@ -447,13 +447,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <div class="row border-bottom">
                                 <li class="nav-item">
                                     <h5 class="bold"> <a href="{{ route('user.my_events') }}"
-                                        class="nav-link {{ side_nav_bar_menu_status('events','active') }}"> Mes événements</a></h5>
+                                            class="nav-link {{ side_nav_bar_menu_status('events','active') }}"> Mes
+                                            événements</a></h5>
                                 </li>
                                 <li class="nav-item">
                                     <h5 class="bold"><a href="{{route('user.my_announcements')}}" class="nav-link">
                                             Mes annonces</a></h5>
                                 </li>
-                          
+
                             </div>
 
                             @endif
@@ -485,115 +486,119 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 ];
                                 @endphp
 
-@foreach($cats as $key => $value )
-<div class="mr-4">
-    @php $result = \App\Models\Category::where('type',$key)->get(); @endphp
-    @if (count($result) !== 0) 
-      <h5 class="bold">{{$value}}</h5>
-      @foreach($result as $category)
-        <li>
-            <a class="dropdown-item" href="{{route('announcement_page',$category)}}">{{ $category->name }}</a>
-        </li>
-      @endforeach
-    @endif
-</div>
-@endforeach
-{{-- 
+                                @foreach($cats as $key => $value )
+                                <div class="mr-4">
+                                    @php $result = \App\Models\Category::where('type',$key)->get(); @endphp
+                                    @if (count($result) !== 0)
+                                    <h5 class="bold">{{$value}}</h5>
+                                    @foreach($result as $category)
+                                    <li>
+                                        <a class="dropdown-item"
+                                            href="{{route('announcement_page',$category)}}">{{ $category->name }}</a>
+                                    </li>
+                                    @endforeach
+                                    @endif
+                                </div>
+                                @endforeach
+                                {{-- 
                                 <div class="mr-4">
                                     <h5 class="bold">Annonces Classées</h5>
 
                                     @foreach(\App\Models\Category::where('type','annonce')->get() as $category)
                                     <li><a class="dropdown-item"
                                             href="{{route('announcement_page',$category)}}">{{ $category->name }}</a>
-                                    </li>
-                                    @endforeach
-                                </div>
-
-                                <div class="">
-                                    <h5 class="bold">Événements par régions</h5>
-
-                                    @foreach(\App\Models\Region::() as $region)
-                                    <li><a class="dropdown-item"
-                                            href="{{route('event_region',$region)}}">{{ $region->name }}</a></li>
-                                    @endforeach
-                                </div>
-                                <div class="mr-4">
-                                    <h5 class="">categorie 03</h5>
-                                    <li>subMenu</li>
-                                </div>
-                                <div class="mr-4">
-                                    <h5 class="">categorie 04</h5>
-                                    <li>subMenu</li>
-                                </div>
-                                <div class="mr-4">
-                                    <h5 class="">categorie 05</h5>
-                                    <li>subMenu</li>
-                                </div>
-                                <div class="mr-4">
-                                    <h5 class="">categorie 06</h5>
-                                    <li>subMenu</li>
-                                </div>
-                                <div class="row">
-
-                                    <div class="mr-4">
-                                        <h5 class="">categorie 07</h5>
-                                        <li>subMenu</li>
-                                    </div>
-                                    <div class="mr-4">
-                                        <h5 class="">categorie 08</h5>
-                                        <li>subMenu</li>
-                                    </div>
-                                    <div class="mr-4">
-                                        <h5 class="">categorie 09</h5>
-                                        <li>subMenu</li>
-                                    </div>
-                                    <div class="mr-4">
-                                        <h5 class="">categorie 10</h5>
-                                        <li>subMenu</li>
-                                    </div>
-                                </div> --}}
-                            </ul>
-                        </ul>
                     </li>
-                    @auth
-                    <li class="nav-item dropdown">
-                        <form method="GET" id='formswitch' action='{{ route('user.SwitchRole') }}'>
-                            <select style="font-family: 'Poppins', sans-serif;
-                            font-weight: 600; color: #68717A !important;" id="switchTo" name='switchTo'
-                                class="bg-white border-0">
-                                <option value="">Basculer vers</option>
-                                @foreach(auth()->user()->roles as $fonction)
-                                @php
-                                var_dump($fonction);
-                                @endphp
-                                @if (session()->get("role") !== null && session()->get("role")->id == $fonction->id
-                                )
-
-                                <option style="bg-success" value="{{$fonction->id}}"> {{$fonction->name}}</option>
-
-                                @else
-
-                                <option value="{{$fonction->id}}"> {{$fonction->name}}</option>
-                                @endif
-                                @endforeach
-                            </select>
-
-                        </form>
-                    </li>
-
-                    <li>
-                        <a class="dropdown-item text-primary" href="{{ route('logout') }}" onclick="event.preventDefault();
-                            document.getElementById('logout-form').submit();">
-                            <i class="fas fa-power-off mt-2"></i>
-                        </a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            @csrf
-                        </form>
-                    </li>
-                    @endauth
-
-                </ul>
+                    @endforeach
             </div>
+
+            <div class="">
+                <h5 class="bold">Événements par régions</h5>
+
+                @foreach(\App\Models\Region::() as $region)
+                <li><a class="dropdown-item" href="{{route('event_region',$region)}}">{{ $region->name }}</a></li>
+                @endforeach
+            </div>
+            <div class="mr-4">
+                <h5 class="">categorie 03</h5>
+                <li>subMenu</li>
+            </div>
+            <div class="mr-4">
+                <h5 class="">categorie 04</h5>
+                <li>subMenu</li>
+            </div>
+            <div class="mr-4">
+                <h5 class="">categorie 05</h5>
+                <li>subMenu</li>
+            </div>
+            <div class="mr-4">
+                <h5 class="">categorie 06</h5>
+                <li>subMenu</li>
+            </div>
+            <div class="row">
+
+                <div class="mr-4">
+                    <h5 class="">categorie 07</h5>
+                    <li>subMenu</li>
+                </div>
+                <div class="mr-4">
+                    <h5 class="">categorie 08</h5>
+                    <li>subMenu</li>
+                </div>
+                <div class="mr-4">
+                    <h5 class="">categorie 09</h5>
+                    <li>subMenu</li>
+                </div>
+                <div class="mr-4">
+                    <h5 class="">categorie 10</h5>
+                    <li>subMenu</li>
+                </div>
+            </div> --}}
+            </ul>
+            </ul>
+            </li>
+            @auth
+            <li class="nav-item dropdown">
+                <form method="GET" id='formswitch' action='{{ route('user.SwitchRole') }}'>
+                    <select style="font-family: 'Poppins', sans-serif;
+                            font-weight: 600; color: #68717A !important;" id="switchTo" name='switchTo'
+                        class="bg-white border-0">
+                        <option value="">Basculer vers</option>
+                        @foreach(auth()->user()->roles as $fonction)
+                        @php
+                        var_dump($fonction);
+                        @endphp
+                        @if (session()->get("role") !== null && session()->get("role")->id == $fonction->id
+                        )
+
+                        <option style="bg-success" value="{{$fonction->id}}"> {{$fonction->name}}</option>
+
+                        @else
+
+                        <option value="{{$fonction->id}}"> {{$fonction->name}}</option>
+                        @endif
+                        @endforeach
+                    </select>
+
+                </form>
+            </li>
+
+            <li>
+                <a class="dropdown-item text-primary" href="{{ route('logout') }}" onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+                    <i class="fas fa-power-off mt-2"></i>
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+            </li>
+
+            <div class="">
+                <span class="badge badge-secondary">SuperAdmin</span>
+            </div>
+            @endauth
+
+            </ul>
+        </div>
         </div>
     </nav>
     {{-- New Nav End --}}
