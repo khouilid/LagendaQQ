@@ -71,19 +71,19 @@
                         </div>
                         <hr>
                         @if(!empty($event->announcement))
-                        <hr>
-                        <div class="bg-light p-2 mt-5">
-                            <strong><i class="fa fa-bullhorm"></i> Vers l'annonce de l'activité :</strong>
-                            <h5><a class="btn-link"
-                                    href="{{route('user.show_announcement',@$event->announcement->slug)}}"></a></h5>
-                            <div>
-                                <a href="{{route('user.show_announcement',@$event->announcement->slug)}}">
-                                    <img class="img-fluid" src="{{ route('show_image',@$event->announcement->images) }}"
-                                        alt="{{@$event->title}}" style="width:6vh"> <span
-                                        class="small">{{ucfirst($event->announcement->title)}}</span>
-                                </a>
+                            <hr>
+                            <div class="bg-light p-2 mt-5">
+                                <strong><i class="fa fa-bullhorm"></i> Vers l'annonce de l'activité :</strong>
+                                <h5><a class="btn-link"
+                                        href="{{route('user.show_announcement',@$event->announcement->slug)}}"></a></h5>
+                                <div>
+                                    <a href="{{route('user.show_announcement',@$event->announcement->slug)}}">
+                                        <img class="img-fluid" src="{{ route('show_image',@$event->announcement->images) }}"
+                                            alt="{{@$event->title}}" style="width:6vh"> <span
+                                            class="small">{{ucfirst($event->announcement->title)}}</span>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
                         @endif
                     </div>
                 </div>
@@ -106,22 +106,18 @@
                         </div>
                         <div class="col-sm-12 col-md-3"><span class="small font-bold">Relais vers :</span></div>
                         <div class="col-sm-12 col-md-9">
-                            @php
-                                $events = explode("-", $event->url);
-                                unset($events[1]);
-                                @endphp
+                            @php $events = explode("-", $event->url); @endphp
 
-@foreach(@$events as $url )
-<a href="{{$url}}" target="_blank" class="badge badge-primary list-event-dates"><i
-    class="fa fa-link"></i> {{$url}} </a>
-    @endforeach
-    
-</div>
-<div class="col-sm-12 col-md-3"><span class="small font-bold">Vide :</span></div>
+                            @foreach(@$events as $url )
+                            <a href="{{$url}}" target="_blank" class="badge badge-primary list-event-dates"><i
+                                class="fa fa-link"></i> {{$url}} </a>
+                             @endforeach
+                            
+                        </div>
+                        <div class="col-sm-12 col-md-3"><span class="small font-bold">Vide :</span></div>
+
+                        
                         <div class="col-sm-12 col-md-9">
-
-
-
                             <h3 class="badge badge-success list-event-dates">{{$event->vide}} </h3>
                         </div>
 
@@ -140,6 +136,9 @@
                             src="https://www.google.com/maps/embed/v1/place?q={{@$city->name}},{{@$event->postal_code}}&key=AIzaSyC8-GVIaSiFceeP9qmTdHvvVfQXD0pMc0A"
                             allowfullscreen="" loading="lazy"></iframe>
                     </div>
+
+
+
                     <div class="d-flex  announcement-footer">
                         <!-- struggling to set a policy. Will do it latter -->
                         @if(intval(@$current_user->id) === intval(@$event->owner) || intval(@$current_user->id) ===

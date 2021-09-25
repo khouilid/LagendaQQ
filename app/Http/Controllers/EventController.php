@@ -329,9 +329,9 @@ class EventController extends Controller
             'dates'         => 'required',
             'event_time'    => 'nullable',
             'organisation_id'    => 'nullable',
+            'reservation' => 'required',
             'url'=> 'nullable',
             'vide'=> 'required', 
-            'reservation' => 'required',
         ]);
         //21-04-09*09:30;21-04-10*09:30;21-04-16*09:30;
         // dd($data);
@@ -386,7 +386,7 @@ class EventController extends Controller
             }
             $save_event->url = implode("-",$request->url);
             $save_event->vide = implode("-",$request->vide);
-            $save_event->vide =  $request->reservation;
+         //   $save_event->vide =  $request->reservation;
             
             $save_event->save();
 
@@ -483,6 +483,8 @@ class EventController extends Controller
             'dates'         => 'required',
             'event_time'    => 'nullable',
             'organisation_id'    => 'nullable',
+            'url'=> 'nullable',
+            'vide'=> 'required', 
         ]);
 
         $current_user = auth()->user();
@@ -496,11 +498,14 @@ class EventController extends Controller
             $data['published_at'] = date('Y-m-d H:i:s');
         }
         $data['posted_by'] = $current_user->id;
+        $data['url'] = implode("-",$request->url);
+        $data['vide'] = implode('-', $request->vide);
         //Make sure user has enough to publish
         $can_post   = $current_user->userHasEnoughCredit('annoucements_price','free_currency');
         $data['publication_status'] = $can_post ? $data["publication_status"] : 0;
         $event_dates = explode(";",str_replace("*", " ", $data['dates']));//Save the dates in an array
-        // unset($data['dates']);
+    //    $d = ;
+    //    dd($d);
 
         $save = $event->update($data);
 

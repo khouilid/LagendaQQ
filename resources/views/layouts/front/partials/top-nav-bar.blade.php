@@ -174,11 +174,17 @@
                             </form>
 
                             <div class="ml-2">
-                                {{-- @if(session()->get('role') !== null)
-                                <span class="badge bg-info">{{session()->get('role')->name}}</span>
-                                @else --}}
+                                
 
-                                <span class="badge badge-secondary">SuperAdmin</span>
+                                <span class="badge badge-secondary">
+                                    
+
+                                    @if(session()->get('role') !== null)
+                                        <span class="badge bg-info">{{session()->get('role')->name}}</span>
+                                    @else
+
+                                    
+                                </span>
                             </div>
                         </div>
                         @endauth
