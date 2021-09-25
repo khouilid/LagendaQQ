@@ -172,6 +172,7 @@
                                     Déconnecter</button>
                             </form>
 
+
                             <div class="ml-2">                        
 
                                 @if(session()->get('role') !== null)
@@ -179,6 +180,7 @@
                                 @endif
             
                         </div>
+
                         </div>
                         @endauth
                     </div>
