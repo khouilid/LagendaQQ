@@ -24879,6 +24879,10 @@ btn-outline-secondary:hover {
     padding   : 1rem;
 }
 
+.fa-facebook-messenger {
+    color: #006AFF;
+}
+
 /* ============ desktop view ============ */
 @media all and (min-width: 992px) {
 
