@@ -31,9 +31,85 @@
                     }
                     @endphp
 
-                    <div class="align-self-center">
+                    <div class="d-flex align-self-center">
                         @guest
-                        <a class="connecter-btn" href="{{ route('login') }}">Se connecter</a>
+
+                        <li class="nav-item dropdown has-megamenu">
+                            <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false"
+                                class="nav-link dropdown-toggle newnav-color-padding">Publications</a>
+                            <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
+                                @auth
+
+                                @if( session()->get('role') !== null && (session()->get('role')->name ==
+                                'super-admin'
+                                ||
+                                session()->get('role')->name == 'admin' || session()->get('role')->name ==
+                                'annonceur'
+                                ||
+                                session()->get('role')->name == 'vendeur' ))
+
+                                <div class="row border-bottom">
+                                    <li class="nav-item">
+                                        <h5 class="bold"> <a href="{{ route('user.my_events') }}"
+                                                class="nav-link {{ side_nav_bar_menu_status('events','active') }}">
+                                                Mes
+                                                événements</a></h5>
+                                    </li>
+                                    <li class="nav-item">
+                                        <h5 class="bold"><a href="{{route('user.my_announcements')}}" class="nav-link">
+                                                Mes annonces</a></h5>
+                                    </li>
+
+                                </div>
+
+                                @endif
+                                @endauth
+                                <ul class="d-flex flex-wrap megamenu">
+
+
+
+
+                                    @php
+                                    $cats = ['evènement' => 'Evènement',
+                                    'annonce' => 'Annonces Classées',
+                                    'Automobile' => 'Automobile',
+                                    'Commerciale' => 'Commerciale',
+                                    'Construction' => 'Construction',
+                                    'Décès' => 'Décès',
+                                    'ÉcrivHeur' => 'ÉcrivHeur',
+                                    'Emploi' => 'Emploi',
+                                    'Gens du pays' => 'Gens du pays',
+                                    'Hébergement' => 'Hébergement',
+                                    'Immobilière' => 'Immobilière',
+                                    'LAGENDA' => 'LAGENDA',
+                                    'Politique' => 'Politique',
+                                    'Rencontre' => 'Rencontre',
+                                    'Service' => 'Service',
+                                    // 'Bannière audio' => 'Bannière audio',
+                                    // 'Bannière Vidéo' => 'Bannière Vidéo',
+                                    // 'Bannière Web' => 'Bannière Web',
+                                    ];
+                                    @endphp
+
+                                    @foreach($cats as $key => $value )
+                                    <div class="mr-4">
+                                        @php $result = \App\Models\Category::where('type',$key)->get(); @endphp
+                                        @if (count($result) !== 0)
+                                        <h5 class="bold">{{$value}}</h5>
+                                        @foreach($result as $category)
+                                        <li>
+                                            <a class="dropdown-item"
+                                                href="{{route('announcement_page',$category)}}">{{ $category->name }}</a>
+                                        </li>
+                                        @endforeach
+                                        @endif
+                                    </div>
+                                    @endforeach
+                                </ul>
+                            </ul>
+                        </li>
+                        <a class="connecter-btn" href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i></a>
                         @endguest
 
                         @auth
@@ -157,29 +233,53 @@
                                 </ul>
                             </li>
 
+                            <form method="GET" id='formswitch' action='{{ route('user.SwitchRole') }}'>
+                                <select style="font-family: 'Poppins', sans-serif;
+                                        font-weight: 600; color: #68717A !important;" id="switchTo" name='switchTo'
+                                    class="bg-white border-0 mx-2">
+                                    <option value="">Basculer </option>
+                                    @foreach(auth()->user()->roles as $fonction)
+                                    @php
+                                    var_dump($fonction);
+                                    @endphp
+                                    @if (session()->get("role") !== null && session()->get("role")->id == $fonction->id
+                                    )
+
+                                    <option style="bg-success" value="{{$fonction->id}}"> {{$fonction->name}}</option>
+
+                                    @else
+
+                                    <option value="{{$fonction->id}}"> {{$fonction->name}}</option>
+                                    @endif
+                                    @endforeach
+                                </select>
+
+                            </form>
+
                             {{-- <a class="mr-4" href="{{route('user.infosperso','security')}}">
                             <i class="fas fa-lock mr-2"></i> Securité
                             </a> --}}
                             {{-- end --}}
 
                             <div class="ml-2">
-                                <a style="color: #00000080" class="" href="#">Assistances</a>
+                                <a target="_blank" style="color: #00000080" class="" href="https://m.me/devops1O1"><i
+                                        class="fab fa-facebook-messenger fa-lg"></i></a>
                             </div>
 
                             <form action="{{ route('logout') }}" method="post">
                                 @csrf
-                                <button class="ml-2 btn btn-deconnecter text-primary" type="submit">Se
-                                    Déconnecter</button>
+                                <button class="ml-3 btn btn-deconnecter text-primary" type="submit"><i
+                                        class="fas fa-sign-out-alt"></i></button>
                             </form>
 
 
-                            <div class="ml-2">                        
+                            <div class="ml-2">
 
                                 @if(session()->get('role') !== null)
-                                    <span class="badge p-2 badge-secondary">{{session()->get('role')->name}}</span>
+                                <span class="badge p-2 badge-secondary">{{session()->get('role')->name}}</span>
                                 @endif
-            
-                        </div>
+
+                            </div>
 
                         </div>
                         @endauth
